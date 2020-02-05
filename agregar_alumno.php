@@ -36,7 +36,7 @@
         
  }else
          {
-            $vSQL1="INSERT INTO tabla_alumno(nombre_alumno,curp_alumno,celular_alumno,estatus_alumno,seccion_alumno,grado_alumno,codigo) VALUES ('$v1','$v2','$v3','$v4','$v5','$v6','$codigos')";
+            $vSQL1="INSERT INTO tabla_alumno(nombre_alumno,curp_alumno,celular_alumno,estatus_alumno,grado_alumno,seccion_alumno,codigo) VALUES ('$v1','$v2','$v3','$v4','$v5','$v6','$codigos')";
            
            
             mysqli_query($conex, $vSQL1);

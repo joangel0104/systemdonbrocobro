@@ -4,6 +4,7 @@ $conexion=mysqli_connect('localhost','root','','servidor.cobro');
 
 
 $sql="SELECT * FROM tabla_alumno"; 
+
 $stmt1 = odbc_exec($conex, $sql );
 
 ?>
@@ -44,7 +45,7 @@ $stmt1 = odbc_exec($conex, $sql );
 											<li><a href="Pantalla_cobro.html">Control de Pago</a></li>
 										</ul>
 										  <ul>
-											<li><a href="">Control Asistencia  </a></li>
+											<li><a href="Pantalla_asistencia.html">Control Asistencia  </a></li>
 										</ul>
 									    
 									    <ul>
@@ -116,27 +117,16 @@ $stmt1 = odbc_exec($conex, $sql );
  ) {?>
   <tr>
   
-                  
-                   
-                  
-               
-     <td><?php echo $row['0']; ?></td>
     <td><?php echo $row['1']; ?></td>
     <td><?php echo $row['2']; ?></td>
     <td><?php echo $row['3']; ?></td>
-    
     <td><?php echo $row['4']; ?></td>
     <td><?php echo $row['5']; ?></td>
     <td><?php echo $row['6']; ?></td>
-    
-   
-    
+    <td><?php echo $row['7']; ?></td>
   </tr>
   <?PHP }?> 
- 
-
-
-   </table>			
+ </table>			
 						
 					    
 					</article>
@@ -202,41 +192,12 @@ $stmt1 = odbc_exec($conex, $sql );
 
 </script>   
 <style >
-  body {
- 
-}
-table 
-{
-  border-collapse: collapse;
-  width: 100%;
-  margin-left: 10px;
-  text-align: center;
-
-}
-th, td 
-{
-  padding: 0.4rem;
-  border: 2px solid #fff;
-  font-size: 0.5em;
-}
-tbody tr:nth-child(odd) {
-  background: #eee;
-}
-.titulo{
-  padding: 0.5rem;
-  background: #4C525A ;
-  color: white;
-  text-align: center;
-  font-size: 21px;
-  
-}
-
-#buscar
+ #buscar
 {
  width: 100%;
   font-size: 22px;
   color: #fff;
-   background: #253F58 ;
+   background: #2e3842 ;
   padding-left: 20px ;
  
   border-radius: 0px;
@@ -254,4 +215,6 @@ input[type="search"]{
   font-size: 0.8em;
 
 }
+
+
 </style>   
