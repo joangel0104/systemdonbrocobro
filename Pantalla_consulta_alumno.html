@@ -3,7 +3,6 @@
   $conexion=mysqli_connect('localhost','root','','servidor.cobro');
   $sql="SELECT * FROM tabla_alumno"; 
   $stmt1 = mysqli_query($conexion, $sql);
-
 ?>
 
 
@@ -108,8 +107,7 @@
  
       </thead>
       
-  <?PHP while( $row=mysqli_fetch_array($stmt1, MYSQLI_NUM);
- ) {?>
+  <?PHP while( $row=mysqli_fetch_array($stmt1, MYSQLI_NUM)) {?>
   <tr>
   
     <td><?php echo $row['1']; ?></td>
