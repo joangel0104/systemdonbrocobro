@@ -1,13 +1,11 @@
-
 <?php
-$conexion=mysqli_connect('localhost','root','','servidor.cobro');
 
-
-$sql="SELECT * FROM tabla_alumno"; 
-
-$stmt1 = odbc_exec($conex, $sql );
+  $conexion=mysqli_connect('localhost','root','','servidor.cobro');
+  $sql="SELECT * FROM tabla_alumno"; 
+  $stmt1 = mysqli_query($conexion, $sql);
 
 ?>
+
 
 <!DOCTYPE HTML>
 
@@ -57,10 +55,6 @@ $stmt1 = odbc_exec($conex, $sql );
 										 <ul>
 											<li><a href="Pantalla_consulta_alumno.html">Consultar Alumno</a></li>
 										</ul>
-										
-										
-
-
 										 <ul>
 											<li><a href="">Reportes</a></li>
 										</ul>
@@ -85,8 +79,8 @@ $stmt1 = odbc_exec($conex, $sql );
   </center>
   
   <div class="datagrid">
-      <table class="order-table table">
-  <thead>
+    <table class="order-table table">
+      <thead>
         <tr class="titulo"> 
           
            <td>
@@ -111,6 +105,7 @@ $stmt1 = odbc_exec($conex, $sql );
               Codigo
           </td>
         </tr>
+ 
       </thead>
       
   <?PHP while( $row=mysqli_fetch_array($stmt1, MYSQLI_NUM);
@@ -143,6 +138,30 @@ $stmt1 = odbc_exec($conex, $sql );
 			<script src="assets/js/main.js"></script>
 			<script src="lib/js/invoice.js"></script>
 
+
+      </thead>  
+      <?PHP while( $row=mysqli_fetch_array($stmt1, MYSQLI_NUM)) {?>
+        <tr>
+          <td><?php echo $row['0']; ?></td>
+          <td><?php echo $row['1']; ?></td>
+          <td><?php echo $row['2']; ?></td>
+          <td><?php echo $row['3']; ?></td>
+          <td><?php echo $row['4']; ?></td>
+          <td><?php echo $row['5']; ?></td>
+          <td><?php echo $row['6']; ?></td>
+        </tr>
+      <?PHP }?> 
+    </table>			  
+    </article>
+	</div>
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/skel.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+	<script src="lib/js/invoice.js"></script>
+>>>>>>> 9d942f50bac6f2cbfacef655a343726579ded1b8
 	</body>
 </html>
 
