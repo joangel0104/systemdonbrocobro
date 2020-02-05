@@ -32,25 +32,25 @@
 									<a href="#menu" class="menuToggle"><span>Menu</span></a>
 									<div id="menu">
 										<ul>
-											<li><a href="Pantalla_precio_comida.html">Establezer Precio Comida</a></li>
+											<li><a href="Pantalla_precio_comida.php">Establezer Precio Comida</a></li>
 										</ul> 
 
 
 										<ul>
-											<li><a href="Pantalla_cobro.html">Control de Pago</a></li>
+											<li><a href="Pantalla_cobro.php">Control de Pago</a></li>
 										</ul>
 										
 										  <ul>
-											<li><a href="Pantalla_asistencia.html">Control Asistencia  </a></li>
+											<li><a href="Pantalla_asistencia.php">Control Asistencia  </a></li>
 										</ul>
 									    <ul>
-											<li><a href="Pantalla_alunno.html">Agregar Alumno  </a></li>
+											<li><a href="Pantalla_alunno.php">Agregar Alumno  </a></li>
 										</ul>
 										 <ul>
-											<li><a href="Pantalla_m_alumno.html">Modificar Alumno  </a></li>
+											<li><a href="Pantalla_m_alumno.php">Modificar Alumno  </a></li>
 										</ul>
 										 <ul>
-											<li><a href="Pantalla_consulta_alumno.html">Consultar Alumno</a></li>
+											<li><a href="Pantalla_consulta_alumno.php">Consultar Alumno</a></li>
 										</ul>
 										 
 

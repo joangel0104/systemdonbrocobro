@@ -28,25 +28,25 @@
 									<a href="#menu" class="menuToggle"><span>Menu</span></a>
 									<div id="menu">
 										<ul>
-											<li><a href="Pantalla_precio_comida.html">Establezer Precio Comida</a></li>
+											<li><a href="Pantalla_precio_comida.php">Establezer Precio Comida</a></li>
 										</ul> 
 
 
 										<ul>
-											<li><a href="Pantalla_cobro.html">Control de Pago</a></li>
+											<li><a href="Pantalla_cobro.php">Control de Pago</a></li>
 										</ul>
 										
 										  <ul>
-											<li><a href="Pantalla_asistencia.html">Control Asistencia  </a></li>
+											<li><a href="Pantalla_asistencia.php">Control Asistencia  </a></li>
 										</ul>
 									    <ul>
-											<li><a href="Pantalla_alunno.html">Agregar Alumno  </a></li>
+											<li><a href="Pantalla_alunno.php">Agregar Alumno  </a></li>
 										</ul>
 										 <ul>
-											<li><a href="Pantalla_m_alumno.html">Modificar Alumno  </a></li>
+											<li><a href="Pantalla_m_alumno.php">Modificar Alumno  </a></li>
 										</ul>
 										 <ul>
-											<li><a href="Pantalla_consulta_alumno.html">Consultar Alumno</a></li>
+											<li><a href="Pantalla_consulta_alumno.php">Consultar Alumno</a></li>
 										</ul>
 										 
 
@@ -55,6 +55,7 @@
 										 <ul>
 											<li><a href="">Reportes</a></li>
 										</ul>
+
 									</div>
 								</li>
 							</ul>
@@ -71,15 +72,22 @@
 									<h4 style="text-align: center;">Datos Iniciales</h4>
 									
 									<br/>
-                                            <div class="8u 12u$(xsmall)">
-												<input type="text" name="name" id="name" value=""  placeholder="Nombre y Apellido" maxlength="50"  pattern="([A -z]{3,50})" required oninput="validacion(this)" onkeypress="mayus(this)"/>
-											</div>
-											<br/>
+                                            
+											
 
 											<div class="4u$ 12u$(xsmall)" style="text-align: left">
 												<input type="text" name="numer" id="numer" value="" placeholder="N° CURP" maxlength="18" required oninput="validacion(this)" pattern="[A-Z0-9]{18,18}" onkeypress="mayus1(this)" />
 											</div>
+										    <ul class="actions" style="text-align:center" >
+										    <li><input id="buscar" style="text-align: center"  name="guardar" type="button" value="Buscar Alumno" class="principal"/></li>
+										  
+											
+											<div class="8u 12u$(xsmall)">
+												<input type="text" name="name" id="name" value=""  placeholder="Nombre y Apellido" maxlength="50"  pattern="([A -z]{3,50})" required oninput="validacion(this)" onkeypress="mayus(this)"/>
+											</div>
 											<br/>
+
+											
 
 											<div class="4u$ 12u$(xsmall)">
 												<input type="text" name="telefono" id="telefono" value=""  placeholder="N° Celular Reprecentante " pattern="([1-9][0-9]{9,9})" required oninput="validacion(this)" maxlength="10" />
@@ -91,8 +99,15 @@
                                                  <option value='2'>Becado 50%</option>
                                                  <option value='3'>Becado 100%</option>
                                             </select>
+                                          
+											<br/>
+											<select name="tipo" id="tipo">
+                                                 <option value='0'>Seleccione Estatus Alumno..</option>
+                                                 <option value='1'>Activo</option>
+                                                 <option value='2'>Inactivo</option>
+                                                 
+                                            </select>
                                             <br/>
-											
 											
 
 											<div class="2u 12u$(xsmall)">
@@ -104,11 +119,11 @@
 												<input type="text" name="precio" id="precio" value="" placeholder="Sección alumno "   pattern="([a-z])" required oninput="validacion(this)" maxlength="1" />
 											</div>	
 
-										<br/>
+										    <br/>
 										
 															
 												<ul class="actions" style="text-align: center" >
-												<li><input id="boton_2" style="text-align: center"  name="guardar" type="button" value="Agregar Alumno" class="principal"/></li>
+												<li><input id="boton_4" style="text-align: center"  name="guardar" type="button" value="Actualizar  Alumno" class="principal"/></li>
 
 
 											</ul>
@@ -138,7 +153,6 @@
          </form> 
 	</body>
 </html>
-
 
 <script type="text/javascript">
  var band=0;
@@ -177,74 +191,4 @@ function mayus1(e)
                 return band;
              }
          }
-
-     
- 
-
-     $(document).ready(function(){
-		$('#boton_2').click(function(){
-            
-      
-      
-      pol=1;  
-
-      pol=pol*validacion(document.getElementById("name"));
-      pol=pol*validacion(document.getElementById("numer"));
-      pol=pol*validacion(document.getElementById("telefono"));
-      pol=pol*validacion(document.getElementById("tipo_Estatus"));
-      pol=pol*validacion(document.getElementById("cantidad"));  
-      pol=pol*validacion(document.getElementById("precio")); 
-      pol=1; 
-
-
-      var name="&name="+$('#name').val();
-      var numer="&numer="+$('#numer').val();
-      var telefono="&telefono="+$('#telefono').val();
-      var tipo_Estatus="&tipo_Estatus="+$('#tipo_Estatus').val();
-      var cantidad="&cantidad="+$('#cantidad').val();
-      var precio="&precio="+$('#precio').val();
-
-   
-     
-       
-       if(pol==0)
-       {
-                  
-              
-             alert('Por favor, Verificar los datos');
-
-                  
-       }      
-       else
-       {
-
-           if($('#name').val()==""||$('#numer').val()==""||$('#telefono').val()==""||$('#tipo_Estatus').val()==""|| $('#cantidad').val()=="" || $('#precio').val()=="" )
-           {
-               alert("Por favor, Verificar los datos");
-           }
-           else
-           {     
-                      
-                    var datos=$('#frmajax').serialize();
-			        $.ajax({
-			        type:"POST",
-				    url:"agregar_alumno.php",
-				    data:datos,
-				    success:function(r){
-				    if(r==0)
- 				    {
- 				        alert("Alumno Agregado con Exito");
- 				        window.location.reload(); 
-				    }
-				    else
-				    {
-				       alert("CURP ya Existe verifique los datos");
-                    }
-			       }
-			     });
-            }
-        }
-     });
-  });
-  
- </script>
+</script>
