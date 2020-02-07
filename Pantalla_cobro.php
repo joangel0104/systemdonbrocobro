@@ -63,9 +63,9 @@
 									<br/>
                                         <select name="tipo_Estatus" id="tipo_Estatus">
                                              <option value='0'>Seleccione Forma de Pago..</option>
-                                             <option value='1' >Efectivo</option>
-                                             <option value='2'>Deposito</option>
-                                             <option value='3'>Pago Diario</option>
+                                             <option value='Efectivo' >Efectivo</option>
+                                             <option value='Deposito'>Deposito</option>
+                                             <option value='Pago Diario'>Pago Diario</option>
                                         </select>
 						            <br/>
 									<form method="post" action="#">
