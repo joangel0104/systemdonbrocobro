@@ -255,6 +255,7 @@
 		if(isJson(relacion_credito)){
 			relacion_credito = JSON.parse(relacion_credito);
 		}
+		get_render_table(); 
 	};
 
 	function isNumberKey(evt){
