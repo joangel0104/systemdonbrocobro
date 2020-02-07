@@ -23,6 +23,9 @@ while ($row=mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 	$resultados[$i-1]['numero'] = $i;
 	$i++;
 }
+//$monto = round($monto,2,PHP_ROUND_HALF_UP);
+
+$total = 0;
 
 $tabla= "	<table id='tabla_factura'>
 				<thead>
@@ -47,14 +50,25 @@ foreach ($resultados as $key => $value) {
 	$fila .= "<td>".$value['seccion']."</td>";
 	$fila .= "<td>".$value['forma_pago']."</td>";
 	$fila .= "<td>".$value['monto_pagado']."</td>";
+	$total = (float)$value['monto_pagado'];
 	$fila .= "<td>".$value['n_comida']."</td>";
 	$fila .= "<td>".$value['credito']."</td>";
 	$fila .= "<td>".$value['fecha']."</td>";
 	$fila .= "</tr>";
 	$tabla.=$fila;
 }
+
+$total = round($total,2,PHP_ROUND_HALF_UP);
 $tabla.= "	</tbody>
+			<tfooter>
+				<tr>
+					<td colspan='7'></td>
+					<td>Total</td>
+					<td>".$total."</td>
+				</tr>
+			</tfooter>
 		</table>";
 echo $tabla;
+
          
 ?>
