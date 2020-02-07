@@ -47,7 +47,7 @@
 											<li><a href="Pantalla_alunno.php">Agregar Alumno  </a></li>
 										</ul>
 										 <ul>
-											<li><a href="Pantalla_m_alumno.php">Modificar Alumno  </a></li>
+											<li><a href="Pantalla_m_alumno.php">Actualizar Alumno  </a></li>
 										</ul>
 										 <ul>
 											<li><a href="Pantalla_consulta_alumno.php">Consultar Alumno</a></li>
@@ -86,11 +86,11 @@
 										<div class="row uniform">
 
 											<div class="8u 12u$(xsmall)">
-												<input type="text" name="name" id="name" value="" placeholder="Introduzca N° Carnet " required oninput="validacion(this)"/>
+												<input type="text" name="name" id="name" value="" placeholder="Introduzca N° Carnet "  maxlength="3" pattern="([0-9]{3,3})" required oninput="validacion(this)"/>
 											</div>
 
 											<div class="4u$ 12u$(xsmall)">
-												<input type="text" name="numero" id="numero" value="" placeholder="N° Dias a Pagar" required oninput="validacion(this)" />
+												<input type="text" name="numero" id="numero" value="" placeholder="N° Dias a Pagar" maxlength="2" pattern="([0-9]{1,3})" required oninput="validacion(this)" />
 											</div>
 
 														
@@ -98,7 +98,7 @@
 										<br/>
 										<div class="12u$">
 															
-												<ul class="actions" style="text-align: center" >
+												<ul class="actions" style="text-align:center" >
 												<li><input id="boton_6" style="text-align: center" name="guardar" type="button" value="Agregar Pago" class="principal" id="add_row"/></li>
 
 
@@ -212,11 +212,11 @@
       pol=pol*validacion(document.getElementById("name"));
       pol=pol*validacion(document.getElementById("numero"));
       
-      pol=1; 
-
+     pol=1;  
 
       var name="&name="+$('#name').val();
       var numero="&numero="+$('#numero').val();
+      var tipo_Estatus="&tipo_Estatus="+$('#tipo_Estatus').val();
      
    
      
@@ -232,7 +232,7 @@
        else
        {
 
-           if($('#name').val()==""||$('#numero').val()=="")
+           if($('#name').val()==""||$('#numero').val()==""||$('#tipo_Estatus').val()=='0')
            {
                alert("Por favor, Verificar los datos");
            }
