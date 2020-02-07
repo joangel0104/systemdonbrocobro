@@ -1,8 +1,11 @@
 <?php
 
   $conexion=mysqli_connect('localhost','root','','servidor.cobro');
-  $sql="SELECT * FROM tabla_alumno"; 
+  $sql="SELECT *FROM tabla_alumno ORDER BY grado_alumno ASC ,seccion_alumno ASC "; 
   $stmt1 = mysqli_query($conexion, $sql);
+  
+ 
+
 ?>
 
 
@@ -20,54 +23,59 @@
       </head>
 
 
-	<body>
-		<div id="page-wrapper">
-              <header id="header">
-						<img name="imagen" src="images/logo.png" >
+	<form id="frmajax" method="post" >
+      <div id="page-wrapper">
 
-						<h1><a>System Don BRO</a></h1>
-						
-						<nav id="nav">
+      <header id="header">
+            <img name="imagen" src="images/logo.png" >
 
-							<ul>
-								<li class="special">
-									<a href="#menu" class="menuToggle"><span>Menu</span></a>
-									<div id="menu">
-										<ul>
-											<li><a href="Pantalla_precio_comida.php">Establezer Precio Comida</a></li>
-										</ul> 
+            <h1><a>System Don BRO</a></h1>
+            
+            <nav id="nav">
+
+              <ul>
+                <li class="special">
+                  <a href="#menu" class="menuToggle"><span>Menu</span></a>
+                  <div id="menu">
+                    <ul>
+                      <li><a href="Pantalla_precio_comida.php">Establezer Precio Comida</a></li>
+                    </ul> 
 
 
-										<ul>
-											<li><a href="Pantalla_cobro.php">Control de Pago</a></li>
-										</ul>
-										  <ul>
-											<li><a href="Pantalla_asistencia.php">Control Asistencia  </a></li>
-										</ul>
-									    
-									    <ul>
-											<li><a href="Pantalla_alunno.php">Agregar Alumno</a></li>
-										</ul>
-										 <ul>
-											<li><a href="Pantalla_m_alumno.php">Modificar Alumno</a></li>
-										</ul>
-										 <ul>
-											<li><a href="Pantalla_consulta_alumno.php">Consultar Alumno</a></li>
-										</ul>
-										 <ul>
-											<li><a href="">Reportes</a></li>
-										</ul>
+                    <ul>
+                      <li><a href="Pantalla_cobro.php">Control de Pago</a></li>
+                    </ul>
+                    
+                      <ul>
+                      <li><a href="Pantalla_asistencia.php">Control Asistencia  </a></li>
+                    </ul>
+                      <ul>
+                      <li><a href="Pantalla_alunno.php">Agregar Alumno  </a></li>
+                    </ul>
+                     <ul>
+                      <li><a href="Pantalla_m_alumno.php">Actualizar  Alumno  </a></li>
+                    </ul>
+                     <ul>
+                      <li><a href="Pantalla_consulta_alumno.php">Consultar Alumno</a></li>
+                    </ul>
+                     
 
-									</div>
-								</li>
-							</ul>
-						</nav>
-					</header>
-				<!-- Main -->
-					<article id="main">
-						
-						<section class="wrapper style5" >
-                         <div class="inner">
+
+
+                     <ul>
+                      <li><a href="">Reportes</a></li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </nav>
+          </header>
+
+
+
+<article id="main">
+			<section class="wrapper style5" >
+        <div class="inner">
 							
 							
 										
@@ -95,10 +103,10 @@
               Estatus alumno
            </td>
            <td>
-              Seccion 
+              Grado 
            </td>
            <td>
-              Grado
+              Seccion 
            </td>
            <td>
               Codigo
@@ -110,13 +118,19 @@
   <?PHP while( $row=mysqli_fetch_array($stmt1, MYSQLI_NUM)) {?>
   <tr>
   
+    
     <td><?php echo $row['1']; ?></td>
     <td><?php echo $row['2']; ?></td>
     <td><?php echo $row['3']; ?></td>
     <td><?php echo $row['4']; ?></td>
-    <td><?php echo $row['5']; ?></td>
     <td><?php echo $row['6']; ?></td>
+    <td><?php echo $row['5']; ?></td>
     <td><?php echo $row['7']; ?></td>
+ 
+
+
+
+
   </tr>
   <?PHP }?> 
  </table>			
@@ -128,27 +142,10 @@
 			</div>
 
 		
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-			<script src="lib/js/invoice.js"></script>
-
+			
 
       </thead>  
-      <?PHP while( $row=mysqli_fetch_array($stmt1, MYSQLI_NUM)) {?>
-        <tr>
-          <td><?php echo $row['0']; ?></td>
-          <td><?php echo $row['1']; ?></td>
-          <td><?php echo $row['2']; ?></td>
-          <td><?php echo $row['3']; ?></td>
-          <td><?php echo $row['4']; ?></td>
-          <td><?php echo $row['5']; ?></td>
-          <td><?php echo $row['6']; ?></td>
-        </tr>
-      <?PHP }?> 
+      
     </table>			  
     </article>
 	</div>
@@ -208,11 +205,19 @@
 
 </script>   
 <style >
+ 
+table td {
+      padding: 0.2em 0.2em;
+      font-size: 12px;
+   text-align: center;
+    }
+
+
  #buscar
 {
  width: 100%;
-  font-size: 22px;
-  color: #fff;
+  font-size: 20px;
+  color: #2e3842;
    background: #2e3842 ;
   padding-left: 20px ;
  
@@ -223,13 +228,13 @@
 input[type="search"]{
    
   width: 450px;
-  height: 25px;
+  height: 30px;
   margin-left: 0px;
   margin-top: 10px;
   padding-left: 10px;
   outline: none;
   font-size: 0.8em;
-
+  color: #2e3842;
 }
 
 

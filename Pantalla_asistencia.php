@@ -47,7 +47,7 @@
 											<li><a href="Pantalla_alunno.php">Agregar Alumno  </a></li>
 										</ul>
 										 <ul>
-											<li><a href="Pantalla_m_alumno.php">Modificar Alumno  </a></li>
+											<li><a href="Pantalla_m_alumno.php">Actualizar Alumno  </a></li>
 										</ul>
 										 <ul>
 											<li><a href="Pantalla_consulta_alumno.php">Consultar Alumno</a></li>
@@ -80,7 +80,7 @@
 										<div class="row uniform">
 
 											<div class="8u 12u$(xsmall)">
-												<input type="text" name="name" id="name" value="" placeholder="Introduzca N° Carnet " />
+												<input type="text" name="name" id="name" value="" placeholder="Introduzca N° Carnet "  maxlength="3" pattern="([0-9]{3,3})" required oninput="validacion(this)"/>
 											</div>
 
 											
@@ -160,3 +160,31 @@
 
 	</body>
 </html>
+
+<script type="text/javascript">
+ var band=0;
+
+   
+
+       function validacion(elem)
+         {
+           if (elem.checkValidity()) 
+             {   
+                elem.style.color="black";
+                  
+                return band;
+             }
+             else
+             {
+                elem.style.color="red";
+                band=0;
+                 
+                return band;
+             }
+         }
+
+     
+ 
+
+    
+ </script>

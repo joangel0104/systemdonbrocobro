@@ -6,8 +6,8 @@
 
    $sql="SELECT precio_actual FROM tabla_r_precio";
    $stmt1 = mysqli_query($conexion, $sql);
-   $row=mysqli_fetch_array($stmt1, MYSQLI_NUM);
-   echo $row[0];
+  
+  
 
 ?>
 
@@ -54,7 +54,7 @@
 											<li><a href="Pantalla_alunno.php">Agregar Alumno</a></li>
 										</ul>
 										 <ul>
-											<li><a href="Pantalla_m_alumno.php">Modificar Alumno</a></li>
+											<li><a href="Pantalla_m_alumno.php">Actualizar Alumno</a></li>
 										</ul>
 										 <ul>
 											<li><a href="Pantalla_consulta_alumno.php">Consultar Alumno</a></li>
@@ -108,7 +108,7 @@
 
 												<h4  id="titulo" >Precio actual Comida</h4>
 
-												<input  style="text-align:left;" type="text" name="precios" id="precios" value= "" placeholder="$" value="<?php echo $row ?>"/>
+												<input  style="text-align:left;" type="text" name="precios" id="precios" value= "" placeholder="$" />
 										
 										</div>
 										

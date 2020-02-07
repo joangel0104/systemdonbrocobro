@@ -43,7 +43,7 @@
 											<li><a href="Pantalla_alunno.php">Agregar Alumno  </a></li>
 										</ul>
 										 <ul>
-											<li><a href="Pantalla_m_alumno.php">Modificar Alumno  </a></li>
+											<li><a href="Pantalla_m_alumno.php">Actualizar Alumno  </a></li>
 										</ul>
 										 <ul>
 											<li><a href="Pantalla_consulta_alumno.php">Consultar Alumno</a></li>
@@ -218,7 +218,7 @@ function mayus1(e)
        else
        {
 
-           if($('#name').val()==""||$('#numer').val()==""||$('#telefono').val()==""||$('#tipo_Estatus').val()==""|| $('#cantidad').val()=="" || $('#precio').val()=="" )
+           if($('#name').val()==""||$('#numer').val()==""||$('#telefono').val()==""||$('#tipo_Estatus').val()=='0'|| $('#cantidad').val()=="" || $('#precio').val()=="" )
            {
                alert("Por favor, Verificar los datos");
            }
