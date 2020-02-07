@@ -1,6 +1,6 @@
 <?php
   
-$conexion=mysqli_connect('localhost','root','angel','servidor.cobro');
+$conexion=mysqli_connect('localhost','root','','servidor.cobro');
 $fecha = date('Y-m-d');
 $sql="	SELECT 
 			tabla_alumno.nombre_alumno as nombre, 

@@ -1,6 +1,6 @@
 <?php
   
-$conexion=mysqli_connect('localhost','root','angel','servidor.cobro');
+$conexion=mysqli_connect('localhost','root','','servidor.cobro');
      
 $sql="SELECT * FROM tabla_r_precio ORDER BY id_precio_actual DESC LIMIT 1";
 

@@ -1,7 +1,7 @@
 
 <?php
   
-    $conexion=mysqli_connect('localhost','root','angel','servidor.cobro');
+    $conexion=mysqli_connect('localhost','root','','servidor.cobro');
  
     $codigo=$_POST['codigo'];
     $numero=$_POST['numero'];
