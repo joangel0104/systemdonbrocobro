@@ -1,7 +1,7 @@
 
 <?php
   
- $conex=mysqli_connect('localhost','root','','servidor.cobro');
+ $conexion=mysqli_connect('localhost','root','','servidor.cobro');
  
 
   
@@ -24,9 +24,9 @@
     $codigos=generarCodigo(3);
    
  
-      $sql="SELECT curp_alumno FROM tabla_alumno WHERE curp_alumno='$v2'";
+    $sql="SELECT curp_alumno FROM tabla_alumno WHERE curp_alumno='$v2'";
 
-    $result=mysqli_query($conex,$sql);
+    $result=mysqli_query($conexion,$sql);
          $rowcount=mysqli_num_rows($result); 
         
          if($rowcount > 0)
@@ -34,12 +34,12 @@
             
             echo 1;
         
- }else
+ }  else
          {
             $vSQL1="INSERT INTO tabla_alumno(nombre_alumno,curp_alumno,celular_alumno,estatus_alumno,grado_alumno,seccion_alumno,codigo) VALUES ('$v1','$v2','$v3','$v4','$v5','$v6','$codigos')";
            
            
-            mysqli_query($conex, $vSQL1);
+            mysqli_query($conexion, $vSQL1);
             echo 0;
             
          }
