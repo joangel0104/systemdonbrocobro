@@ -8,149 +8,124 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
         <script src="jquery-3.2.1.min.js"></script>
-
-      </head>
+    </head>
 
 
 	<body>
 		<!-- Page Wrapper -->
-
 			<div id="page-wrapper">
-
 				<!-- Header -->
+				<header id="header">
+					<img name="imagen" src="images/logo.png" >
 
+					<h1><a href="index.html">System Don BRO</a></h1>
+					
+					<nav id="nav">
 
-					<header id="header">
-						<img name="imagen" src="images/logo.png" >
+						<ul>
+							<li class="special">
+								<a href="#menu" class="menuToggle"><span>Menu</span></a>
+								<div id="menu">
+									<ul>
+										<li><a href="Pantalla_precio_comida.php">Establezer Precio Comida</a></li>
+									</ul> 
+									<ul>
+										<li><a href="Pantalla_cobro.php">Control de Pago</a></li>
+									</ul>
+									<ul>
+										<li><a href="Pantalla_asistencia.php">Control Asistencia  </a></li>
+									</ul>
+								    <ul>
+										<li><a href="Pantalla_alunno.php">Agregar Alumno  </a></li>
+									</ul>
+									 <ul>
+										<li><a href="Pantalla_m_alumno.php">Modificar Alumno  </a></li>
+									</ul>
+									 <ul>
+										<li><a href="Pantalla_consulta_alumno.php">Consultar Alumno</a></li>
+									</ul>
+									 <ul>
+										<li><a href="">Reportes</a></li>
+									</ul>
 
-						<h1><a href="index.html">System Don BRO</a></h1>
-						
-						<nav id="nav">
-
-							<ul>
-								<li class="special">
-									<a href="#menu" class="menuToggle"><span>Menu</span></a>
-									<div id="menu">
-										<ul>
-											<li><a href="Pantalla_precio_comida.php">Establezer Precio Comida</a></li>
-										</ul> 
-
-
-										<ul>
-											<li><a href="Pantalla_cobro.php">Control de Pago</a></li>
-										</ul>
-										
-										  <ul>
-											<li><a href="Pantalla_asistencia.php">Control Asistencia  </a></li>
-										</ul>
-									    <ul>
-											<li><a href="Pantalla_alunno.php">Agregar Alumno  </a></li>
-										</ul>
-										 <ul>
-											<li><a href="Pantalla_m_alumno.php">Modificar Alumno  </a></li>
-										</ul>
-										 <ul>
-											<li><a href="Pantalla_consulta_alumno.php">Consultar Alumno</a></li>
-										</ul>
-										 
-
-
-
-										 <ul>
-											<li><a href="">Reportes</a></li>
-										</ul>
-
-									</div>
-								</li>
-							</ul>
-						</nav>
-					</header>
+								</div>
+							</li>
+						</ul>
+					</nav>
+				</header>
 				<!-- Main -->
 					<article id="main">
 						
 						<section class="wrapper style5">
                          <div class="inner">
-								<section>
-									<h4 style="text-align: center;">Datos Iniciales</h4>
-									
+							<section>
+								<h4 style="text-align: center;">Datos Iniciales</h4>
 									<br/>
-                                            <select name="tipo_Estatus" id="tipo_Estatus">
-                                                 <option  value='0'>Seleccione Forma de Pago..</option>
-                                                 <option value='1' >Efectivo</option>
-                                                 <option value='2'>Deposito</option>
-                                                 <option value='3'>Pago Diario</option>
-                                            </select>
-							                <br/>
-
+                                        <select name="tipo_Estatus" id="tipo_Estatus">
+                                             <option value='0'>Seleccione Forma de Pago..</option>
+                                             <option value='1' >Efectivo</option>
+                                             <option value='2'>Deposito</option>
+                                             <option value='3'>Pago Diario</option>
+                                        </select>
+						            <br/>
 									<form method="post" action="#">
 										<div class="row uniform">
-
 											<div class="8u 12u$(xsmall)">
-												<input type="text" name="name" id="name" value="" placeholder="Introduzca N° Carnet " required oninput="validacion(this)"/>
+												<input 	type="text" 
+														name="codigo" 
+														id="codigo" 
+														value="" 
+														maxlength="3" 
+														placeholder="Introduzca N° Carnet " 
+														required 
+														oninput="validacion(this)"/>
 											</div>
-
 											<div class="4u$ 12u$(xsmall)">
-												<input type="text" name="numero" id="numero" value="" placeholder="N° Dias a Pagar" required oninput="validacion(this)" />
-											</div>
-
-														
+												<input 	type="text" 
+														name="numero" 
+														id="numero" 
+														value="" 
+														placeholder="N° Dias a Pagar" 
+														required 
+														oninput="validacion(this)"
+														onkeypress="javascript:return isNumberKey(event)" 
+														onkeyup="calculo_a_pagar()" />
+											</div>		
 										</div>
 										<br/>
 										<div class="12u$">
-															
-												<ul class="actions" style="text-align: center" >
-												<li><input id="boton_6" style="text-align: center" name="guardar" type="button" value="Agregar Pago" class="principal" id="add_row"/></li>
-
-
+											<ul class="actions" style="text-align: center" >
+												<li>
+													<button id="boton_6" 
+															style="text-align: center" 
+															name="guardar" 
+															type="button" 
+															value="" 
+															class="principal" 
+															onclick="agregar_pago()" 
+														/>
+														Agregar Pagoo
+														</button>
+												</li>
 											</ul>
 										</div>
 										<div>
-												<input  style="text-align:left;" type="text" name="monto" id="monto" value="" placeholder="$"/>
+												<input  style="text-align:left;
+															font-size: 20" 
+														type="text" 
+														name="monto" 
+														id="monto" 
+														value="" 
+														placeholder="$"
+														readonly />
 										
 										</div>
 										<br>
 										
 
-										<div class="table-wrapper">
+										<div class="table-wrapper" id="facturas">
 
-											<table id="tabla_factura">
-												<thead>
-													<tr>
-														<th>N°</th>
-												        <th>Nombre y Apellido</th>
-														<th>Grado</th>
-														<th>Seccion</th>
-														 <th>Forma de Pago</th>
-														<th>monto Pagado</th>:
-														<th>N° Comida</th>
-														<th>Credito</th>
-														 <th>Fecha Actual</th>
-														
-
-													</tr>
-												</thead>
-												<tbody id="content_table">
-													<tr>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
-													</tr>
-												</tbody>
-												<tfoot>
-													<tr>
-														<td colspan="8"></td>
-														
-														<td id="total_total">$0.00</td>
-														<td></td>
-													</tr>
-												</tfoot>
-											</table>
+											
 										</div>
 									</form>
 								</section>
@@ -160,11 +135,9 @@
 							</div>
 						</section>
 					</article>
-
-				
 			</div>
 
-		<!-- Scripts -->
+			<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>
 			<script src="assets/js/jquery.scrolly.min.js"></script>
@@ -178,90 +151,138 @@
 </html>
 
 <script type="text/javascript">
- var band=0;
 
-   
+	var relacion_credito={};
+	function validacion(elem) {
+		var band=1;
+		if (elem.checkValidity()) {   
+			elem.style.color="black";
+			return band;
+		} else {
+			elem.style.color="red";
+			band=0;
+			return band;
+		}
+	}
 
-       function validacion(elem)
-         {
-           if (elem.checkValidity()) 
-             {   
-                elem.style.color="black";
-                  
-                return band;
-             }
-             else
-             {
-                elem.style.color="red";
-                band=0;
-                 
-                return band;
-             }
-         }
+	function isJson(argument) {
+		try{
+			JSON.parse(argument)
+		} catch (e){
+			return false;
+		}
+		return true;
+	}
+	//ajax del metodo get para consultar la relacion pecio;
+	async function get_relacion_creditos() {
+		let response = await $.ajax({
+						type:"GET",
+					    url:"consulta_relacion_credito.php",
+					    success: await function(repuesta) {
+						    if(isJson(repuesta)) {
+						        return repuesta;
+						    } else {
+						       alert("Error de Servidor");
+						       return false;
+				            }
+						}
+					});
+		return response;
+	}
 
-     
- 
+	async function post_agregar_pago(datos) {
+		let response = await $.ajax({
+								type:"POST",
+							    url:"agregar_pago.php",
+							    data:datos,
+							    success: await function(r) {
+							    	console.log('erre',r);
+								    if(r==1) {
+								        alert("Pago Exitoso");
+								        get_render_table();
+								        //window.location.reload(); 
+								    } else {
+								       alert("Error de Servidor");
 
-     $(document).ready(function(){
-		$('#boton_6').click(function(){
-            
-      
-      
-      pol=1;  
+						            }
+								}
+							});		
+		return response; 
+	}
 
-      pol=pol*validacion(document.getElementById("name"));
-      pol=pol*validacion(document.getElementById("numero"));
-      
-      pol=1; 
+	async function get_render_table() {
+		let response = await $.ajax({
+						type:"GET",
+					    url:"consulta_contro_pago.php",
+					    dataType: 'html',
+					    success: await function(repuesta) {
+						    $('#facturas').html(repuesta);
+						}
+					});
+		return response;
+	}
 
+	async function agregar_pago() {
+		validador=1;  
+		validador=validador*validacion(document.getElementById("codigo"));
+		validador=validador*validacion(document.getElementById("numero")); 
+		console.log(document.getElementById("tipo_Estatus").value);
+		if (document.getElementById("tipo_Estatus").value == 0) {
+			validador =0;
+		}
+		if (validador==0) {
+			alert("Por favor, Verificar los datos");
+			return;
+		}
+		let datos = {}
+		datos.codigo = $('#codigo').val();
+		datos.numero = $('#numero').val();
+		datos.tipo_pago = document.getElementById("tipo_Estatus").value;
+		datos.monto = parseFloat($('#monto').val()).toFixed(2);
+		console.log(datos);
+		//return;
+		if($('#name').val()==""||$('#numero').val()=="") {
+	       alert("Por favor, Verificar los datos");
+	   	} else {           
 
-      var name="&name="+$('#name').val();
-      var numero="&numero="+$('#numero').val();
-     
-   
-     
-       
-       if(pol==0)
-       {
-                  
-              
-             alert('Por favor, Verificar los datos');
+	        await post_agregar_pago(datos);
+	        
+	    }
+	
+	}
 
-                  
-       }      
-       else
-       {
+	async function main() {
+		relacion_credito = await get_relacion_creditos();
+		if(isJson(relacion_credito)){
+			relacion_credito = JSON.parse(relacion_credito);
+		}
+	};
 
-           if($('#name').val()==""||$('#numero').val()=="")
-           {
-               alert("Por favor, Verificar los datos");
-           }
-           else
-           {     
-                      
-                    var datos=$('#frmajax').serialize();
-			        $.ajax({
-			        type:"POST",
-				    url:"agregar_pago.php",
-				    data:datos,
-				    success:function(r)
-				    {
-				   
-				    if(r==1)
- 				    {
- 				        alert("Pago Exitoso");
- 				        window.location.reload(); 
-				    }
-				    else
-				    {
-				       alert("Error de Servidor");
+	function isNumberKey(evt){
 
-                    }
-			       }
-			     });
-            }
-        }
-     });
-  });
-  
- </script>
+		var e = evt || window.event;
+		var charcode = e.which || evt.keyCode;
+		if(charcode > 31 && (charcode < 47 ||charcode >57)){
+			return false;
+		}
+		if (e.shiftKey) {
+			return false;
+		}
+		return true;
+	}
+
+	async function calculo_a_pagar() {
+		relacion_credito;
+		numero = await parseInt($('#numero').val());
+		await console.log(numero);
+		if (isNaN(numero)) {
+			$('#monto').val('');	
+		} else {
+			let precio = (parseInt(numero)/parseInt(relacion_credito.credito_actual))*parseFloat(relacion_credito.precio_actual)
+			$('#monto').val(parseFloat(precio).toFixed(2));
+		}
+	}
+
+	$(document).ready(main());
+
+</script>
