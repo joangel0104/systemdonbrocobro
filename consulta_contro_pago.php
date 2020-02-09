@@ -6,13 +6,14 @@ $sql="	SELECT
 			tabla_alumno.nombre_alumno as nombre, 
 		    tabla_alumno.grado_alumno as grado,  
 		    tabla_alumno.seccion_alumno as seccion, 
-		    tabla_control_pago.id_tipo_pago as forma_pago, 
+		    tipo_pago.nombre as forma_pago, 
 		    tabla_control_pago.monto_pago as monto_pagado, 
 		    tabla_control_pago.cantidad_comida_dia as n_comida,
 		    tabla_control_pago.credito_pago as credito,
 		    tabla_control_pago.fecha_pago as fecha
 		FROM `tabla_alumno` 
 		INNER JOIN tabla_control_pago ON tabla_alumno.id_alumno = tabla_control_pago.id_alumno
+		INNER JOIN tipo_pago ON tabla_control_pago.id_tipo_pago = tipo_pago.id
 		WHERE tabla_control_pago.fecha_pago = '$fecha'
 		ORDER BY tabla_control_pago.id_control_pago ASC";
 $result=mysqli_query($conexion,$sql);
@@ -50,7 +51,7 @@ foreach ($resultados as $key => $value) {
 	$fila .= "<td>".$value['seccion']."</td>";
 	$fila .= "<td>".$value['forma_pago']."</td>";
 	$fila .= "<td>".$value['monto_pagado']."</td>";
-	$total = (float)$value['monto_pagado'];
+	$total+= (float)$value['monto_pagado'];
 	$fila .= "<td>".$value['n_comida']."</td>";
 	$fila .= "<td>".$value['credito']."</td>";
 	$fila .= "<td>".$value['fecha']."</td>";
