@@ -33,11 +33,11 @@ $tabla= "	<table id='tabla_factura'>
 						<th>N°</th>
 				        <th>Nombre y Apellido</th>
 						<th>Grado</th>
-						<th>Seccion</th>
+						<th>Sección</th>
 						<th>Forma de Pago</th>
-						<th>monto Pagado</th>
+						<th>Monto Pagado</th>
 						<th>N° Comida</th>
-						<th>Credito</th>
+						<th>Crédito</th>
 						<th>Fecha Actual</th>
 					</tr>
 				</thead>

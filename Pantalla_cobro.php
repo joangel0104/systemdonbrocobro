@@ -77,7 +77,7 @@
 														maxlength="3" 
 														placeholder="Introduzca N° Carnet " 
 														required 
-														oninput="validacion(this)"/>
+														oninput="validacion(this)" onkeyup="saltar(event,'numero')"/>
 											</div>
 											<div class="4u$ 12u$(xsmall)">
 												<input 	type="text" 
@@ -88,7 +88,7 @@
 														required 
 														oninput="validacion(this)"
 														onkeypress="javascript:return isNumberKey(event)" 
-														onkeyup="calculo_a_pagar()" />
+														onkeyup="calculo_a_pagar();saltar(event,'boton_6')" />
 											</div>		
 										</div>
 										<br/>
@@ -103,7 +103,7 @@
 															class="principal" 
 															onclick="agregar_pago()" 
 														/>
-														Agregar Pagoo
+														Agregar Pago
 														</button>
 												</li>
 											</ul>
@@ -284,5 +284,27 @@
 	}
 
 	$(document).ready(main());
+
+
+
+
+	function saltar(e,id)
+{
+	// Obtenemos la tecla pulsada
+	(e.keyCode)?k=e.keyCode:k=e.which;
+ 
+	// Si la tecla pulsada es enter (codigo ascii 13)
+	if(k==13)
+	{
+		// Si la variable id contiene "submit" enviamos el formulario
+		if(id=="submit")
+		{
+			document.forms[0].submit();
+		}else{
+			// nos posicionamos en el siguiente input
+			document.getElementById(id).focus();
+		}
+	}
+}
 
 </script>
