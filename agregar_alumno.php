@@ -11,7 +11,7 @@
     $v4=$_POST['tipo_Estatus'];
     $v5=$_POST['cantidad'];
     $v6=$_POST['precio'];
-    
+    $v7='1';
    
     function generarCodigo($longitud) 
     {
@@ -36,7 +36,7 @@
         
  }else
          {
-            $vSQL1="INSERT INTO tabla_alumno(nombre_alumno,curp_alumno,celular_alumno,estatus_alumno,grado_alumno,seccion_alumno,codigo) VALUES ('$v1','$v2','$v3','$v4','$v5','$v6','$codigos')";
+            $vSQL1="INSERT INTO tabla_alumno(nombre_alumno,curp_alumno,celular_alumno,id_tipo,grado_alumno,seccion_alumno,codigo,id_estatus) VALUES ('$v1','$v2','$v3','$v4','$v5','$v6','$codigos','$v7')";
            
            
             mysqli_query($conex, $vSQL1);

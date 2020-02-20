@@ -39,7 +39,7 @@ $tabla= "	<table id='tabla_factura'>
 						<th>Monto Pagado</th>
 						<th>N° Comida</th>
 						<th>Crédito</th>
-						<th>Fecha Actual</th>
+						<th>Fecha de Pago</th>
 					</tr>
 				</thead>
 				<tbody id='content_table'>";
@@ -50,10 +50,10 @@ foreach ($resultados as $key => $value) {
 	$fila .= "<td>".$value['grado']."</td>";
 	$fila .= "<td>".$value['seccion']."</td>";
 	$fila .= "<td>".$value['forma_pago']."</td>";
-	$fila .= "<td>".$value['monto_pagado']."</td>";
+	$fila .= "<td>".'$'.$value['monto_pagado']."</td>";
 	$total+= (float)$value['monto_pagado'];
 	$fila .= "<td>".$value['n_comida']."</td>";
-	$fila .= "<td>".$value['credito']."</td>";
+	$fila .= "<td>".'$'.$value['credito']."</td>";
 	$fila .= "<td>".$value['fecha']."</td>";
 	$fila .= "</tr>";
 	$tabla.=$fila;
@@ -65,7 +65,7 @@ $tabla.= "	</tbody>
 				<tr>
 					<td colspan='7'></td>
 					<td>Total</td>
-					<td>".$total."</td>
+					<td>".'$'.$total."</td>
 				</tr>
 			</tfooter>
 		</table>";

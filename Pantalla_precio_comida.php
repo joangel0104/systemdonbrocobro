@@ -1,15 +1,4 @@
 
-<?php
-   
-   $conexion=mysqli_connect('localhost','root','','servidor.cobro');
-
-
-   $sql="SELECT precio_actual FROM tabla_r_precio";
-   $stmt1 = mysqli_query($conexion, $sql);
-  
-  
-
-?>
 
 <!DOCTYPE HTML>
 
@@ -77,6 +66,8 @@
 						
 						<section class="wrapper style5" >
                          <div class="inner">
+
+                         	
 								<section>
 									<h4 style="text-align: center;">Datos Iniciales</h4>
 									
@@ -86,11 +77,29 @@
 										<div class="row uniform">
 
 											<div class="8u 12u$(xsmall)">
-												<input type="text" name="precio" id="precio" value=""  pattern="([1-9][0-9]{1,1})" required oninput="validacion(this)" placeholder="Introduzca Precio Actual Comida  " maxlength="2"/>
+												<input 
+												type="text" 
+												 name="precio" 
+												 id="precio" 
+												 value=""  
+												 pattern="([1-9][0-9]{1,1})" 
+												 required oninput="validacion(this)" 
+												 placeholder="Introduzca Precio Actual Comida  " 
+												 maxlength="2"
+												 onkeyup="saltar(event,'credito')"/>
 											</div>
 
 											<div class="4u$ 12u$(xsmall)">
-												<input type="text" name="credito" id="credito" value=""  pattern="([1-9])" required oninput="validacion(this)" placeholder="N° Dias de Credito" maxlength="1"/>
+												<input 
+												type="text" 
+												name="credito" 
+												id="credito" 
+												value=""  
+												pattern="([1-9])" 
+												required oninput="validacion(this)" 
+												placeholder="N° Dias de Credito" 
+												maxlength="1"
+												onkeyup="saltar(event,'boton_3')"/>
 											</div>
 
 														
@@ -222,6 +231,46 @@
      });
   });
   
+
+  $.ajax({
+	url: 'consulta_precio.php',
+	success: function(Resultado) {
+		var valor = Resultado.split('&');
+                            
+                            if(valor[0]==1)
+                            {
+                              $('#precios').val(valor[1]);
+                            } 
+	},
+	error: function() {
+        console.log("No se ha podido obtener la información");
+    }
+});
+
+
+
+
+	function saltar(e,id)
+{
+	// Obtenemos la tecla pulsada
+	(e.keyCode)?k=e.keyCode:k=e.which;
+ 
+	// Si la tecla pulsada es enter (codigo ascii 13)
+	if(k==13)
+	{
+		// Si la variable id contiene "submit" enviamos el formulario
+		if(id=="submit")
+		{
+			document.forms[0].submit();
+		}else{
+			// nos posicionamos en el siguiente input
+			document.getElementById(id).focus();
+		}
+	}
+
+	
+}
+
  </script>
  
 

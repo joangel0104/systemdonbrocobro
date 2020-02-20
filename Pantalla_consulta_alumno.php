@@ -1,7 +1,9 @@
 <?php
 
   $conexion=mysqli_connect('localhost','root','','servidor.cobro');
-  $sql="SELECT *FROM tabla_alumno ORDER BY grado_alumno ASC ,seccion_alumno ASC "; 
+  $sql="SELECT a.codigo,a.nombre_alumno,a.curp_alumno,a.celular_alumno,b.tipo,a.grado_alumno,a.seccion_alumno,c.estatus
+FROM tabla_alumno AS a, tipo_alumno AS b ,estatus_alumno AS c
+WHERE a.id_tipo=b.id_tipo AND a.id_estatus=c.id_estatus ORDER BY a.grado_alumno ASC ,a.seccion_alumno ASC  "; 
   $stmt1 = mysqli_query($conexion, $sql);
   
  
@@ -89,7 +91,11 @@
     <table class="order-table table">
       <thead>
         <tr class="titulo"> 
-          
+           <td>
+             Código
+          </td>
+           
+
            <td>
               Nombres y Apellidos
            </td>
@@ -100,17 +106,17 @@
               Teléfono Representante  
            </td>
            <td>
-              Estatus alumno
+              Tipo Alumno
            </td>
            <td>
               Grado 
            </td>
            <td>
-              Seccion 
+              Sección 
            </td>
            <td>
-              Codigo
-          </td>
+              Estatus  
+           </td>
         </tr>
  
       </thead>
@@ -119,13 +125,15 @@
   <tr>
   
     
+    <td><?php echo $row['0']; ?></td>
     <td><?php echo $row['1']; ?></td>
     <td><?php echo $row['2']; ?></td>
     <td><?php echo $row['3']; ?></td>
     <td><?php echo $row['4']; ?></td>
-    <td><?php echo $row['6']; ?></td>
     <td><?php echo $row['5']; ?></td>
-    <td><?php echo $row['7']; ?></td>
+    <td><?php echo $row['6']; ?></td>
+     <td><?php echo $row['7']; ?></td>
+ 
  
 
 

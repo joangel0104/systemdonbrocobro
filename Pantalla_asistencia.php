@@ -80,7 +80,14 @@
 										<div class="row uniform">
 
 											<div class="8u 12u$(xsmall)">
-												<input type="text" name="name" id="name" value="" placeholder="Introduzca N° Carnet "  maxlength="3" pattern="([0-9]{3,3})" required oninput="validacion(this)"/>
+												<input type="text" 
+												       name="name" 
+												       id="name" 
+												       value="" 
+												       placeholder="Introduzca N° Carnet "  
+												       maxlength="3" pattern="([0-9]{3,3})" 
+												       required oninput="validacion(this)"
+												       onkeyup="saltar(event,'boton_5')"/>
 											</div>
 
 											
@@ -90,7 +97,13 @@
 										<div class="12u$">
 															
 												<ul class="actions" style="text-align: left" >
-												<li><input id="boton_5" style="text-align:center" name="guardar" type="button" value="Agregar" class="principal" id="add_row"/></li>
+												<li><input id="boton_5" 
+													       style="text-align:center" 
+													       name="boton_5" 
+													       type="button" 
+													       value="Agregar" 
+													       class="principal" 
+													      ></li>
 
 
 											</ul>
@@ -182,6 +195,24 @@
                 return band;
              }
          }
+         
+       function saltar(e,id)
+         {
+	       (e.keyCode)?k=e.keyCode:k=e.which;
+           if(k==13)
+	       {
+		     if(id=="submit")
+		     {
+			    document.forms[0].submit();
+		     }
+		     else
+		     {
+			    document.getElementById(id).focus();
+		     }
+	      }
+
+	
+}
 
      
  

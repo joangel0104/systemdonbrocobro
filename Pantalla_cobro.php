@@ -39,7 +39,7 @@
 										<li><a href="Pantalla_alunno.php">Agregar Alumno  </a></li>
 									</ul>
 									 <ul>
-										<li><a href="Pantalla_m_alumno.php">Modificar Alumno  </a></li>
+										<li><a href="Pantalla_m_alumno.php">Actualizar Alumno  </a></li>
 									</ul>
 									 <ul>
 										<li><a href="Pantalla_consulta_alumno.php">Consultar Alumno</a></li>
@@ -84,11 +84,13 @@
 														name="numero" 
 														id="numero" 
 														value="" 
+														maxlength="3" 
 														placeholder="N° Dias a Pagar" 
 														required 
 														oninput="validacion(this)"
 														onkeypress="javascript:return isNumberKey(event)" 
 														onkeyup="calculo_a_pagar();saltar(event,'boton_6')" />
+
 											</div>		
 										</div>
 										<br/>
@@ -114,7 +116,7 @@
 														type="text" 
 														name="monto" 
 														id="monto" 
-														value="" 
+														value="$" 
 														placeholder="$"
 														readonly />
 										

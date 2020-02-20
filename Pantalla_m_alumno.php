@@ -76,7 +76,17 @@
 											
 
 											<div class="4u$ 12u$(xsmall)" style="text-align: left">
-											<input type="text" name="numer" id="numer"  value="" placeholder="Introduzca N° Carnet " required oninput="validacion(this)"   maxlength="3" pattern="([0-9]{3,3})"  />
+											<input 
+                      type="text" 
+                      name="numer" 
+                      id="numer"  
+                      value="" 
+                      placeholder="Introduzca N° Carnet " 
+                      required oninput="validacion(this)"   
+                      maxlength="3" 
+                      pattern="([0-9]{3,3})"
+                      onkeyup="saltar(event,'buscar')"
+                        />
 											</div>
 										     
 										    <ul class="actions" style="text-align:center" >
@@ -97,7 +107,7 @@
 												<input type="text" name="telefono" id="telefono" value=""  placeholder="N° Celular Reprecentante " pattern="([1-9][0-9]{9,9})" required oninput="validacion(this)" maxlength="10" />
 											</div>
 											<br/>
-											<select name="c" id="tipo_Estatus">
+											<select name="tipo_Estatus" id="tipo_Estatus">
                                                  <option value='0'>Seleccione Tipo Alumno..</option>
                                                  <option value='1'>Regular</option>
                                                  <option value='2'>Becado 50%</option>
@@ -127,7 +137,7 @@
 										
 															
 												<ul class="actions" style="text-align: center" >
-												<li><input id="boton_4" style="text-align: center"  name="guardar" type="button" value="Actualizar  Alumno" class="principal"/></li>
+												<li><input id="boton_4" style="text-align: center"  name="boton_4" type="button" value="Actualizar  Alumno" class="principal"/></li>
 
 
 											</ul>
@@ -287,9 +297,9 @@ $(document).ready(function()
           pol=pol*validacion(document.getElementById("tipo_Estatus"));
           pol=pol*validacion(document.getElementById("cantidad"));  
           pol=pol*validacion(document.getElementById("precio")); 
-     
+          pol=1; 
 
-
+          var numer="&numer="+$('#numer').val();
           var name="&name="+$('#name').val();
           var curp="&curp="+$('#curp').val();
           var telefono="&telefono="+$('#telefono').val();
@@ -298,61 +308,49 @@ $(document).ready(function()
           var cantidad="&cantidad="+$('#cantidad').val();
           var precio="&precio="+$('#precio').val();
 
-   
-     
-       
-       if(pol==0)
-       {
-                  
-              
-             alert('Por favor, Verificar los datos');
+          if(pol==0)
+          {
+                alert('Por favor, Verificar los datos');
+          }      
+          else
+          {
 
-                  
-       }      
-       else
-       {
-
-           if($('#name').val()==""||$('#curp').val()==""||$('#telefono').val()==""||$('#tipo_Estatus').val()=='0'||$('#tipo').val()=='0'|| $('#cantidad').val()=="" || $('#precio').val()=="" )
-           {
-               alert("Por favor, Verificar los datos");
-           }
-           else
-           {      
-
-
-
-
-
-           
-               var Parametros=$$('#numer').val();
-
-               $.ajax(
+                if($('#name').val()==""||$('#curp').val()==""||$('#telefono').val()==""||$('#tipo_Estatus').val()=='0'||$('#tipo').val()=='0'|| $('#cantidad').val()=="" || $('#precio').val()=="" )
+                {
+                  alert("Por favor, Verificar los datos");
+                }
+                else
+                {      
+                datos=numer+name+curp+telefono+tipo_Estatus+tipo+cantidad+precio;
+                $.ajax(
                        {
                           url: "modificar_alumno.php",
-                          data: Parametros,
+                          data: datos,
                           type: 'POST',
                           beforeSend: function() 
                           {     
                               //$("#Loading").css("display","");
                           },
-                          success: function(r)
+                          success: function(Resultado)
                           {
 
-                           if(r==1)
- 				           {
- 				              alert("Actualizado con éxito");
- 				              window.location.reload(); 
-				           }
-				           else
-				           {
-				              alert("Error en Servidor....");
+                           var val = Resultado.split('');
+                           
+                            if(val==1)
+ 				                   {
+ 				                      alert("Error en Servidor....");
+				                   }
+				                   else
+				                   {
+				                      
+                              alert("Actualizado con éxito....");
+                              window.location.reload(); 
+                              
                            }
 
-                            
-                           
-
-                          }
-                        });
+                        }
+                  });
+            
             }  
         
 
@@ -366,7 +364,26 @@ $(document).ready(function()
      
 
 }); 
+function saltar(e,id)
+{
+  // Obtenemos la tecla pulsada
+  (e.keyCode)?k=e.keyCode:k=e.which;
+ 
+  // Si la tecla pulsada es enter (codigo ascii 13)
+  if(k==13)
+  {
+    // Si la variable id contiene "submit" enviamos el formulario
+    if(id=="submit")
+    {
+      document.forms[0].submit();
+    }else{
+      // nos posicionamos en el siguiente input
+      document.getElementById(id).focus();
+    }
+  }
 
+  
+}
      
      
 
