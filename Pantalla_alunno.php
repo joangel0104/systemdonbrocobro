@@ -31,34 +31,33 @@
 									<a href="#menu" class="menuToggle"><span>Menu</span></a>
 									<div id="menu">
 										<ul>
-											<li><a href="Pantalla_precio_comida.php">Establezer Precio Comida</a></li>
+											<li><a href="Pantalla_precio_comida.php"><img height="20" src="images/nuevo.png"> Nuevo Precio Comida</a></li>
 										</ul> 
-                                         <ul>
-											<li><a data-toggle="modal" data-target="#add_data_Modal">Generar Carnet</a></li>
-										</ul>
-
 										<ul>
-											<li><a href="Pantalla_cobro.php">Control de Pago</a></li>
+											<li><a href="Pantalla_carnet.php"><img height="20" src="images/carnet.png"> Generar Carnet</a></li>
+										</ul>
+                                          <ul>
+											<li><a href="Pantalla_cobro.php"><img height="20" src="images/pago.png"> Control de Pago</a></li>
 										</ul>
 										
 										  <ul>
-											<li><a href="Pantalla_asistencia.php">Control Asistencia  </a></li>
+											<li><a href="Pantalla_asistencia.php"><img height="20" src="images/control.png"> Control Asistencia  </a></li>
 										</ul>
 									    <ul>
-											<li><a href="Pantalla_alunno.php">Agregar Alumno  </a></li>
+											<li><a href="Pantalla_alunno.php"><img height="20" src="images/agregar.png">   Agregar Alumno  </a></li>
 										</ul>
 										 <ul>
-											<li><a href="Pantalla_m_alumno.php">Actualizar Alumno  </a></li>
+											<li><a href="Pantalla_m_alumno.php"><img height="20" src="images/recargar.png"> Actualizar Alumno  </a></li>
 										</ul>
 										 <ul>
-											<li><a href="Pantalla_consulta_alumno.php">Consultar Alumno</a></li>
+											<li><a href="Pantalla_consulta_alumno.php"><img height="20" src="images/lupa.png">  Consultar Alumno</a></li>
 										</ul>
 										 
 
 
 
 										 <ul>
-											<li><a href="">Reportes</a></li>
+											<li><a href=""><img height="20" src="images/reportar.png"> Reportes</a></li>
 										</ul>
 									</div>
 								</li>
@@ -135,57 +134,7 @@
 
 
 
-                </div>
-                <div id="add_data_Modal" class="modal fade">
- <div class="modal-dialog">
-  <div class="modal-content">
-   <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal">&times;</button>
-    <h4 class="modal-title">Generar Carnet</h4>
-   </div>
-   <div class="modal-body">
-    <form method="post" id="insert_form">
-     
-     <input type="text" name="name" id="name" class="form-control"placeholder="Introduzca Codigo de Carnet"  />
-     <br>
-    
-     <input type="submit" name="insert" id="insert" value="Generar" class="btn btn-success" />
-
-    </form>
-   </div>
-   <div class="modal-footer">
-    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-   </div>
-  </div>
- </div>
-</div>
-
-<div id="dataModal" class="modal fade">
- <div class="modal-dialog">
-  <div class="modal-content">
-   <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal">&times;</button>
-    <h4 class="modal-title">Employee Details</h4>
-   </div>
-   <div class="modal-body" id="employee_detail">
-    
-   </div>
-   <div class="modal-footer">
-    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-   </div>
-  </div>
- </div>
-</div>
-
-  
-    
-   
-    
-    </div>
-   </div>  
-  </div>
-
-
+               
 		
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>

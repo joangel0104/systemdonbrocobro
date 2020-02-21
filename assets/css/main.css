@@ -1,6 +1,5 @@
 
 
-
 #buscar
 {
   margin-left: -185%;
@@ -30,6 +29,7 @@
 #boton_1
 {
   margin-left: 170%;
+ background-color: #27c147;
 
 }
 #boton_2
@@ -2441,7 +2441,7 @@ margin-left: 2%;
 		input[type="button"].principal,
 		button.principal,
 		.button.principal {
-			background-color: #2e3842;
+			background-color: #27c147;
 			box-shadow: none !important;
 			color: #ffffff !important;
 			

@@ -18,7 +18,7 @@
 				<header id="header">
 					<img name="imagen" src="images/logo.png" >
 
-					<h1><a href="index.html">System Don BRO</a></h1>
+					<h1><a href="">System Don BRO</a></h1>
 					
 					<nav id="nav">
 
@@ -27,26 +27,34 @@
 								<a href="#menu" class="menuToggle"><span>Menu</span></a>
 								<div id="menu">
 									<ul>
-										<li><a href="Pantalla_precio_comida.php">Establezer Precio Comida</a></li>
-									</ul> 
-									<ul>
-										<li><a href="Pantalla_cobro.php">Control de Pago</a></li>
-									</ul>
-									<ul>
-										<li><a href="Pantalla_asistencia.php">Control Asistencia  </a></li>
-									</ul>
-								    <ul>
-										<li><a href="Pantalla_alunno.php">Agregar Alumno  </a></li>
-									</ul>
-									 <ul>
-										<li><a href="Pantalla_m_alumno.php">Actualizar Alumno  </a></li>
-									</ul>
-									 <ul>
-										<li><a href="Pantalla_consulta_alumno.php">Consultar Alumno</a></li>
-									</ul>
-									 <ul>
-										<li><a href="">Reportes</a></li>
-									</ul>
+											<li><a href="Pantalla_precio_comida.php"><img height="20" src="images/nuevo.png"> Nuevo Precio Comida</a></li>
+										</ul> 
+										<ul>
+											<li><a href="Pantalla_carnet.php"><img height="20" src="images/carnet.png"> Generar Carnet</a></li>
+										</ul>
+                    <ul>
+											<li><a href="Pantalla_cobro.php"><img height="20" src="images/pago.png"> Control de Pago</a></li>
+										</ul>
+										
+										  <ul>
+											<li><a href="Pantalla_asistencia.php"><img height="20" src="images/control.png"> Control Asistencia  </a></li>
+										</ul>
+									    <ul>
+											<li><a href="Pantalla_alunno.php"><img height="20" src="images/agregar.png">   Agregar Alumno  </a></li>
+										</ul>
+										 <ul>
+											<li><a href="Pantalla_m_alumno.php"><img height="20" src="images/recargar.png"> Actualizar Alumno  </a></li>
+										</ul>
+										 <ul>
+											<li><a href="Pantalla_consulta_alumno.php"><img height="20" src="images/lupa.png">  Consultar Alumno</a></li>
+										</ul>
+										 
+
+
+
+										 <ul>
+											<li><a href=""><img height="20" src="images/reportar.png"> Reportes</a></li>
+										</ul>
 
 								</div>
 							</li>
@@ -65,6 +73,7 @@
                                              <option value='1'>Efectivo</option>
                                              <option value='2'>Deposito</option>
                                              <option value='3'>Pago Diario</option>
+                                              <option value='4'>Vale</option>
                                         </select>
 						            <br/>
 									<form method="post" action="#">

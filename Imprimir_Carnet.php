@@ -39,29 +39,34 @@
 
                    $html .='
 
-                             <table  width="300" cellspacing="1" cellpadding="3" border="1" bgcolor="#165480">
+                        
+                              
+                            <table height="100"  width="300" cellspacing="1"  bgcolor="#165480">
                              <tr>
-                             <td  text-align="right" height="110"  bgcolor="#fff">
+                             <td  text-align="right" height="10"  bgcolor="#fff">
       
-                             <font   size=2 face="verdana, arial, helvetica">
-                             <br>  
-                             <b >     CARNET DE PAGO COMEDOR DON BRO <br></b>
-                             <br>   
-                             <b >     Codigo Carnet:  '.$aux1.'</b>
-                             <br> 
-                             <br>  
+                            
                              <div  id="logo">
-                                    <img height="120" src="images/logoo.png">
-                                     <img height="120" src="'.$filename.'" />
+                                    
+                                     <img  height="150" src="images/modelo.png">
+                                     <h4 style="">'.$aux1.'</h4>
+                                     <img  style=" margin-left: 190px; margin-bottom:200px;  margin-top: -150px; height: 70px; width: 70px;"  src="'.$filename.'" />
+
+                                     <br>
+
    
                              </div>
 
 
-                             <b> </b>
-                             </font>
+                            
+                             
                              </td>
                              </tr>
                              </table>
+
+
+
+                            
                           ';
                            $mpdf= new mPDF('c','A6'); 
                            $css=file_get_contents('assets/css/style.css');
@@ -80,4 +85,4 @@
                   
                
   ?>
- 
+   
