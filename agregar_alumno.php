@@ -1,46 +1,70 @@
 
 <?php
-  
- $conex=mysqli_connect('localhost','root','','servidor.cobro');
- 
 
-  
-    $v1=$_POST['name'];
-    $v2=$_POST['numer'];
-    $v3=$_POST['telefono'];
-    $v4=$_POST['tipo_Estatus'];
-    $v5=$_POST['cantidad'];
-    $v6=$_POST['precio'];
-    $v7='1';
-   
-    function generarCodigo($longitud) 
-    {
-     $key = '';
-     $pattern = '1234567890';
-     $max = strlen($pattern)-1;
-     for($i=0;$i < $longitud;$i++) $key .= $pattern{mt_rand(0,$max)};
-     return $key;
+    $datos = $_POST;
+    $datos['codigo'] = generar_random();
+    if ($datos['codigo'] != -1) {
+        $datos['estatus'] = "ACTIVO";
+        $datos['credito_comida'] = 5;
+        insertar_tabla($datos);    
+    } else{
+        echo "-1";
     }
-    $codigos=generarCodigo(3);
-   
- 
-      $sql="SELECT curp_alumno FROM tabla_alumno WHERE curp_alumno='$v2'";
 
-    $result=mysqli_query($conex,$sql);
-         $rowcount=mysqli_num_rows($result); 
-        
-         if($rowcount > 0)
-         {
-            
-            echo 1;
-        
- }else
-         {
-            $vSQL1="INSERT INTO tabla_alumno(nombre_alumno,curp_alumno,celular_alumno,id_tipo,grado_alumno,seccion_alumno,codigo,id_estatus) VALUES ('$v1','$v2','$v3','$v4','$v5','$v6','$codigos','$v7')";
-           
-           
-            mysqli_query($conex, $vSQL1);
-            echo 0;
-            
-         }
-?>
+    //este es un codigo generico creado por la experiencia
+    function insertar_tabla($datos=[],$tabla='alumnos')
+    {
+        $conex=mysqli_connect('localhost','root','','servidor.cobro');
+        $sql = "INSERT INTO ".$tabla;
+        $campos = "(";
+        $valores ="VALUES (";
+        foreach ($datos as $key => $value) {
+            $campos.="`".$key."`,";
+            $valores.="'".$value."',";
+        }
+        $campos = substr_replace($campos,") ", strlen($campos)-1);
+        $valores = substr_replace($valores,")", strlen($valores)-1);
+        $sql.=$campos.$valores;
+        $result = (int)mysqli_query($conex, $sql);
+        mysqli_close($conex);
+        echo $result;
+    }
+    //genera el codigo para el alumno
+    function generar_random(){
+        $numeros = file_get_contents("ramdon_numbers.json");
+        $numeros = json_decode($numeros);
+        if (sizeof($numeros) == 0) {
+            return -1;
+        }
+        $ramdon = mt_rand(0,(sizeof($numeros)-1));
+        $nuevos_numeros = [];
+        for ($i=0; $i < sizeof($numeros); $i++) { 
+            if ($i != $ramdon) {
+                $nuevos_numeros[] = $numeros[$i];
+            } else {
+                $codigo = $numeros[$i];
+            }
+        }
+        EditarJson($nuevos_numeros);
+        if ($codigo < 10) {
+            $codigo = "00".$codigo;
+        } else if ($codigo < 100) {
+            $codigo = "0".$codigo;
+        }
+        return $codigo;
+    }
+
+    function EditarJson($numeros){
+        $archivo = "ramdon_numbers.json";
+        $archivo = fopen($archivo, "w+");
+        fwrite($archivo, json_encode($numeros));
+        fclose($archivo);
+    }
+    //llena el archivo json solo se usa cuando es necesario
+    function llenarJson(){
+        $nuevos_numeros=[];
+        for ($i=0; $i < 1000; $i++) { 
+            $nuevos_numeros[]=$i;
+        }
+        EditarJson($nuevos_numeros);
+    }
