@@ -15,6 +15,7 @@ WHERE a.id_tipo=b.id_tipo AND a.id_estatus=c.id_estatus ORDER BY a.grado_alumno 
 
 <html>
 	<head>
+     <link  rel="icon"   href="images/logo.png" type="image/png" />
 		<title>System Don BRO</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -66,7 +67,7 @@ WHERE a.id_tipo=b.id_tipo AND a.id_estatus=c.id_estatus ORDER BY a.grado_alumno 
 
 
                      <ul>
-                      <li><a href=""><img height="20" src="images/reportar.png"> Reportes</a></li>
+                      <li><a href="pantalla_reportes.php"><img height="20" src="images/reportar.png"> Reportes</a></li>
                     </ul>
                   </div>
                 </li>

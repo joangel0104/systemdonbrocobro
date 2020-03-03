@@ -13,12 +13,15 @@
       
 
 
-               $sql="SELECT codigo FROM tabla_alumno WHERE codigo='$name'";
+               $sql="SELECT codigo,nombre_alumno,grado_alumno,seccion_alumno FROM tabla_alumno WHERE codigo='$name'";
                $stmt1 = mysqli_query($conexion, $sql);
  
                    $row=mysqli_fetch_array($stmt1, MYSQLI_NUM);
                   
                    $aux1=$row['0'];
+                    $aux2=$row['1'];
+                     $aux3=$row['2'];
+                      $aux4=$row['3'];
                   
 
               if($aux1==!0)
@@ -32,8 +35,11 @@
                        $tamanio = 5;
                        $level = 'H';
                        $frameSize = 1;
-                       $contenido = $aux1;
 
+                         $contenido= "$aux1" ."  ". "$aux2" ." ". "$aux3" . "$aux4" ;
+                       
+                      
+                      
                    QRcode::png($contenido, $filename, $level, $tamanio, $frameSize);
 
 
@@ -41,18 +47,19 @@
 
                         
                               
-                            <table height="100"  width="300" cellspacing="1"  bgcolor="#165480">
-                             <tr>
-                             <td  text-align="right" height="10"  bgcolor="#fff">
+                           
+                            
       
                             
                              <div  id="logo">
                                     
-                                     <img  height="150" src="images/modelo.png">
-                                     <h4 style="">'.$aux1.'</h4>
-                                     <img  style=" margin-left: 190px; margin-bottom:200px;  margin-top: -150px; height: 70px; width: 70px;"  src="'.$filename.'" />
+                                     <img  height="160" src="images/modelo.png">
+                                     <td style="font-size: 2em; text-align: center;"  height="10"  bgcolor="#fff">N° '.$aux1.' </td>
 
-                                     <br>
+                                     
+                                     <img  style=" margin-left: 200px; margin-bottom:200px;  margin-top: -150px; height: 70px; width: 70px;"  src="'.$filename.'" />
+                                     
+
 
    
                              </div>
@@ -60,9 +67,7 @@
 
                             
                              
-                             </td>
-                             </tr>
-                             </table>
+                            
 
 
 
@@ -85,4 +90,11 @@
                   
                
   ?>
-   
+   <style >
+.title
+{
+  margin-left: 100px;
+  width: 100
+}
+
+</style>   

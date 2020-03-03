@@ -2,6 +2,7 @@
 
 <html>
 	<head>
+		 <link  rel="icon"   href="images/logo.png" type="image/png" />
 		<title>System Don BRO</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -57,7 +58,7 @@
 
 
 										 <ul>
-											<li><a href=""><img height="20" src="images/reportar.png"> Reportes</a></li>
+											<li><a href="pantalla_reportes.php"><img height="20" src="images/reportar.png"> Reportes</a></li>
 										</ul>
 									</div>
 								</li>
@@ -80,10 +81,8 @@
 											</div>
 											<br/>
 
-											<div class="4u$ 12u$(xsmall)" style="text-align: left">
-												<input type="text" name="numer" id="numer" value="" placeholder="N° CURP" maxlength="18" required oninput="validacion(this)" pattern="[A-Z0-9]{18,18}" onkeypress="mayus1(this)" />
-											</div>
-											<br/>
+											
+											
 
 											<div class="4u$ 12u$(xsmall)">
 												<input type="text" name="telefono" id="telefono" value=""  placeholder="N° Celular Reprecentante " pattern="([1-9][0-9]{9,9})" required oninput="validacion(this)" maxlength="10" />
@@ -109,8 +108,11 @@
 											</div>	
 
 										<br/>
-										
-															
+										<textarea id="comentarios" name="comentarios" rows="5" cols="35">Escriba aquí sus observaciones..</textarea>
+												
+										<br/>			
+												
+
 												<ul class="actions" style="text-align: center" >
 												<li><input id="boton_2" style="text-align: center"  name="guardar" type="button" value="Agregar Alumno" class="principal"/></li>
 

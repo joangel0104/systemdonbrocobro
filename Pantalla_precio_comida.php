@@ -4,6 +4,7 @@
 
 <html>
 	<head>
+		 <link  rel="icon"   href="images/logo.png" type="image/png" />
 		<title>System Don BRO</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -54,7 +55,7 @@
 
 
 										 <ul>
-											<li><a href=""><img height="20" src="images/reportar.png"> Reportes</a></li>
+											<li><a href="pantalla_reportes.php"><img height="20" src="images/reportar.png"> Reportes</a></li>
 										</ul>
 
 									</div>

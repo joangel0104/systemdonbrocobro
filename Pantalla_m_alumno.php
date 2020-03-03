@@ -2,6 +2,7 @@
 
 <html>
 	<head>
+     <link  rel="icon"   href="images/logo.png" type="image/png" />
 		<title>System Don BRO</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -54,7 +55,7 @@
 
 
                      <ul>
-                      <li><a href=""><img height="20" src="images/reportar.png"> Reportes</a></li>
+                      <li><a href="pantalla_reportes.php"><img height="20" src="images/reportar.png"> Reportes</a></li>
                     </ul>
 									</div>
 								</li>
@@ -97,12 +98,8 @@
 											<div class="8u 12u$(xsmall)">
 												<input type="text" name="name" id="name" value=""  placeholder="Nombre y Apellido" maxlength="50"  pattern="([A -z]{3,50})" required oninput="validacion(this)" onkeypress="mayus1(this)"/>
 											</div>
-											<br/>
-                                            <div class="8u 12u$(xsmall)">
-												<input type="text" name="curp" id="curp" value=""  placeholder="N° CURP" maxlength="18" pattern="[A-Z0-9]{18,18}" required oninput="validacion(this)" onkeypress="mayus(this)"/>
-											</div>
-											<br/>
-
+                       <br/>  
+										
 
 											<div class="4u$ 12u$(xsmall)">
 												<input type="text" name="telefono" id="telefono" value=""  placeholder="N° Celular Reprecentante " pattern="([1-9][0-9]{9,9})" required oninput="validacion(this)" maxlength="10" />
@@ -132,9 +129,14 @@
 
 											<div class="2u$ 12u$(xsmall)">
 												<input type="text" name="precio" id="precio" value="" placeholder="Sección alumno "   pattern="([a-z])" required oninput="validacion(this)" maxlength="1" />
-											</div>	
+											</div>
+                      <br/>
+                    <textarea id="comentarios" name="comentarios" rows="5" cols="35">Escriba aquí sus observaciones..</textarea>
+                        
+                    <br/>     
+                      	
 
-										    <br/>
+										   
 										
 															
 												<ul class="actions" style="text-align: center" >
@@ -207,7 +209,7 @@ function mayus1(e)
 
    document.getElementById("boton_4").disabled = true;
    document.getElementById("name").disabled =true;
-   document.getElementById("curp").disabled = true;
+  
    document.getElementById("telefono").disabled = true;
    document.getElementById("tipo_Estatus").disabled =true;
    document.getElementById("tipo").disabled =true;
@@ -259,7 +261,7 @@ function mayus1(e)
                             else
                             {
                               
-                               alert('No Existe en el Registro...')
+                               alert('No Existe en el Registro...');
 
                                 document.getElementById("boton_4").disabled = true;
                                 document.getElementById("name").disabled =true;

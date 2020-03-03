@@ -2,12 +2,19 @@
 
 <html>
 	<head>
+		 <link  rel="icon"   href="images/logo.png" type="image/png" />
 		<title>System Don BRO</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
         <script src="jquery-3.2.1.min.js"></script>
+        <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600|Open+Sans" rel="stylesheet"> 
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+	
     </head>
 
 
@@ -53,7 +60,7 @@
 
 
 										 <ul>
-											<li><a href=""><img height="20" src="images/reportar.png"> Reportes</a></li>
+											<li><a href="pantalla_reportes.php"><img height="20" src="images/reportar.png"> Reportes</a></li>
 										</ul>
 
 								</div>
@@ -98,15 +105,16 @@
 														required 
 														oninput="validacion(this)"
 														onkeypress="javascript:return isNumberKey(event)" 
-														onkeyup="calculo_a_pagar();saltar(event,'boton_6')" />
+														onkeyup="calculo_a_pagar();saltar(event,'btn-abrir-popup')" />
 
 											</div>		
 										</div>
 										<br/>
 										<div class="12u$">
-											<ul class="actions" style="text-align: center" >
+											<ul class="actions"   style="text-align: center" >
 												<li>
-													<button id="boton_6" 
+													<button 
+													        id="btn-abrir-popup"
 															style="text-align: center" 
 															name="guardar" 
 															type="button" 
@@ -147,7 +155,27 @@
 					</article>
 			</div>
 
-			<!-- Scripts -->
+
+<div class="overlay" id="overlay">
+			<div class="popup" id="popup">
+				<a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
+				<h3>Pago Exitoso..</h3>
+				
+				<form action="">
+					<div class="contenedor-inputs">
+					    <label>Monto a pagar</label>
+						<input type="text" placeholder="$">
+						<input type="text" placeholder="Recibe">
+						<label>Cambio</label>
+						<input type="text" placeholder="$">
+					</div>
+					
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<script src="popup.js"></script>
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>
 			<script src="assets/js/jquery.scrolly.min.js"></script>
@@ -208,9 +236,10 @@
 							    success: await function(r) {
 							    	console.log('erre',r);
 								    if(r==1) {
-								        alert("Pago Exitoso");
+								        
 								        get_render_table();
 								        //window.location.reload(); 
+
 								    } else {
 								       alert("Error de Servidor");
 
