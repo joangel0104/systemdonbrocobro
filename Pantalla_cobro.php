@@ -86,7 +86,9 @@
 														maxlength="3" 
 														placeholder="Introduzca N° Carnet " 
 														required 
-														oninput="validacion(this)" onkeyup="saltar(event,'numero')"/>
+														onblur="relacion_credito = get_relacion_creditos()" 
+														oninput="validacion(this)" 
+														onkeyup="saltar(event,'numero')"/>
 											</div>
 											<div class="4u$ 12u$(xsmall)">
 												<input 	type="text" 
@@ -98,7 +100,8 @@
 														required 
 														oninput="validacion(this)"
 														onkeypress="javascript:return isNumberKey(event)" 
-														onkeyup="calculo_a_pagar();saltar(event,'boton_6')" />
+														onkeyup="	calculo_a_pagar();
+																	saltar(event,'boton_6')" />
 
 											</div>		
 										</div>
@@ -177,7 +180,10 @@
 
 	function isJson(argument) {
 		try{
-			JSON.parse(argument)
+			let a = JSON.parse(argument);
+			if (a == null) {
+				return false;
+			}
 		} catch (e){
 			return false;
 		}
@@ -185,14 +191,18 @@
 	}
 	//ajax del metodo get para consultar la relacion pecio;
 	async function get_relacion_creditos() {
+		let datos = {};
+		datos.codigo = $('#codigo').val();
 		let response = await $.ajax({
-						type:"GET",
+						type:"POST",
+						data:datos,
 					    url:"consulta_relacion_credito.php",
 					    success: await function(repuesta) {
 						    if(isJson(repuesta)) {
-						        return repuesta;
+								relacion_credito = JSON.parse(repuesta);
+						        return relacion_credito;
 						    } else {
-						       alert("Error de Servidor");
+						       alert("Codigo invalido");
 						       return false;
 				            }
 						}
@@ -206,14 +216,12 @@
 							    url:"agregar_pago.php",
 							    data:datos,
 							    success: await function(r) {
-							    	console.log('erre',r);
 								    if(r==1) {
 								        alert("Pago Exitoso");
 								        get_render_table();
-								        //window.location.reload(); 
 								    } else {
-								       alert("Error de Servidor");
-
+								    	console.log(r);
+								    	alert("Error de Servidor");
 						            }
 								}
 							});		
@@ -249,23 +257,25 @@
 		datos.numero = $('#numero').val();
 		datos.tipo_pago = document.getElementById("tipo_Estatus").value;
 		datos.monto = parseFloat($('#monto').val()).toFixed(2);
-		console.log(datos);
-		//return;
+		//validaciones extras
+		if(!relacion_credito.hasOwnProperty('precio_comida')){
+			alert('no se puede realizar la peticion');
+			return;
+		} else if(parseInt(relacion_credito.precio_comida) == 0){
+			alert('no se puede realizar la peticion a alumnos cuya beca es gratuita');
+			return;
+		} else if(parseFloat(datos.monto) <=0){
+			alert('el valor del monto es inapropiado');
+			return;
+		}
 		if($('#name').val()==""||$('#numero').val()=="") {
 	       alert("Por favor, Verificar los datos");
 	   	} else {           
-
 	        await post_agregar_pago(datos);
-	        
 	    }
-	
 	}
 
 	async function main() {
-		relacion_credito = await get_relacion_creditos();
-		if(isJson(relacion_credito)){
-			relacion_credito = JSON.parse(relacion_credito);
-		}
 		get_render_table(); 
 	};
 
@@ -283,41 +293,35 @@
 	}
 
 	async function calculo_a_pagar() {
-		relacion_credito;
+		if(!relacion_credito.hasOwnProperty('precio_comida')){
+			alert('no se ha adquirido el precio de pago de este codigo');
+			return;
+		}
 		numero = await parseInt($('#numero').val());
-		await console.log(numero);
 		if (isNaN(numero)) {
 			$('#monto').val('');	
 		} else {
-			let precio = (parseInt(numero)/parseInt(relacion_credito.credito_actual))*parseFloat(relacion_credito.precio_actual)
+			let precio = (parseInt(numero))*parseFloat(relacion_credito.precio_comida)
 			$('#monto').val(parseFloat(precio).toFixed(2));
 		}
 	}
 
 	$(document).ready(main());
 
-
-
-
-	function saltar(e,id)
-{
-	// Obtenemos la tecla pulsada
-	(e.keyCode)?k=e.keyCode:k=e.which;
- 
-	// Si la tecla pulsada es enter (codigo ascii 13)
-	if(k==13)
-	{
-		// Si la variable id contiene "submit" enviamos el formulario
-		if(id=="submit")
-		{
-			document.forms[0].submit();
-		}else{
-			// nos posicionamos en el siguiente input
-			document.getElementById(id).focus();
+	function saltar(e,id){
+		// Obtenemos la tecla pulsada
+		(e.keyCode)?k=e.keyCode:k=e.which;
+		// Si la tecla pulsada es enter (codigo ascii 13)
+		if(k==13) {
+			// Si la variable id contiene "submit" enviamos el formulario
+			if(id=="submit"){
+				//hacemos el pago
+				agregar_pago();
+			}else{		
+				document.getElementById(id).focus();
+			}
 		}
+		/* aqui preuba*/
 	}
-
-	/* aqui preuba*/
-}
 
 </script>

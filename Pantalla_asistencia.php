@@ -52,12 +52,8 @@
 										</ul>
 										 <ul>
 											<li><a href="Pantalla_consulta_alumno.php"><img height="20" src="images/lupa.png">  Consultar Alumno</a></li>
-										</ul>
-										 
-
-
-
-										 <ul>
+										</ul> 
+										<ul>
 											<li><a href=""><img height="20" src="images/reportar.png"> Reportes</a></li>
 										</ul>
 
