@@ -2,6 +2,7 @@
 <html>
 <head>
 	<?php require 'vistas/head.php';?>
+	<?php require 'vistas/headportlet.php';?>
 </head>
 <body>
 	<div id="page-wrapper">
@@ -12,9 +13,7 @@
 					<section>
 						<h4 style="text-align: center;">Alumnos listados por grupos</h4>
 						<br/>  
-						<form method="post" action="#">
-							
-						</form>
+						<?php require'vistas/portlet.php' ?>
 					</section>
 					<br> 
 					<br>
