@@ -1,5 +1,4 @@
  <!-- BEGIN CORE PLUGINS-->
-
 <script src="./assets/gato/global/plugins/jquery.min.js" type="text/javascript"></script>
 <script src="./assets/gato/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="./assets/gato/global/plugins/js.cookie.min.js" type="text/javascript"></script>
