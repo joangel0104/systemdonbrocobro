@@ -255,6 +255,23 @@ width:67%;
      
 
 }
+#beca_id
+{
+	 width:33.3%;
+}
+#observacion
+{
+
+	width: 760px;
+    height: 130px;
+}
+#guardaralumno
+{
+	margin-left: -50%;
+
+}
+
+
 #boton_1
 {
   margin-left: 170%;

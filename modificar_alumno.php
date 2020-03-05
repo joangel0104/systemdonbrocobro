@@ -5,7 +5,7 @@ var_dump($_POST);
 
  $numer=$_POST['numer'];
  $v1=$_POST['name'];
- $v2=$_POST['curp'];
+ $v2=$_POST['comentarios'];
  $v3=$_POST['telefono'];
  $v4=$_POST['tipo_Estatus'];
  $v7=$_POST['tipo']; 
@@ -17,7 +17,7 @@ var_dump($_POST);
   
 
 
-    $vSQL="UPDATE tabla_alumno SET nombre_alumno='$v1',curp_alumno='$v2',celular_alumno='$v3',id_tipo='$v4',seccion_alumno='$v6',grado_alumno='$v5',id_estatus='$v7' WHERE codigo='$numer'";
+    $vSQL="UPDATE alumnos SET nombre='$v1',observacion='$v2',celular='$v3',beca_id='$v4',seccion='$v6',grado='$v5',id_estatus='$v7' WHERE codigo='$numer'";
     echo mysqli_query($conex,$vSQL);
 
 

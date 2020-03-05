@@ -1,9 +1,9 @@
 <?php
 
   $conexion=mysqli_connect('localhost','root','','servidor.cobro');
-  $sql="SELECT a.codigo,a.nombre_alumno,a.curp_alumno,a.celular_alumno,b.tipo,a.grado_alumno,a.seccion_alumno,c.estatus
-FROM tabla_alumno AS a, tipo_alumno AS b ,estatus_alumno AS c
-WHERE a.id_tipo=b.id_tipo AND a.id_estatus=c.id_estatus ORDER BY a.grado_alumno ASC ,a.seccion_alumno ASC  "; 
+  $sql="SELECT codigo,nombre,beca_id,celular,grado,seccion,estatus
+FROM alumnos
+ ORDER BY grado ASC ,seccion ASC  "; 
   $stmt1 = mysqli_query($conexion, $sql);
   
  

@@ -5,7 +5,7 @@
 
  $v1=$_POST['numer'];
 
- $sql="SELECT codigo,nombre_alumno,curp_alumno,celular_alumno,grado_alumno,seccion_alumno FROM tabla_alumno WHERE codigo='$v1'";
+ $sql="SELECT codigo,nombre,observacion,celular,grado,seccion FROM alumnos WHERE codigo='$v1'";
  $stmt1 = mysqli_query($conexion, $sql);
  
  $row=mysqli_fetch_array($stmt1, MYSQLI_NUM);

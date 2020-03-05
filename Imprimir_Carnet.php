@@ -13,7 +13,7 @@
       
 
 
-               $sql="SELECT codigo,nombre_alumno,grado_alumno,seccion_alumno FROM tabla_alumno WHERE codigo='$name'";
+               $sql="SELECT codigo,nombre,grado,seccion FROM alumnos WHERE codigo='$name'";
                $stmt1 = mysqli_query($conexion, $sql);
  
                    $row=mysqli_fetch_array($stmt1, MYSQLI_NUM);

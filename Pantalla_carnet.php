@@ -1,9 +1,11 @@
 <?php
 
   $conexion=mysqli_connect('localhost','root','','servidor.cobro');
-  $sql="SELECT a.codigo,a.nombre_alumno,b.tipo,a.grado_alumno,a.seccion_alumno,c.estatus
-FROM tabla_alumno AS a, tipo_alumno AS b ,estatus_alumno AS c
-WHERE a.id_tipo=b.id_tipo AND a.id_estatus=c.id_estatus ORDER BY a.grado_alumno ASC ,a.seccion_alumno ASC  "; 
+  $sql="SELECT a.codigo,a.nombre,b.nombre,a.grado,a.seccion,a.estatus
+FROM alumnos a
+INNER JOIN becas b ON a.beca_id=b.id
+ ORDER BY grado ASC ,seccion ASC 
+ "; 
   $stmt1 = mysqli_query($conexion, $sql);
   
  
@@ -56,7 +58,7 @@ WHERE a.id_tipo=b.id_tipo AND a.id_estatus=c.id_estatus ORDER BY a.grado_alumno 
 											<li><a href="Pantalla_asistencia.php"><img height="20" src="images/control.png"> Control Asistencia  </a></li>
 										</ul>
 									    <ul>
-											<li><a href="Pantalla_alunno.php"><img height="20" src="images/agregar.png">   Agregar Alumno  </a></li>
+											<li><a href="Pantalla_alumno.php"><img height="20" src="images/agregar.png">   Agregar Alumno  </a></li>
 										</ul>
 										 <ul>
 											<li><a href="Pantalla_m_alumno.php"><img height="20" src="images/recargar.png"> Actualizar Alumno  </a></li>

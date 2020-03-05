@@ -42,7 +42,7 @@
                       <li><a href="Pantalla_asistencia.php"><img height="20" src="images/control.png"> Control Asistencia  </a></li>
                     </ul>
                       <ul>
-                      <li><a href="Pantalla_alunno.php"><img height="20" src="images/agregar.png">   Agregar Alumno  </a></li>
+                      <li><a href="Pantalla_alumno.php"><img height="20" src="images/agregar.png">   Agregar Alumno  </a></li>
                     </ul>
                      <ul>
                       <li><a href="Pantalla_m_alumno.php"><img height="20" src="images/recargar.png"> Actualizar Alumno  </a></li>
@@ -115,8 +115,8 @@
 											<br/>
 											<select name="tipo" id="tipo">
                                                  <option value='0'>Seleccione Estatus Alumno..</option>
-                                                 <option value='1'>Activo</option>
-                                                 <option value='2'>Inactivo</option>
+                                                 <option value='Activo'>Activo</option>
+                                                 <option value='Inactivo'>Inactivo</option>
                                                  
                                             </select>
                                             <br/>
@@ -239,15 +239,16 @@ function mayus1(e)
                             if(valor[0]==1)
                             {
                               $('#name').val(valor[1]);
-                              $('#curp').val(valor[2]);
+                              $('#comentarios').val(valor[2]);
                               $('#telefono').val(valor[3]);
                                $('#cantidad').val(valor[4]);
                               $('#precio').val(valor[5]);
+
                              
                                
                                 document.getElementById("boton_4").disabled = false;
                                 document.getElementById("name").disabled =false;
-                                document.getElementById("curp").disabled = false;
+                                document.getElementById("comentarios").disabled = false;
                                 document.getElementById("telefono").disabled = false;
                                 
                                 document.getElementById("tipo_Estatus").disabled =false;
@@ -265,7 +266,7 @@ function mayus1(e)
 
                                 document.getElementById("boton_4").disabled = true;
                                 document.getElementById("name").disabled =true;
-                                document.getElementById("curp").disabled = true;
+                                document.getElementById("comentarios").disabled = true;
                                 document.getElementById("telefono").disabled = true;
                                 
                                 document.getElementById("tipo_Estatus").disabled =true;
@@ -293,7 +294,7 @@ $(document).ready(function()
           pol=1;  
 
           pol=pol*validacion(document.getElementById("name"));
-          pol=pol*validacion(document.getElementById("curp"));
+         
           pol=pol*validacion(document.getElementById("telefono"));
           pol=pol*validacion(document.getElementById("tipo_Estatus"));
           pol=pol*validacion(document.getElementById("cantidad"));  
@@ -302,7 +303,7 @@ $(document).ready(function()
 
           var numer="&numer="+$('#numer').val();
           var name="&name="+$('#name').val();
-          var curp="&curp="+$('#curp').val();
+         
           var telefono="&telefono="+$('#telefono').val();
           var tipo_Estatus="&tipo_Estatus="+$('#tipo_Estatus').val();
           var tipo="&tipo="+$('#tipo').val();
@@ -316,13 +317,13 @@ $(document).ready(function()
           else
           {
 
-                if($('#name').val()==""||$('#curp').val()==""||$('#telefono').val()==""||$('#tipo_Estatus').val()=='0'||$('#tipo').val()=='0'|| $('#cantidad').val()=="" || $('#precio').val()=="" )
+                if($('#name').val()==""||$('#telefono').val()==""||$('#tipo_Estatus').val()=='0'||$('#tipo').val()=='0'|| $('#cantidad').val()=="" || $('#precio').val()=="" )
                 {
                   alert("Por favor, Verificar los datos");
                 }
                 else
                 {      
-                datos=numer+name+curp+telefono+tipo_Estatus+tipo+cantidad+precio;
+                datos=numer+name+comentarios+telefono+tipo_Estatus+tipo+cantidad+precio;
                 $.ajax(
                        {
                           url: "modificar_alumno.php",
