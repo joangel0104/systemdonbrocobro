@@ -1,25 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<?php require 'vistas/headportlet.php';?>
 	<?php require 'vistas/head.php';?>
 </head>
-<body>
+<body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white">
 	<div id="page-wrapper">
 		<?php require 'vistas/header.php';?>
 		<article id="main">
 			<section class="wrapper style5">
-             <div class="inner">
+            	<div class="inner">
 					<section>
-						<h4 style="text-align: center;">Alumnos listados por grupos</h4>
-						<br/>  
-						<form method="post" action="#">
-							
-						</form>
+						<h4 style="text-align: center;">Alumnos listados por grupos</h4>  
 					</section>
-					<br> 
-					<br>
-					<br>
 				</div>
+				<?php require'vistas/container.php' ?>	
 			</section>
 		</article>
 
