@@ -83,7 +83,7 @@ ORDER BY grado ASC ,seccion ASC";
         <div class="inner">
 							
 							
-										
+		 <br>								
 									
   <center>
          

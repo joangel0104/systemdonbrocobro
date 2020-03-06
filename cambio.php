@@ -1,6 +1,6 @@
 <?php
-$importe=500;
-$monto=72;
+$importe=40;
+$monto=216;
  $cambios=$importe-$monto;
 
  
@@ -27,43 +27,7 @@ for($i=0; $i<count($monedas); $i++)
 }
  
 // Bucle para mostrar el resultado
-for($i=0; $i<count($monedas); $i++)
-{
-    if($cambio[$i]>0)
-    {
-        if($monedas[$i]>=5)
-            echo "".$cambio[$i]." billetes de: $".$monedas[$i]." ;<br>";
-        else
-            echo "".$cambio[$i]." monedas de: $".$monedas[$i].";<br>";
-    }
-}
+
 echo "<p>Su cambio es : $".$cambios."</p>";
 ?>
 
-<script>
-function alerta()
-    {
-    var mensaje;
-    var opcion = confirm("Clicka en Aceptar o Cancelar");
-    if (opcion == true) {
-        mensaje = "Has clickado OK";
-    } else {
-        mensaje = "Has clickado Cancelar";
-    }
-    document.getElementById("ejemplo").innerHTML = mensaje;
-}
-</script>
-<html>
-<head>
-       
-         </head>
-
-
-          <body>
-            <p id="ejemplo">En este párrafo se mostrará la opción clickada por el usuario</p>
- 
-<button onclick="alerta()">Clicka para mostrar mensaje</button
-
-
-         </body>
-</html>

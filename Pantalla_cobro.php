@@ -167,7 +167,7 @@
 				
 				<form action="">
 					<div class="contenedor-inputs">
-					    <label>Monto a pagar</label>
+					    <label name="pagar" id="pagar">Monto a pagar</label>
 						<input type="text" placeholder="$">
 						<input type="text" placeholder="Recibe">
 						<label>Cambio</label>
@@ -337,6 +337,7 @@
 		} else {
 			let precio = (parseInt(numero))*parseFloat(relacion_credito.precio_comida)
 			$('#monto').val(parseFloat(precio).toFixed(2));
+			$('#pagar').val(parseFloat(precio).toFixed(2));
 		}
 	}
 

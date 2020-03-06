@@ -131,7 +131,7 @@
 												<input type="text" name="precio" id="precio" value="" placeholder="Sección alumno "   pattern="([a-z])" required oninput="validacion(this)" maxlength="1" />
 											</div>
                       <br/>
-                    <textarea id="comentarios" name="comentarios" rows="5" cols="35">Escriba aquí sus observaciones..</textarea>
+                    <textarea form="usrform" id="comentarios" name="comentarios" rows="3" cols="35">Escriba aquí sus observaciones..</textarea>
                         
                     <br/>     
                       	
@@ -173,13 +173,7 @@
  var band=0;
  var pol=1;
 
-function mayus(e) 
-{
-	 var tecla=e.value;
-     var tecla2=tecla.toUpperCase();
-     $('#curp').val(tecla2);
-    
-}
+
 function mayus1(e) 
 {
     var tecla=e.value;
@@ -323,10 +317,10 @@ $(document).ready(function()
                 }
                 else
                 {      
-                datos=numer+name+comentarios+telefono+tipo_Estatus+tipo+cantidad+precio;
+                datos=numer+name+$('#comentarios').val()+telefono+tipo_Estatus+tipo+cantidad+precio;
                 $.ajax(
                        {
-                          url: "modificar_alumno.php",
+                          url: "actualizar_alumno.php",
                           data: datos,
                           type: 'POST',
                           beforeSend: function() 
@@ -345,8 +339,8 @@ $(document).ready(function()
 				                   else
 				                   {
 				                      
-                              alert("Actualizado con éxito....");
-                              window.location.reload(); 
+                              alert("Actualizado con éxito...."+$('#comentarios').val());
+                             
                               
                            }
 
