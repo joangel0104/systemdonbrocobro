@@ -433,7 +433,7 @@ $(document).ready(function(){
                    if(response==1){
                        window.location.reload();  
                    }else{
-                       alert('Error');
+                       alert('Error.....');
                    }
                }
            }); 
