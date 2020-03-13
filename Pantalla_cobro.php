@@ -107,8 +107,9 @@
 														required 
 														oninput="validacion(this)"
 														onkeypress="javascript:return isNumberKey(event)" 
+														
 
-														onkeyup="calculo_a_pagar();saltar(event,'btn-abrir-popup')" />
+														onkeyup="calculo_a_pagar();saltar(event,'btn-abrir-popup');saltar(event,'recibe')" />
 
 
 											</div>		
@@ -120,11 +121,13 @@
 													<button 
 													        id="btn-abrir-popup"
 															style="text-align: center" 
-															name="guardar" 
+															name="cobrar" 
 															type="button" 
 															value="" 
 															class="principal" 
 															onclick="agregar_pago()" 
+															
+
 														/>
 														Agregar Pago
 														</button>
@@ -164,16 +167,31 @@
 			<div class="popup" id="popup">
 				<a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
 				<h3>Pago Exitoso..</h3>
-				
+				<br>
 				<form action="">
 					<div class="contenedor-inputs">
-					    <label name="pagar" id="pagar">Monto a pagar</label>
-						<input type="text" placeholder="$">
-						<input type="text" placeholder="Recibe">
-						<label>Cambio</label>
-						<input type="text" placeholder="$">
+					   
+						<input  maxlength="4" pattern="([1-9][0-9]{4,4})" onkeyup="vueltas();saltarr(event,'impre')" id="recibe" name="recibe" type="text" placeholder="Recibe" autofocus>
+						<label style="font-size: 1.5em;">Cambio</label>
+						<input id="cambio" name="cambio"  type="text" placeholder="$">
 					</div>
-					
+					                      <div class="12u$">
+											<ul class="actions"   style="text-align: center" >
+												<li>
+													<button 
+													        id="impre"
+															style="text-align: center" 
+															name="impre" 
+															type="button" 
+															value="" 
+															class="principal" 
+															
+														/>
+														Imprimir ticket
+														</button>
+												</li>
+											</ul>
+										</div>
 				</form>
 			</div>
 		</div>
@@ -193,6 +211,9 @@
 </html>
 
 <script type="text/javascript">
+
+document.getElementById("cambio").disabled =true;
+
 
 	var relacion_credito={};
 	function validacion(elem) {
@@ -247,9 +268,14 @@
 							    success: await function(r) {
 								    if(r==1) {
 								        
+								        overlay.classList.add('active');
+	                                    popup.classList.add('active');
+	                                    
+	                                     document.getElementById("btn-abrir-popup").disabled = true;
+
+
 								        get_render_table();
 
-								        //window.location.reload(); 
 
 
 
@@ -337,7 +363,7 @@
 		} else {
 			let precio = (parseInt(numero))*parseFloat(relacion_credito.precio_comida)
 			$('#monto').val(parseFloat(precio).toFixed(2));
-			$('#pagar').val(parseFloat(precio).toFixed(2));
+			
 		}
 	}
 
@@ -359,4 +385,82 @@
 		/* aqui preuba*/
 	}
 
+	async function vueltas() 
+	{
+         var calculo,num1,num2;
+		 $('#cambio').val('');
+
+          num1=parseInt($('#recibe').val());
+          num2=parseInt($('#monto').val());
+
+         calculo=num1-num2;
+         if(num1>=num2) 
+         {
+
+          $('#cambio').val("$"+calculo);
+
+         }
+
+
+	}
+
+
+
+var btnAbrirPopup = document.getElementById('btn-abrir-popup'),
+	overlay = document.getElementById('overlay'),
+	popup = document.getElementById('popup'),
+	btnCerrarPopup = document.getElementById('btn-cerrar-popup');
+
+btnAbrirPopup.addEventListener('click', function(){
+	
+});
+
+btnCerrarPopup.addEventListener('click', function(e)
+{
+	e.preventDefault();
+	overlay.classList.remove('active');
+	popup.classList.remove('active');
+});
+	
+$(document).ready(function(){
+        $('#impre').click(function(){
+          var datos=$('#codigo').serialize();
+           $.ajax({
+               url: "ticket.php",
+               type: "POST",
+               data:datos,
+               success: function(response){
+                   if(response==1){
+                       window.location.reload();  
+                   }else{
+                       alert('Error.....');
+                   }
+               }
+           }); 
+        });
+    });
+
+
+
+
+function saltarr(e,id)
+{
+  // Obtenemos la tecla pulsada
+  (e.keyCode)?k=e.keyCode:k=e.which;
+ 
+  // Si la tecla pulsada es enter (codigo ascii 13)
+  if(k==13)
+  {
+    // Si la variable id contiene "submit" enviamos el formulario
+    if(id=="submit")
+    {
+      document.forms[0].submit();
+    }else{
+      // nos posicionamos en el siguiente input
+      document.getElementById(id).focus();
+    }
+  }
+
+  
+}
 </script>

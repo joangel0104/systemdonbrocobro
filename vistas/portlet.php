@@ -42,7 +42,7 @@
                                     <span></span>
                                     <span class="check"></span>
                                     <span class="box"></span>
-                                    {{alumno.nombre}} ({{alumno.codigo}}) {{alumno.id}}
+                                    {{alumno.nombre}} ({{alumno.codigo}})
                                 </label>
                             </div>
                         </div>

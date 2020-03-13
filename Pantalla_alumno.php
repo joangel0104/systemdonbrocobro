@@ -9,7 +9,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
         <script src="jquery-3.2.1.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
-  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> 
+  		 
     </head>
 
 
@@ -126,7 +126,7 @@
 										            id="observacion" 
 										            name="observacion" 
 										            oninput="validacion(this)" maxlength="500"
-										            rows="5" cols="35">Escriba aquí sus observaciones..</textarea>
+										            rows="3" cols="35">Escriba aquí sus observaciones..</textarea>
 												
 										<br/>			
 										</div>			
