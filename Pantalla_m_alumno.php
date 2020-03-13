@@ -7,7 +7,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/main.css" />
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+		
         <script src="jquery-3.2.1.min.js"></script>
 
       </head>
@@ -131,7 +131,7 @@
 												<input type="text" name="precio" id="precio" value="" placeholder="Sección alumno "   pattern="([a-z])" required oninput="validacion(this)" maxlength="1" />
 											</div>
                       <br/>
-                    <textarea form="usrform" id="comentarios" name="comentarios" rows="3" cols="35">Escriba aquí sus observaciones..</textarea>
+                    <textarea  id="comentarios" name="comentarios" rows="3" cols="35">Escriba aquí sus observaciones..</textarea>
                         
                     <br/>     
                       	
@@ -232,11 +232,11 @@ function mayus1(e)
                             
                             if(valor[0]==1)
                             {
-                              $('#name').val(valor[1]);
-                              $('#comentarios').val(valor[2]);
-                              $('#telefono').val(valor[3]);
+                               $('#name').val(valor[1]);
+                               $('#comentarios').val(valor[2]);
+                               $('#telefono').val(valor[3]);
                                $('#cantidad').val(valor[4]);
-                              $('#precio').val(valor[5]);
+                               $('#precio').val(valor[5]);
 
                              
                                
@@ -303,6 +303,7 @@ $(document).ready(function()
           var tipo="&tipo="+$('#tipo').val();
           var cantidad="&cantidad="+$('#cantidad').val();
           var precio="&precio="+$('#precio').val();
+          var comentarios="&comentarios="+$('#comentarios').val();
 
           if(pol==0)
           {
@@ -317,7 +318,7 @@ $(document).ready(function()
                 }
                 else
                 {      
-                datos=numer+name+$('#comentarios').val()+telefono+tipo_Estatus+tipo+cantidad+precio;
+                datos=numer+name+comentarios+telefono+tipo_Estatus+tipo+cantidad+precio;
                 $.ajax(
                        {
                           url: "actualizar_alumno.php",
@@ -339,7 +340,8 @@ $(document).ready(function()
 				                   else
 				                   {
 				                      
-                              alert("Actualizado con éxito...."+$('#comentarios').val());
+                              alert("Actualizado con éxito....");
+                               window.location.reload();  
                              
                               
                            }

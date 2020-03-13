@@ -303,11 +303,12 @@ table td {
 #boton_8
 {
  background-color: #27c147;
+  width: 190%;
 
 }
 #name
 {
-  width: 52%;
+  width: 51%;
 }
 
  #buscar

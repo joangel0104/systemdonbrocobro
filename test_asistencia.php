@@ -5,8 +5,8 @@
 	<?php require 'vistas/head.php';?>
 </head>
 <body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white">
-		<?php require 'vistas/header.php';?>
 	<div id="page-wrapper">
+		<?php require 'vistas/header.php';?>
 		<article id="main">
 			<section class="wrapper style5">
             	<div class="inner">
@@ -21,8 +21,5 @@
 	</div>
 	<?php require 'vistas/scripts.php';?>
 	<?php require 'vistas/scripts_portlet.php';?>
-	<!-- 
-	<script src="./assets/js/vue.js"type="text/javascript"></script>
-	-->
 </body>
 </html>

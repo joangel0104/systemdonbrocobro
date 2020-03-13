@@ -72,7 +72,7 @@
                                              <option value='0'>Seleccione un Reporte..</option>
                                              <option value='1'>Cierre del día</option>
                                              <option value='2'>Cierre semanal</option>
-                                             <option value='3'>Reporte de Adeudos </option>
+                                             <option value='3'>Lista de Adeudos </option>
                                               
                                         </select>
 						            <br/>
@@ -84,7 +84,7 @@
                                     id="hasta" 
                                     name="hasta" 
                                     step="1"
-                                    min="2013-01-01" >
+                                    min="2019-01-01" >
                                     <br>
                                     Hasta:
                                     <br>
@@ -93,27 +93,18 @@
                                     id="desde" 
                                     name="desde" 
                                     step="1" 
-                                    min="2013-01-01" >
+                                    min="2019-01-01" >
                                     <br/>
                                     <br/>
 										
 									    <ul class="actions" style="text-align: center" >
 										<li><input id="boton_2" style="text-align: center"  name="guardar" type="button" value="Buscar Reporte  " class="principal"/></li>
 									    </ul>
-										
-        
-
-
-
-
-
-
 								</section>
-								<br> 
-								<br>
-								<br>
+								
+								
 							</div>
-						</section>
+						
 					    <div id="respuesta"></div>
 					</article>
 
@@ -134,6 +125,103 @@
 <script type="text/javascript">
  
  
+
+
+
+ $(document).ready(function(){
+   $('#boton_2').click(function(){
+       
+
+       if($('#tipo_r').val()=='0'||$('#hasta').val()=='')
+       {
+           alert("Por favor, Verificar los datos");
+       }
+       else
+       {  
+         if($('#tipo_r').val()=='1')
+         {
+         	
+                 var datos=$('#hasta').serialize();
+                 $.ajax({
+                       url: "ticket_venta_dia.php",
+                       type: "POST",
+                       data:datos,
+                       success: function(response)
+                       {
+                          
+                        if(response==2)
+                        {
+                          alert("Por favor, Verificar los datos fecha no existe");
+ 
+                        }
+                        else
+                        {	
+                          if(response==1)
+                          {
+                             window.location.reload();  
+                          }else
+                          {
+                             alert('Error');
+                          }
+                        }
+
+
+
+
+                      }
+                 }); 
+        
+           }
+         if($('#tipo_r').val()=='2')
+         {
+         	       var hasta="&hasta="+$('#hasta').val();
+         	        var desde="&desde="+$('#desde').val();
+
+         	      
+                  
+                 var Parametros=desde+hasta;
+                 $.ajax({
+                       url: "ticket_venta_semanal.php",
+                       type: "POST",
+                       data:Parametros,
+                       success: function(response)
+                       {
+                          
+                        if(response==2)
+                        {
+                          alert("Por favor, Verificar los datos fecha no existe");
+                        }
+                        else
+                        {	
+                          if(response==1)
+                          {
+                             window.location.reload();  
+                          }else
+                          {
+                             alert('Error'+Parametros);
+                          }
+                        }
+
+
+
+
+                      }
+                 }); 
+        
+         }
+
+
+
+
+      }
+
+
+
+
+
+
+        });
+      });
 
 
 

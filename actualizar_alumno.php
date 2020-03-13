@@ -17,6 +17,6 @@ var_dump($_POST);
   
 
 
-    $vSQL="UPDATE alumnos SET nombre='$nombre',celular='$v3',beca_id='$v4',seccion='$v6',grado='$v5',estatus='$v7',observacion='$comentarioss' WHERE codigo='$numer'";
+    $vSQL="UPDATE alumnos SET nombre='$nombre',celular='$v3',beca_id='$v4',seccion='$v6',grado='$v5',estatus='$v7',observacion='$comentarios' WHERE codigo='$numer'";
     echo mysqli_query($conex,$vSQL);
 ?>

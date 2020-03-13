@@ -1,6 +1,8 @@
 <?php
   
 $conexion=mysqli_connect('localhost','root','','servidor.cobro');
+
+date_default_timezone_set("America/Mexico_City");
 $fecha = date('Y-m-d');
 $sql="	SELECT 
 			alumnos.nombre as nombre, 
