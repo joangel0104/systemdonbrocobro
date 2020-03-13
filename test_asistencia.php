@@ -22,7 +22,6 @@
 	</div>
 	<?php require 'vistas/scripts.php';?>
 	<?php require 'vistas/scripts_portlet.php';?>
-<<<<<<< HEAD
 	<script src="./assets/js/vue.js"type="text/javascript"></script>
 	<script type="text/javascript">
 	new Vue({
@@ -88,7 +87,5 @@
 </script>
 	<!-- 
 	-->
-=======
->>>>>>> f8a258de6ca3d9f26b341592d404042f201465a4
 </body>
 </html>

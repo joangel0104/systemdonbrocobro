@@ -2109,7 +2109,7 @@ margin-left: 2%;
 	textarea {
 		padding: 0.75em 1em;
 	}
-
+	/*
 	input[type="checkbox"],
 	input[type="radio"] {
 		-moz-appearance: none;
@@ -2181,6 +2181,7 @@ margin-left: 2%;
 	input[type="radio"] + label:before {
 		border-radius: 100%;
 	}
+	*/
 
 	::-webkit-input-placeholder {
 		color: rgba(255, 255, 255, 0.5) !important;
@@ -2209,6 +2210,7 @@ margin-left: 2%;
 
 /* Box */
 
+/*
 	.box {
 		border-radius: 3px;
 		border: solid 2px #fff;
@@ -2227,6 +2229,7 @@ margin-left: 2%;
 			border-radius: 0;
 			padding: 0;
 		}
+*/
 
 /* Icon */
 
@@ -3095,7 +3098,7 @@ margin-left: 2%;
 			.wrapper.style1 .select-wrapper:before {
 				color: rgba(0, 0, 0, 0.125);
 			}
-
+			/*
 			.wrapper.style1 input[type="checkbox"] + label,
 			.wrapper.style1 input[type="radio"] + label {
 				color: #c7ebe8;
@@ -3111,7 +3114,7 @@ margin-left: 2%;
 				background: #ffffff;
 				color: #21b2a6;
 			}
-
+			*/
 			.wrapper.style1 ::-webkit-input-placeholder {
 				color: #a6e0db !important;
 			}
@@ -3253,7 +3256,7 @@ margin-left: 2%;
 			.wrapper.style3 .select-wrapper:before {
 				color: rgba(0, 0, 0, 0.125);
 			}
-
+			/*
 			.wrapper.style3 input[type="checkbox"] + label,
 			.wrapper.style3 input[type="radio"] + label {
 				color: #d3d4e4;
@@ -3269,7 +3272,7 @@ margin-left: 2%;
 				background: #ffffff;
 				color: #505393;
 			}
-
+			*/
 			.wrapper.style3 ::-webkit-input-placeholder {
 				color: #b9bad3 !important;
 			}
@@ -3412,7 +3415,7 @@ margin-left: 2%;
 			.wrapper.style5 .select-wrapper:before {
 				color: #dfdfdf;
 			}
-
+			/*
 			.wrapper.style5 input[type="checkbox"] + label,
 			.wrapper.style5 input[type="radio"] + label {
 				color: #4E4852;
@@ -3428,6 +3431,7 @@ margin-left: 2%;
 				background: #2E3842;
 				color: #ffffff;
 			}
+			*/
 
 			.wrapper.style5 ::-webkit-input-placeholder {
 				color: #8E8892 !important;
