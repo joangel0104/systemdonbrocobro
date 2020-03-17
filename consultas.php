@@ -1,6 +1,6 @@
 <?php 
 
-	require 'conexion.php'
+	require 'conexion.php';
 
 	$fecha = date('Y-m-d');
 
@@ -8,9 +8,9 @@
 					`alumnos`.`grado` as grado, 
 					`alumnos`.`seccion` as seccion
 			FROM `alumnos` 
-			INNER JOIN `asistencias`.`alumno_id` = `alumnos`.`id`
+			INNER JOIN `asistencias` ON `asistencias`.`alumno_id` = `alumnos`.`id`
 			WHERE `asistencias`.`fecha` ='".$fecha."' 
-			GROUP BY `alumnos`.`grado`, `alumnos`.`seccion`"
+			GROUP BY `alumnos`.`grado`, `alumnos`.`seccion`";
 
 	var_dump($sql);
 
@@ -22,4 +22,3 @@
 	}
 
 	var_dump($resultados);
-	
