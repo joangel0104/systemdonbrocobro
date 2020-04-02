@@ -44,9 +44,7 @@ INNER JOIN becas b ON a.beca_id=b.id
 								<li class="special">
 									<a href="#menu" class="menuToggle"><span>Menu</span></a>
 									<div id="menu">
-										<ul>
-											<li><a href="Pantalla_precio_comida.php"><img height="20" src="images/nuevo.png"> Nuevo Precio Comida</a></li>
-										</ul> 
+										 
 										<ul>
 											<li><a href="Pantalla_carnet.php"><img height="20" src="images/carnet.png"> Generar Carnet</a></li>
 										</ul>
@@ -55,7 +53,7 @@ INNER JOIN becas b ON a.beca_id=b.id
 										</ul>
 										
 										  <ul>
-											<li><a href="Pantalla_asistencia.php"><img height="20" src="images/control.png"> Control Asistencia  </a></li>
+											<li><a href="test_asistencia.php"><img height="20" src="images/control.png"> Control Asistencia  </a></li>
 										</ul>
 									    <ul>
 											<li><a href="Pantalla_alumno.php"><img height="20" src="images/agregar.png">   Agregar Alumno  </a></li>
@@ -98,7 +96,7 @@ INNER JOIN becas b ON a.beca_id=b.id
 												       name="name" 
 												       id="name" 
 												       value="" 
-												       placeholder="Introduzca N° Carnet "  
+												       placeholder="Introduzca Código alumno"  
 												       maxlength="3" pattern="([0-9]{3,3})" 
 												       required oninput="validacion(this)"
 												       onkeyup="saltar(event,'boton_8')"/>
@@ -303,7 +301,7 @@ table td {
 #boton_8
 {
  background-color: #27c147;
-  width: 190%;
+  width: 186%;
 
 }
 #name

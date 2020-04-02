@@ -79,7 +79,7 @@ $printer->text("--------------------" . "\n");
 $printer->setJustification(Printer::JUSTIFY_LEFT);
 $printer->setTextSize(1, 1);
 date_default_timezone_set("America/Mexico_City");
-$printer->text(date('m/d/Y g:ia'). "\n");
+$printer->text(date('d/m/Y g:ia'). "\n");
 $printer->text("" . "\n");
 $printer->text("Fecha inicial:".$inicio . "\n");
 $printer->text("Fecha final:".$final . "\n");

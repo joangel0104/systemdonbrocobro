@@ -1,6 +1,4 @@
-      
 
-      
 <?php
   
     $conexion=mysqli_connect('localhost','root','','servidor.cobro');

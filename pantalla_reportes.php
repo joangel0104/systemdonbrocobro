@@ -26,9 +26,7 @@
 								<li class="special">
 									<a href="#menu" class="menuToggle"><span>Menu</span></a>
 									<div id="menu">
-										<ul>
-											<li><a href="Pantalla_precio_comida.php"><img height="20" src="images/nuevo.png"> Nuevo Precio Comida</a></li>
-										</ul> 
+										 
 										<ul>
 											<li><a href="Pantalla_carnet.php"><img height="20" src="images/carnet.png"> Generar Carnet</a></li>
 										</ul>
@@ -37,7 +35,7 @@
 										</ul>
 										
 										  <ul>
-											<li><a href="Pantalla_asistencia.php"><img height="20" src="images/control.png"> Control Asistencia  </a></li>
+											<li><a href="test_asistencia.php"><img height="20" src="images/control.png"> Control Asistencia  </a></li>
 										</ul>
 									    <ul>
 											<li><a href="Pantalla_alumno.php"><img height="20" src="images/agregar.png">   Agregar Alumno  </a></li>
@@ -68,13 +66,33 @@
 									<h4 style="text-align: center;">Datos Iniciales</h4>
 									<br/>
 									<br/>
-                                        <select  name="tipo_r" id="tipo_r">
+                                        <select  name="tipo_r" id="tipo_r" oninput="activa()">
                                              <option value='0'>Seleccione un Reporte..</option>
                                              <option value='1'>Cierre del día</option>
                                              <option value='2'>Cierre semanal</option>
-                                             <option value='3'>Lista de Adeudos </option>
-                                              
+                                             <option value='3'>Estado de alumno</option>
+                                             <option value='4'>Copia de ticket</option>
+                                             <option value='6'>Comidas por grupos</option>
+                                             <option value='5'>Lista de Adeudos </option>
+                                             
+                                               
                                         </select>
+                                        <br/>
+                                        <div class="8u 12u$(xsmall)">
+                        <input  type="text" 
+                            name="carnet" 
+                            id="carnet" 
+                            value="" 
+                            
+                            placeholder="Introduzca N° Carnet " 
+                            maxlength="3" pattern="([0-9]{3,3})" 
+                            required oninput="validacion(this)"
+                            oninput="validacion(this)" 
+                            />
+                      </div>
+
+
+
 						            <br/>
 				                    <form action="" method="POST"> 
                                     Desde:
@@ -123,23 +141,70 @@
 	</body>
 </html>
 <script type="text/javascript">
- 
- 
 
 
+function validacion(elem) {
+    var band=1;
+    if (elem.checkValidity()) {   
+      elem.style.color="black";
+      return band;
+    } else {
+      elem.style.color="red";
+      band=0;
+      return band;
+    }
+  }
+
+
+ 
+ document.getElementById("carnet").disabled =true;
+
+ 
+function activa()
+{
+ if ($('#tipo_r').val()=='3'||$('#tipo_r').val()=='4') 
+ {
+   document.getElementById("carnet").disabled =false;
+   document.getElementById("desde").disabled =true;
+   document.getElementById("hasta").disabled =true;
+
+
+ }
+else
+{
+  document.getElementById("carnet").disabled =true;
+  document.getElementById("desde").disabled =false;
+   document.getElementById("hasta").disabled =false;
+}
+}
 
  $(document).ready(function(){
    $('#boton_2').click(function(){
        
+ if($('#tipo_r').val()=='5')
+         {
 
-       if($('#tipo_r').val()=='0'||$('#hasta').val()=='')
+             alert('No existe alumno con Adeudo');
+         }
+  else
+  {
+
+
+       if($('#tipo_r').val()=='0')
        {
            alert("Por favor, Verificar los datos");
        }
        else
        {  
-         if($('#tipo_r').val()=='1')
-         {
+          if ($('#hasta').val()=='0') 
+          {
+             alert("Por favor, Verificar los datos");
+          }
+          else
+          {  
+
+             if($('#tipo_r').val()=='1')
+             {
          	
                  var datos=$('#hasta').serialize();
                  $.ajax({
@@ -151,7 +216,7 @@
                           
                         if(response==2)
                         {
-                          alert("Por favor, Verificar los datos fecha no existe");
+                          alert("Por favor, Verificar los datos no existe pago en esta fecha");
  
                         }
                         else
@@ -189,7 +254,7 @@
                           
                         if(response==2)
                         {
-                          alert("Por favor, Verificar los datos fecha no existe");
+                          alert("Por favor, Verificar los datos no existe pago en esta fecha");
                         }
                         else
                         {	
@@ -198,7 +263,7 @@
                              window.location.reload();  
                           }else
                           {
-                             alert('Error'+Parametros);
+                             alert('Error');
                           }
                         }
 
@@ -208,7 +273,133 @@
                       }
                  }); 
         
+          }
          }
+
+
+        if($('#tipo_r').val()=='3')
+         {
+                 var carnet="&carnet="+$('#carnet').val();
+                 
+
+                
+                  
+                 var Parametros=carnet;
+                 $.ajax({
+                       url: "ticket_estado.php",
+                       type: "POST",
+                       data:Parametros,
+                       success: function(response)
+                       {
+                          
+                        if(response==2)
+                        {
+                          alert("Por favor, Verificar los datos Codigo no tiene pago registrado");
+                        }
+                        else
+                        { 
+                          if(response==1)
+                          {
+                             window.location.reload();  
+                          }else
+                          {
+                             alert('Error');
+                          }
+                        }
+
+
+
+
+                      }
+                 }); 
+        
+          }
+         
+        
+         
+          if($('#tipo_r').val()=='4')
+         {
+                 var carnet="&carnet="+$('#carnet').val();
+                 
+
+                
+                  
+                 var Parametros=carnet;
+                 $.ajax({
+                       url: "ticket_copia.php",
+                       type: "POST",
+                       data:Parametros,
+                       success: function(response)
+                       {
+                          
+                        if(response==2)
+                        {
+                          alert("Por favor,Por favor, Verificar los datos Codigo no tiene pago registrado");
+                        }
+                        else
+                        { 
+                          if(response==1)
+                          {
+                             window.location.reload();  
+                          }else
+                          {
+                             alert('Error');
+                          }
+                        }
+
+
+
+
+                      }
+                 }); 
+        
+          }
+          if($('#tipo_r').val()=='6')
+          {
+                 
+                  var entrada="&hasta="+$('#hasta').val();
+                 
+
+                
+                  
+                 var Parametros=entrada;
+                
+                 $.ajax({
+                       url: "ticket_comida_preparar.php",
+                       type: "POST",
+                       data:Parametros,
+                       
+                       success: function(response)
+                       {
+                          
+                        if(response==2)
+                        {
+                          alert("Por favor,Verificar los datos no hay lista cargada");
+                        }
+                        else
+                        { 
+                          if(response==1)
+                          {
+                             window.location.reload();  
+                          }else
+                          {
+                             alert('Error');
+                          }
+                        }
+
+
+
+
+                      }
+                 }); 
+        
+             }
+
+
+
+      
+
+
 
 
 
@@ -216,7 +407,7 @@
       }
 
 
-
+}
 
 
 

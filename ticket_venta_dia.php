@@ -59,6 +59,8 @@ $connector = new WindowsPrintConnector("Generic");
 $printer = new Printer($connector);
 echo 1;
 
+
+
 $printer->setJustification(Printer::JUSTIFY_CENTER);
 $printer->setTextSize(2, 2);
 $printer->text("\n"."COMEDORES DONBRO" . "\n");
@@ -70,7 +72,10 @@ $printer->text("--------------------" . "\n");
 $printer->setJustification(Printer::JUSTIFY_LEFT);
 $printer->setTextSize(1, 1);
 date_default_timezone_set("America/Mexico_City");
-$printer->text(date('m/d/Y g:ia'). "\n");
+
+ 
+
+$printer->text( date('d/m/Y'). "\n");
 $printer->text("" . "\n");
 $printer->text("Fecha de Cierre:".$fechadata . "\n");
 $printer->text("N° Comidas preparadas:".$aux3 . "\n");

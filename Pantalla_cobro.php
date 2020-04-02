@@ -33,9 +33,7 @@
 							<li class="special">
 								<a href="#menu" class="menuToggle"><span>Menu</span></a>
 								<div id="menu">
-									<ul>
-											<li><a href="Pantalla_precio_comida.php"><img height="20" src="images/nuevo.png"> Nuevo Precio Comida</a></li>
-										</ul> 
+									 
 										<ul>
 											<li><a href="Pantalla_carnet.php"><img height="20" src="images/carnet.png"> Generar Carnet</a></li>
 										</ul>
@@ -44,7 +42,7 @@
 										</ul>
 										
 										  <ul>
-											<li><a href="Pantalla_asistencia.php"><img height="20" src="images/control.png"> Control Asistencia  </a></li>
+											<li><a href="test_asistencia.php"><img height="20" src="images/control.png"> Control Asistencia  </a></li>
 										</ul>
 									    <ul>
 											<li><a href="Pantalla_alumno.php"><img height="20" src="images/agregar.png">   Agregar Alumno  </a></li>
@@ -71,18 +69,12 @@
 				<!-- Main -->
 					<article id="main">
 						<section class="wrapper style5">
+
                          <div class="inner">
 							<section>
 								<h4 style="text-align: center;">Datos Iniciales</h4>
 									<br/>
-                                        <select name="tipo_Estatus" id="tipo_Estatus">
-                                             <option value='0'>Seleccione Forma de Pago..</option>
-                                             <option value='1'>Efectivo</option>
-                                             <option value='2'>Deposito</option>
-                                             <option value='3'>Pago Diario</option>
-                                              <option value='4'>Vale</option>
-                                        </select>
-						            <br/>
+										<br/>
 									<form method="post" action="#">
 										<div class="row uniform">
 											<div class="8u 12u$(xsmall)">
@@ -107,12 +99,60 @@
 														required 
 														oninput="validacion(this)"
 														onkeypress="javascript:return isNumberKey(event)" 
-														
-
 														onkeyup="calculo_a_pagar();saltar(event,'btn-abrir-popup');saltar(event,'recibe')" />
 
 
-											</div>		
+											</div>
+											<div class="4u$ 12u$(xsmall)">
+												<input 	type="text" 
+														name="efectivo" 
+														id="efectivo" 
+														value="" 
+														maxlength="3" 
+														placeholder="Pago en efectivo" 
+														required 
+														oninput="validacion(this)"
+														/>
+
+
+											</div>
+
+											<div class="4u$ 12u$(xsmall)">
+												<input 	type="text" 
+														name="tarjeta" 
+														id="tarjeta" 
+														value="" 
+														maxlength="3" 
+														placeholder="Pago con Tarjeta o deposito" 
+														required 
+														oninput="validacion(this)"
+														 />
+
+
+											</div>
+
+										</div>
+										<br/>
+
+										  <select name="tipo_vale" id="tipo_vale">
+                                             <option value='0'>Pago con Vale ..</option>
+                                             <option value='1'>$20</option>
+                                             <option value='2'>$50</option>
+                                             <option value='3'>$100</option>
+                                             <option value='4'>$200</option>
+                                        </select>
+										<br/>
+
+										<div>
+												<input  style="text-align:left;
+															font-size: 20" 
+														type="text" 
+														name="monto" 
+														id="monto" 
+														value="$" 
+														placeholder="$"
+														readonly />
+										
 										</div>
 										<br/>
 										<div class="12u$">
@@ -134,17 +174,7 @@
 												</li>
 											</ul>
 										</div>
-										<div>
-												<input  style="text-align:left;
-															font-size: 20" 
-														type="text" 
-														name="monto" 
-														id="monto" 
-														value="$" 
-														placeholder="$"
-														readonly />
 										
-										</div>
 										<br>
 										
 
@@ -203,7 +233,7 @@
 			<script src="assets/js/jquery.scrolly.min.js"></script>
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			
 			<script src="assets/js/main.js"></script>
 			<script src="lib/js/invoice.js"></script>
 

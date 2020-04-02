@@ -1,7 +1,7 @@
 <?php 
 
 	require 'conexion.php';
-
+    date_default_timezone_set("America/Mexico_City");
 	$fecha = date("Y-m-d");
 
 	$sql= "	SELECT `alumnos`.`grado`,`alumnos`.`seccion` 

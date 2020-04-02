@@ -1,11 +1,5 @@
 <div id="menu">
-	<ul>
-		<li>
-			<a href="Pantalla_precio_comida.php">
-				<img height="20" src="images/nuevo.png"> Nuevo Precio Comida
-			</a>
-		</li>
-	</ul> 
+	
 	<ul>
 		<li>
 			<a href="Pantalla_carnet.php">
@@ -22,14 +16,14 @@
 	</ul>
 	  	<ul>
 			<li>
-				<a href="Pantalla_asistencia.php">
+				<a href="test_asistencia.php">
 					<img height="20" src="images/control.png"> Control Asistencia  
 				</a>
 			</li>
 		</ul>
     <ul>
 		<li>
-			<a href="Pantalla_alunno.php">
+			<a href="Pantalla_alumno.php">
 				<img height="20" src="images/agregar.png">   Agregar Alumno  
 			</a>
 		</li>
@@ -50,7 +44,7 @@
 	</ul> 
 	<ul>
 		<li>
-			<a href="">
+			<a href="pantalla_reportes.php">
 				<img height="20" src="images/reportar.png"> Reportes
 			</a>
 		</li>

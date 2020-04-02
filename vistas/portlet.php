@@ -14,9 +14,7 @@
                 <i class="icon-wrench"></i>
             </a>
             -->
-            <a class="btn btn-circle btn-icon-only red" href="javascript:;">
-                <i class="icon-trash"></i>
-            </a>
+           
             <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="javascript:;" data-original-title="" title=""> </a>
         </div>
     </div>
@@ -51,9 +49,9 @@
                 </div>
             </div>
             <div class="form-actions">
-                <div class="row">
+                <div class="12u$">
                     <div class="col-md-offset-2 col-md-10">
-                        <button type="button" class="btn blue" @click="post_asistencias()">Submit</button>
+                        <button type="button" class="btn blue" @click="post_asistencias()">Cargar Lista</button>
                     </div>
                 </div>
             </div>
