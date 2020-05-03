@@ -181,7 +181,6 @@ body {
 	to { opacity: 1; }
 }
 
-
 #comentarios
 {
 
@@ -240,16 +239,9 @@ body {
 }
 
 
-
-
-
-
-
 #tipo_r
 {
 	    width:67%;
-
-     
 
 }
 
@@ -278,11 +270,7 @@ body {
      
 
 }
-#tipo_vale
-{
-   width:32%;
- 
-}
+
 #tipo
 {
   width:33%;
@@ -320,31 +308,13 @@ body {
 
 }
 
-#btn-abrir-popup
-{
-   margin-left: 164%;
-    width:193%;
-
-}
 #carnet
 {
  
    width:50%;
    
 }
-#monto
-{
-  margin-top: -18%;
 
-
-  margin-left: 68.4%;
-   width:31.3%;
-   height: 110px;
-   font-size: 3.5em;
-color: #37DD19;
-   background-color: #6C6E6C;
-
-}
 #precios
 {
   
@@ -352,13 +322,158 @@ color: #37DD19;
    height: 90px;
    font-size: 3.5em;
 }
-#numero
+
+/* pantalla cobro  */
+
+
+div#general_1{
+    margin: auto;
+	width: 1180px;
+	height: 90px;
+	background-color: #2e3842;
+}
+div#general_2{
+    margin: auto;
+    margin-top: -29.3%;
+	width: 480px;
+	height: 340px;
+	background-color: #F97E04;
+	margin-left: 60.3%;
+}
+div#general_3
 {
-	width: 99%;
-right: 
-margin-left: 2%;
+    margin: auto;
+	width: 685px;
+	height: 340px;
+	background-color: #04F90F;
+	
+	margin-top: 8px;
+	
+}
+#monto
+{
+	
+ 
+bottom:100%;
+ right: 100px;
+   width:80%;
+   height: 90px;
+   font-size: 3.5em;
+color: #FEFE00;
+   background-color: #6C6E6C;
 
 }
+#btn-abrir-popup
+{
+   margin-left: -76%;
+    width:240%;
+    height: 40px;
+   
+   
+
+}
+
+#numero
+{
+	width: 90%;
+	font-weight: 900;
+	font-size: 12px;
+	top: -33px;	
+	position: relative;
+	margin-left: 205%;
+	background-color: #F3F5F9;
+
+}
+#codigo
+{
+	font-weight: 900;
+	margin-left: 0.3%;
+	font-size: 12px;
+	background-color: #F3F5F9;
+}
+
+#text_1
+{
+	font-weight: 900;
+	margin-top: -15px;
+	color: white;
+	font-size: 0.8em;
+}
+#text_2
+{
+	font-weight: 900;
+	margin-top: -15px;
+	color: white;
+	font-size: 0.8em;
+}
+#text_3
+{
+	font-weight: 900;
+	margin-top: -15px;
+	color: white;
+	font-size: 0.8em;
+}
+
+
+#efectivo
+{
+
+ width:285%;
+ font-size: 12px;
+ background-color: #F3F5F9;
+ font-weight: 900;
+}
+#deposito
+{
+font-weight: 900;
+ width:285%;
+ font-size: 12px;
+ background-color: #F3F5F9;
+}
+#tarjeta
+{
+font-weight: 900;
+width:285%;
+ font-size: 12px;
+ background-color: #F3F5F9;
+}
+#tipo_vale
+{
+  
+
+ font-weight: 900;
+ width:94.5%;
+ font-size: 12px;
+ background-color: #F3F5F9;
+}
+
+#nombres
+{
+width:120%;
+ font-size: 12px;
+ background-color: #F3F5F9;
+font-weight: 900;
+}
+#grados
+{
+width:260%;
+ font-size: 12px;
+ background-color: #F3F5F9;
+font-weight: 900;
+}
+#secc
+{
+	font-weight: 900;
+
+width:260%;
+ font-size: 12px;
+ background-color: #F3F5F9;
+
+}
+
+
+
+
 @import url(font-awesome.min.css);
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,800,800italic");
 

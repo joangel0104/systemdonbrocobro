@@ -1,5 +1,3 @@
-<!DOCTYPE HTML>
-
 <html>
 	<head>
 		 <link  rel="icon"   href="images/logo.png" type="image/png" />
@@ -19,9 +17,9 @@
 
 
 	<body>
-		<!-- Page Wrapper -->
+		
 			<div id="page-wrapper">
-				<!-- Header -->
+				
 				<header id="header">
 					<img name="imagen" src="images/logo.png" >
 
@@ -66,30 +64,32 @@
 						</ul>
 					</nav>
 				</header>
-				<!-- Main -->
-					<article id="main">
-						<section class="wrapper style5">
+				
+			    <article id="main">
+					<section class="wrapper style5">
+                       <div class="inner">
+						 <section>
+							<form method="post" action="#">
+							   <div class="row uniform">
+								   
 
-                         <div class="inner">
-							<section>
-								<h4 style="text-align: center;">Datos Iniciales</h4>
-									<br/>
-										<br/>
-									<form method="post" action="#">
-										<div class="row uniform">
-											<div class="8u 12u$(xsmall)">
+								   <div id="general_1">	
+										 
+										 <h4 id="text_1" style="text-align: left;">Datos Iniciales</h4>
+
+									          <div class="8u 12u$(xsmall)">
 												<input 	type="text" 
 														name="codigo" 
 														id="codigo" 
 														value="" 
 														maxlength="3" 
-														placeholder="Introduzca N° Carnet " 
+														placeholder="Introduzca codigo alumno " 
 														required 
 														onblur="relacion_credito = get_relacion_creditos()" 
 														oninput="validacion(this)" 
-														onkeyup="saltar(event,'numero')"/>
-											</div>
-											<div class="4u$ 12u$(xsmall)">
+											            onkeyup="saltar(event,'numero');datos()" />
+											  </div>
+											  <div class="4u$ 12u$(xsmall)">
 												<input 	type="text" 
 														name="numero" 
 														id="numero" 
@@ -99,64 +99,114 @@
 														required 
 														oninput="validacion(this)"
 														onkeypress="javascript:return isNumberKey(event)" 
-														onkeyup="calculo_a_pagar();saltar(event,'btn-abrir-popup');saltar(event,'recibe')" />
-
-
-											</div>
-											<div class="4u$ 12u$(xsmall)">
-												<input 	type="text" 
-														name="efectivo" 
-														id="efectivo" 
-														value="" 
-														maxlength="3" 
-														placeholder="Pago en efectivo" 
-														required 
-														oninput="validacion(this)"
-														/>
-
-
+														onkeyup="calculo_a_pagar();saltar(event,'efectivo');saltar(event,'recibe')" />
+                                                </div>
 											</div>
 
-											<div class="4u$ 12u$(xsmall)">
-												<input 	type="text" 
-														name="tarjeta" 
-														id="tarjeta" 
-														value="" 
-														maxlength="3" 
-														placeholder="Pago con Tarjeta o deposito" 
-														required 
-														oninput="validacion(this)"
-														 />
+                                    <div id="general_3"> 
 
-
-											</div>
-
-										</div>
-										<br/>
-
-										  <select name="tipo_vale" id="tipo_vale">
-                                             <option value='0'>Pago con Vale ..</option>
-                                             <option value='1'>$20</option>
-                                             <option value='2'>$50</option>
-                                             <option value='3'>$100</option>
-                                             <option value='4'>$200</option>
-                                        </select>
-										<br/>
-
-										<div>
+									   <h4 id="text_1" style="text-align: left;">Datos Alumno</h4>
+                                           <div class="8u 12u$(xsmall)">
+											    <input 	type="text" 
+													name="nombres" 
+													id="nombres" 
+													value=""  
+													placeholder="Nombres y Apellidos" 
+													maxlength="50"  
+													pattern="([A -z]{3,50})" 
+													required oninput="validacion(this)" 
+													onkeyup="mayus(this)"/>
+										   </div>
+                                           <br>
+                                           <div class="2u 12u$(xsmall)">
+											    <input 	type="text" 
+													name="grados" 
+													id="grados" 
+													value="" 
+													placeholder="°Grado alumno "  
+													pattern="([1-9])" 
+													required 
+													oninput="validacion(this)" 
+													maxlength="1" />
+										   </div>
+										   <br>
+										   <div class="2u$ 12u$(xsmall)">
+											    <input 	type="text" 
+													name="secc" 
+													id="secc" 
+													value="" 
+													placeholder="Sección alumno "   
+													pattern="([a-z])" 
+													required 
+													oninput="validacion(this)" maxlength="1" />
+										    </div>	
+											<br>
+                                             <h4 id="text_1" style="text-align: left;">Total a pagar</h4>
+										
+										    <div>
 												<input  style="text-align:left;
-															font-size: 20" 
+															" 
 														type="text" 
 														name="monto" 
 														id="monto" 
 														value="$" 
 														placeholder="$"
 														readonly />
-										
-										</div>
-										<br/>
-										<div class="12u$">
-											<ul class="actions"   style="text-align: center" >
+										    </div>
+								    </div>	
+
+
+                                 <div id="general_2"> 
+                                 		<h4 id="text_2" style="text-align: left;">Formas de pago</h4>
+
+											<div class="4u$ 12u$(xsmall)">
+												<input 	type="text" 
+														name="efectivo" 
+														id="efectivo" 
+														value="" 
+														maxlength="3" 
+														placeholder="$ Pago en efectivo" 
+														required 
+														oninput="validacion(this)"
+														onkeyup="saltar(event,'btn-abrir-popup')" 
+														/>
+											</div>
+											<br>
+											<div class="4u$ 12u$(xsmall)">
+												<input 	type="text" 
+														name="deposito" 
+														id="deposito" 
+														value="" 
+														maxlength="3" 
+														placeholder="$ Pago en Deposito" 
+														required 
+														oninput="validacion(this)"
+														/>
+											</div>
+											<br>
+                                            <div class="4u$ 12u$(xsmall)">
+												<input 	type="text" 
+														name="tarjeta" 
+														id="tarjeta" 
+														value="" 
+														maxlength="3" 
+														placeholder="$ Pago con Tarjeta " 
+														required 
+														oninput="validacion(this)"
+														 />
+                                            </div>
+                                            <br> 
+                                                 <select name="tipo_vale" id="tipo_vale">
+                                                 <option value='0'>$ Pago con Vale ..</option>
+                                                 <option value='1'>$20</option>
+                                                 <option value='2'>$50</option>
+                                                 <option value='3'>$100</option>
+                                                 <option value='4'>$200</option>
+                                                 </select>
+										    <br>
+									
+										   <div class="12u$">
+											  <ul class="actions"   style="text-align: center" >
 												<li>
 													<button 
 													        id="btn-abrir-popup"
@@ -165,32 +215,24 @@
 															type="button" 
 															value="" 
 															class="principal" 
-															onclick="agregar_pago()" 
-															
-
-														/>
-														Agregar Pago
-														</button>
+															onclick="agregar_pago()" />
+														    Agregar Pago            
+												    </button>
 												</li>
 											</ul>
 										</div>
-										
-										<br>
-										
+								    </div>
+							 </div>
+                                          <br>		
 
-										<div class="table-wrapper" id="facturas">
-
-											
-										</div>
-									</form>
-								</section>
-								<br> 
-								<br>
-								<br>
-							</div>
+										  <div class="table-wrapper" id="facturas"></div>
+							</form>
 						</section>
-					</article>
+					</section>
+				</article>
 			</div>
+        </div>
+         </div>
 
 
 <div class="overlay" id="overlay">
@@ -243,7 +285,10 @@
 <script type="text/javascript">
 
 document.getElementById("cambio").disabled =true;
-
+document.getElementById("nombres").disabled =true;
+document.getElementById("grados").disabled =true;
+document.getElementById("secc").disabled =true;
+document.getElementById("monto").disabled =true;
 
 	var relacion_credito={};
 	function validacion(elem) {
@@ -493,4 +538,50 @@ function saltarr(e,id)
 
   
 }
+
+async function datos() 
+{
+$('#nombres').val('');
+$('#grados').val('');
+$('#secc').val('');
+
+		   
+		   var Parametros="&codigo="+$('#codigo').val();
+
+               $.ajax(
+                       {
+                          url: "consul_datos.php",
+                          data: Parametros,
+                          type: 'POST',
+                          beforeSend: function() 
+                          {     
+                              //$("#Loading").css("display","");
+                          },
+                          success: function(Resultado)
+                          {
+
+                            var valor = Resultado.split('&');
+                            
+                            if(valor[0]==1)
+                            {
+                               $('#nombres').val(valor[1]);
+                               $('#grados').val(valor[2]);
+                               $('#secc').val(valor[3]);
+                             
+
+                             
+                               
+                               
+                              
+
+                            }
+                           
+                          }
+                        });
+
+        
+ 
+            
+     
+ }
 </script>
