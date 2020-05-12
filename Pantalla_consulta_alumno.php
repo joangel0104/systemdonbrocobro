@@ -89,7 +89,7 @@
              data-table="order-table" 
              placeholder="Búsqueda ">
 
-     <select name="tipo_grado" id="tipo_grado">
+     <select name="tipo_grado" id="tipo_grado" onkeyup="filtrar_table">
           <option value='0'>Seleccione el grado..</option>
           <option value='1'>Primer grado</option>
           <option value='2'>Segundo grado </option>
@@ -98,14 +98,14 @@
           <option value='5'>Quinto grado </option>
           <option value='6'>Sexto grado </option>
     </select>
-    <select name="tipo_seccion" id="tipo_seccion">
+    <select name="tipo_seccion" id="tipo_seccion" onkeyup="filtrar_table" >
            <option value='0'>Seleccione la sección..</option>
-           <option value='1'>(a)</option>
-           <option value='2'>(b)</option>
-           <option value='3'>(c)</option>
-           <option value='4'>(d)</option>
-           <option value='5'>(e)</option>
-           <option value='6'>(f )</option>
+           <option value='a'>(a)</option>
+           <option value='b'>(b)</option>
+           <option value='c'>(c)</option>
+           <option value='d'>(d)</option>
+           <option value='e'>(e)</option>
+           <option value='f'>(f )</option>
     </select>
 
 
@@ -190,7 +190,7 @@
 	<script src="assets/js/skel.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
-	<script src="lib/js/invoice.js"></script>
+	
 	</body>
 </html>
 
@@ -236,7 +236,23 @@
 
 })(document);
 
+  async function filtrar_table() {
+        var grad=$('#tipo_grado').serialize();
+        var secc=$('#tipo_seccion').serialize();
+        var datos=grad+secc;
+   
 
+    let response = await $.ajax({
+            type:"GET",
+              url:"filtrar_alumno.php",
+              data: datos,
+              success: await function(repuesta) 
+              {
+               console.log(repuesta);
+              }
+          });
+    return response;
+  }
 
 
 
