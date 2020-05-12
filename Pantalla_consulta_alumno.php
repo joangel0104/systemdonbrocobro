@@ -2,10 +2,10 @@
 
   $conexion=mysqli_connect('localhost','root','','servidor.cobro');
   $sql="SELECT a.codigo,a.nombre,a.observacion,a.celular,b.nombre,a.grado,a.seccion,a.estatus
-FROM alumnos a
-INNER JOIN becas b ON a.beca_id=b.id
-ORDER BY grado ASC ,seccion ASC"; 
-  $stmt1 = mysqli_query($conexion, $sql);
+        FROM alumnos a
+        INNER JOIN becas b ON a.beca_id=b.id
+        ORDER BY grado ASC ,seccion ASC"; 
+        $stmt1 = mysqli_query($conexion, $sql);
   
  
 
@@ -61,11 +61,7 @@ ORDER BY grado ASC ,seccion ASC";
                      <ul>
                       <li><a href="Pantalla_consulta_alumno.php"><img height="20" src="images/lupa.png">  Consultar Alumno</a></li>
                     </ul>
-                     
-
-
-
-                     <ul>
+                    <ul>
                       <li><a href="pantalla_reportes.php"><img height="20" src="images/reportar.png"> Reportes</a></li>
                     </ul>
                   </div>
@@ -79,13 +75,23 @@ ORDER BY grado ASC ,seccion ASC";
 <article id="main">
 			<section class="wrapper style5" >
         <div class="inner">
-							
+				  <div class="table-wrapper" id="facturas"></div>			
 							
 		 <br>								
 									
   <center>
          
-  <div class="derecha" id="buscar"><input  maxlength="20" type="search" class="light-table-filter" data-table="order-table" placeholder="Búsqueda "></div>
+  <div class="derecha" id="buscar">
+
+     <input  maxlength="100" 
+             type="search" 
+             class="light-table-filter" 
+             data-table="order-table" 
+             placeholder="Búsqueda ">
+
+
+
+  </div>
   </center>
   
   <div class="datagrid">
@@ -133,7 +139,7 @@ ORDER BY grado ASC ,seccion ASC";
     <td><?php echo $row['4']; ?></td>
     <td><?php echo $row['5']; ?></td>
     <td><?php echo $row['6']; ?></td>
-     <td><?php echo $row['7']; ?></td>
+    <td><?php echo $row['7']; ?></td>
    
  
  
@@ -210,6 +216,22 @@ ORDER BY grado ASC ,seccion ASC";
   });
 
 })(document);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </script>  
 
 
@@ -217,7 +239,7 @@ ORDER BY grado ASC ,seccion ASC";
 <style >
  
 table td {
-      padding: 0.2em 0.2em;
+      padding: 0.5em 0.5em;
       font-size: 12px;
    text-align: center;
     }
@@ -225,19 +247,19 @@ table td {
 
  #buscar
 {
- width: 100%;
+ width: 99%;
   font-size: 20px;
   color: #2e3842;
    background: #2e3842 ;
   padding-left: 20px ;
- 
+ margin-left: 100%;
   border-radius: 0px;
   padding: 10px;
   margin:10px; 
 }
 input[type="search"]{
    
-  width: 450px;
+  width: 460px;
   height: 30px;
   margin-left: 0px;
   margin-top: 10px;

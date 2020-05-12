@@ -1,79 +1,82 @@
 <!DOCTYPE HTML>
 
 <html>
-	<head>
-		 <link  rel="icon"   href="images/logo.png" type="image/png" />
-		<title>System Don BRO</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <head>
+     <link  rel="icon"   href="images/logo.png" type="image/png" />
+    <title>System Don BRO</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
         <script src="jquery-3.2.1.min.js"></script>
 
       </head>
 
 
-	<body>
-		<div id="page-wrapper">
-              <header id="header">
-						<img name="imagen" src="images/logo.png" >
+  <form id="frmajax" method="post" >
+      <div id="page-wrapper">
 
-						<h1><a>System Don BRO</a></h1>
-						
-						<nav id="nav">
+      <header id="header">
+            <img name="imagen" src="images/logo.png" >
 
-							<ul>
-								<li class="special">
-									<a href="#menu" class="menuToggle"><span>Menu</span></a>
-									<div id="menu">
-										 
-										<ul>
-											<li><a href="Pantalla_carnet.php"><img height="20" src="images/carnet.png"> Generar Carnet</a></li>
-										</ul>
+            <h1><a>System Don BRO</a></h1>
+            
+            <nav id="nav">
+
+              <ul>
+                <li class="special">
+                  <a href="#menu" class="menuToggle"><span>Menu</span></a>
+                  <div id="menu">
+                    
                     <ul>
-											<li><a href="Pantalla_cobro.php"><img height="20" src="images/pago.png"> Control de Pago</a></li>
-										</ul>
-										
-										  <ul>
-											<li><a href="test_asistencia.php"><img height="20" src="images/control.png"> Control Asistencia  </a></li>
-										</ul>
-									    <ul>
-											<li><a href="Pantalla_alumno.php"><img height="20" src="images/agregar.png">   Agregar Alumno  </a></li>
-										</ul>
-										 <ul>
-											<li><a href="Pantalla_m_alumno.php"><img height="20" src="images/recargar.png"> Actualizar Alumno  </a></li>
-										</ul>
-										 <ul>
-											<li><a href="Pantalla_consulta_alumno.php"><img height="20" src="images/lupa.png">  Consultar Alumno</a></li>
-										</ul>
-										 <ul>
-											<li><a href="pantalla_reportes.php"><img height="20" src="images/reportar.png"> Reportes</a></li>
-										</ul>
+                      <li><a href="Pantalla_carnet.php"><img height="20" src="images/carnet.png"> Generar Carnet</a></li>
+                    </ul>
+                    <ul>
+                      <li><a href="Pantalla_cobro.php"><img height="20" src="images/pago.png"> Control de Pago</a></li>
+                    </ul>
+                    
+                      <ul>
+                      <li><a href="test_asistencia.php"><img height="20" src="images/control.png"> Control Asistencia  </a></li>
+                    </ul>
+                      <ul>
+                      <li><a href="Pantalla_alumno.php"><img height="20" src="images/agregar.png">   Agregar Alumno  </a></li>
+                    </ul>
+                     <ul>
+                      <li><a href="Pantalla_m_alumno.php"><img height="20" src="images/recargar.png"> Actualizar Alumno  </a></li>
+                    </ul>
+                     <ul>
+                      <li><a href="Pantalla_consulta_alumno.php"><img height="20" src="images/lupa.png">  Consultar Alumno</a></li>
+                    </ul>
+                     
 
-									</div>
-								</li>
-							</ul>
-						</nav>
-					</header>
-				<!-- Main -->
-					<article id="main">
-						
-						<section class="wrapper style5" >
-                         <div class="inner">
 
-                         	
-								<section>
-									<h4 style="text-align: center;">Datos Iniciales</h4>
-									<br/>
-									<br/>
+
+                     <ul>
+                      <li><a href="pantalla_reportes.php"><img height="20" src="images/reportar.png"> Reportes</a></li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </nav>
+          </header>
+<article id="main">
+            
+    <section class="wrapper style5" >
+          <div class="inner">
+
+                          
+                <section>
+                  <h4 style="text-align: center;">Datos Iniciales</h4>
+                  <br/>
+                  
                                         <select  name="tipo_r" id="tipo_r" oninput="activa()">
                                              <option value='0'>Seleccione un Reporte..</option>
-                                             <option value='1'>Cierre del día</option>
-                                             <option value='2'>Cierre semanal</option>
-                                             <option value='3'>Estado de alumno</option>
-                                             <option value='4'>Copia de ticket</option>
-                                             <option value='6'>Comidas por grupos</option>
-                                             <option value='5'>Lista de Adeudos </option>
+                                             <option value='1'>1) Cierre del día</option>
+                                             <option value='2'>2) Cierre semanal</option>
+                                             <option value='3'>3) Estado de alumno</option>
+                                             <option value='4'>4) Copia de ticket</option>
+                                             <option value='6'>5) Comidas por grupos</option>
+                                             <option value='5'>6) Lista de Adeudos </option>
                                              
                                                
                                         </select>
@@ -89,12 +92,9 @@
                             required oninput="validacion(this)"
                             oninput="validacion(this)" 
                             />
-                      </div>
-
-
-
-						            <br/>
-				                    <form action="" method="POST"> 
+        </div>
+             <br/>
+                <form action="" method="POST"> 
                                     Desde:
                                     <br>
                                     <input 
@@ -114,32 +114,34 @@
                                     min="2019-01-01" >
                                     <br/>
                                     <br/>
-										
-									    <ul class="actions" style="text-align: center" >
-										<li><input id="boton_2" style="text-align: center"  name="guardar" type="button" value="Buscar Reporte  " class="principal"/></li>
-									    </ul>
-								</section>
-								
-								
-							</div>
-						
-					    <div id="respuesta"></div>
-					</article>
+                    
+                      <ul class="actions" style="text-align: center" >
+                    <li><input id="boton_2" style="text-align: center"  name="guardar" type="button" value="Buscar Reporte  " class="principal"/></li>
+                      </ul>
+                </section>
+                
+                
+              </div>
+            
+              <div id="respuesta"></div>
+          </article>
 
-				
-			</div>
+          </div>
+      </div>
+</div>
 
-		
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-			<script src="lib/js/invoice.js"></script>
 
-	</body>
+
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/jquery.scrollex.min.js"></script>
+  <script src="assets/js/jquery.scrolly.min.js"></script>
+  <script src="assets/js/skel.min.js"></script>
+  <script src="assets/js/util.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="lib/js/invoice.js"></script>
+  </body>
 </html>
+
 <script type="text/javascript">
 
 

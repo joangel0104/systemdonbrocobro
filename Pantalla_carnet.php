@@ -16,108 +16,111 @@ INNER JOIN becas b ON a.beca_id=b.id
 <!DOCTYPE HTML>
 
 <html>
-	<head>
-		 <link  rel="icon"   href="images/logo.png" type="image/png" />
-		<title>System Don BRO</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <head>
+     <link  rel="icon"   href="images/logo.png" type="image/png" />
+    <title>System Don BRO</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+  
         <script src="jquery-3.2.1.min.js"></script>
 
       </head>
 
 
-	<body>
-		
+  <body>
+    
 
-	   <div id="page-wrapper">
+     <div id="page-wrapper">
      
             <header id="header">
-				<img name="imagen" src="images/logo.png" >
+        <img name="imagen" src="images/logo.png" >
 
-						<h1><a href="">System Don BRO</a></h1>
-						
-						<nav id="nav">
+            <h1><a href="">System Don BRO</a></h1>
+            
+            <nav id="nav">
 
-							<ul>
-								<li class="special">
-									<a href="#menu" class="menuToggle"><span>Menu</span></a>
-									<div id="menu">
-										 
-										<ul>
-											<li><a href="Pantalla_carnet.php"><img height="20" src="images/carnet.png"> Generar Carnet</a></li>
-										</ul>
+              <ul>
+                <li class="special">
+                  <a href="#menu" class="menuToggle"><span>Menu</span></a>
+                  <div id="menu">
+                     
                     <ul>
-											<li><a href="Pantalla_cobro.php"><img height="20" src="images/pago.png"> Control de Pago</a></li>
-										</ul>
-										
-										  <ul>
-											<li><a href="test_asistencia.php"><img height="20" src="images/control.png"> Control Asistencia  </a></li>
-										</ul>
-									    <ul>
-											<li><a href="Pantalla_alumno.php"><img height="20" src="images/agregar.png">   Agregar Alumno  </a></li>
-										</ul>
-										 <ul>
-											<li><a href="Pantalla_m_alumno.php"><img height="20" src="images/recargar.png"> Actualizar Alumno  </a></li>
-										</ul>
-										 <ul>
-											<li><a href="Pantalla_consulta_alumno.php"><img height="20" src="images/lupa.png">  Consultar Alumno</a></li>
-										</ul>
-										 
+                      <li><a href="Pantalla_carnet.php"><img height="20" src="images/carnet.png"> Generar Carnet</a></li>
+                    </ul>
+                    <ul>
+                      <li><a href="Pantalla_cobro.php"><img height="20" src="images/pago.png"> Control de Pago</a></li>
+                    </ul>
+                    
+                      <ul>
+                      <li><a href="test_asistencia.php"><img height="20" src="images/control.png"> Control Asistencia  </a></li>
+                    </ul>
+                      <ul>
+                      <li><a href="Pantalla_alumno.php"><img height="20" src="images/agregar.png">   Agregar Alumno  </a></li>
+                    </ul>
+                     <ul>
+                      <li><a href="Pantalla_m_alumno.php"><img height="20" src="images/recargar.png"> Actualizar Alumno  </a></li>
+                    </ul>
+                     <ul>
+                      <li><a href="Pantalla_consulta_alumno.php"><img height="20" src="images/lupa.png">  Consultar Alumno</a></li>
+                    </ul>
+                     
 
 
 
-										 <ul>
-											<li><a href="pantalla_reportes.php"><img height="20" src="images/reportar.png"> Reportes</a></li>
-										</ul>
+                     <ul>
+                      <li><a href="pantalla_reportes.php"><img height="20" src="images/reportar.png"> Reportes</a></li>
+                    </ul>
 
-									</div>
-								</li>
-							</ul>
-						</nav>
-					</header>
-				
-					<article id="main">
-						
-						<section class="wrapper style5">
+                  </div>
+                </li>
+              </ul>
+            </nav>
+          </header>
+        
+          <article id="main">
+            
+            <section class="wrapper style5">
                          <div class="inner">
-								<section>
-									<h4 style="text-align: center;">Datos Iniciales</h4>
-								
-								<center>
+                <section>
+                  <div id="general_4"> 
+                  <h4 style="text-align: center;">Datos Iniciales</h4>
+                
+                <center>
                                      <div  onkeyup="saltar(event,'name')" class="derecha" id="buscar"><input  maxlength="20" type="search" class="light-table-filter" data-table="order-table" placeholder="Búsqueda "></div>
                                 </center>
-  	                                  <form method="post" action="Imprimir_Carnet.php">
-										<div class="row uniform">
+                                      <form method="post" action="Imprimir_Carnet.php">
+                    <div class="row uniform">
 
-											<div class="8u 12u$(xsmall)">
-												<input type="text" 
-												       name="name" 
-												       id="name" 
-												       value="" 
-												       placeholder="Introduzca Código alumno"  
-												       maxlength="3" pattern="([0-9]{3,3})" 
-												       required oninput="validacion(this)"
-												       onkeyup="saltar(event,'boton_8')"/>
-											</div>
-										   </div>
-										   <br/>
-										 <div class="12u$">
-															
-												<ul class="actions" style="text-align: left" >
-												<li><input id="boton_8" 
-													       style="text-align:center" 
-													       name="boton_8" 
-													       type="button" 
-													       value="Generar Carnet " 
-													       class="principal" 
-													      ></li>
+                      <div class="8u 12u$(xsmall)">
+                        <input type="text" 
+                               name="name" 
+                               id="name" 
+                               value="" 
+                               placeholder="Introduzca Código alumno"  
+                               maxlength="3" pattern="([0-9]{3,3})" 
+                               required oninput="validacion(this)"
+                               onkeyup="saltar(event,'boton_8')"/>
+                      </div>
+                       </div>
+                       <br/>
+                     <div class="12u$">
+                              
+                        <ul class="actions" style="text-align: left" >
+                        <li><input id="boton_8" 
+                                 style="text-align:center" 
+                                 name="boton_8" 
+                                 type="button" 
+                                 value="Generar Carnet " 
+                                 class="principal" 
+                                ></li>
                                                 </ul>
-										</div>
-										<br/>
-										
-					<center>
+                    </div>
+                     </div>
+                    <br/>
+
+                    
+          <center>
                         <div class="datagrid">
                            <table class="order-table table">
                                <thead>
@@ -158,29 +161,29 @@ INNER JOIN becas b ON a.beca_id=b.id
                                 
                                    </tr>
                                <?PHP }?> 
-                          </table>			
-					    </article>
+                          </table>      
+              </article>
                      </div>
 
-		
-			
+    
+      
 
       </thead>  
       
-    			  
+            
     
 </div>
 
-		
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-		    <script src="assets/js/main.js"></script>
-			<script src="lib/js/invoice.js"></script>
+    
+      <script src="assets/js/jquery.min.js"></script>
+      <script src="assets/js/jquery.scrollex.min.js"></script>
+      <script src="assets/js/jquery.scrolly.min.js"></script>
+      <script src="assets/js/skel.min.js"></script>
+      <script src="assets/js/util.js"></script>
+        <script src="assets/js/main.js"></script>
+      <script src="lib/js/invoice.js"></script>
 
-	</body>
+  </body>
 </html>
 
 
@@ -252,20 +255,20 @@ INNER JOIN becas b ON a.beca_id=b.id
          
        function saltar(e,id)
          {
-	       (e.keyCode)?k=e.keyCode:k=e.which;
+         (e.keyCode)?k=e.keyCode:k=e.which;
            if(k==13)
-	       {
-		     if(id=="submit")
-		     {
-			    document.forms[0].submit();
-		     }
-		     else
-		     {
-			    document.getElementById(id).focus();
-		     }
-	      }
+         {
+         if(id=="submit")
+         {
+          document.forms[0].submit();
+         }
+         else
+         {
+          document.getElementById(id).focus();
+         }
+        }
 
-	
+  
 }
 
 
@@ -273,63 +276,64 @@ INNER JOIN becas b ON a.beca_id=b.id
 
      function saltar(e,id)
          {
-	       (e.keyCode)?k=e.keyCode:k=e.which;
+         (e.keyCode)?k=e.keyCode:k=e.which;
            if(k==13)
-	       {
-		     if(id=="submit")
-		     {
-			    document.forms[0].submit();
-		     }
-		     else
-		     {
-			    document.getElementById(id).focus();
-		     }
-	      }
+         {
+         if(id=="submit")
+         {
+          document.forms[0].submit();
+         }
+         else
+         {
+          document.getElementById(id).focus();
+         }
+        }
 
-	
+  
 }
 
  </script>
 
- <style >
- 
-table td {
-      padding: 0.2em 0.2em;
-      font-size: 12px;
-   text-align: center;
-    }
-#boton_8
-{
- background-color: #27c147;
-  width: 186%;
+</script>
 
-}
-#name
+<style >
+#text_3
 {
-  width: 51%;
+
+  font-weight: 900;
+ 
+  margin-left: -80%;
+  color: white;
+  font-size: 0.8em;
 }
 
- #buscar
+#general_4
 {
- width: 100%;
-  font-size: 20px;
-  color: #2e3842;
-   background: #2e3842 ;
-  padding-left: 20px ;
- 
-  border-radius: 0px;
-  padding: 10px;
-  margin:0px; 
+margin: auto;
+  width: 1140px;
+  height: 220px;
+  background-color: #2e3842;
+
 }
+ 
+table td 
+{
+    padding: 0.4em 0.5em;
+    font-size: 13px;
+    text-align: center;
+    
+}
+
+
+
 input[type="search"]
 {
-   
-  
-  -webkit-appearance: none;
+ margin-top: 55px; 
+  margin-left: 73.5%;
+-webkit-appearance: none;
 -ms-appearance: none;
 appearance: none;
-background:
-rgba(238, 236, 236, 0.97);
+ background-color: #F3F5F9;
 border-radius: 3px;
 border: none;
 color: inherit;
@@ -337,7 +341,7 @@ display: block;
 outline: 0;
 padding: 0.3em;
 text-decoration: none;
-width: 100%;
+width: 50%;
 border-top: 100%;
 }
 

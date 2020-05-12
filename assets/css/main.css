@@ -180,6 +180,24 @@ body {
 	from { opacity: 0; }
 	to { opacity: 1; }
 }
+#boton_8
+{
+	margin-left: 11%;
+
+ background-color: #27c147;
+  width: 222%;
+  
+}
+
+#names
+{
+  width: 60.5%;
+ padding: 0.9em;
+ font-size: 13px;
+ background-color: #F3F5F9;
+ margin-left: 3%;
+ margin-top: -17px;
+ }
 
 #comentarios
 {
