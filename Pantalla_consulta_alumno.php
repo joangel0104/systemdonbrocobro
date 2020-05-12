@@ -89,7 +89,7 @@
              data-table="order-table" 
              placeholder="Búsqueda ">
 
-     <select name="tipo_grado" id="tipo_grado" onkeyup="filtrar_table">
+     <select name="tipo_grado" id="tipo_grado" onclick="filtrar_table()">
           <option value='0'>Seleccione el grado..</option>
           <option value='1'>Primer grado</option>
           <option value='2'>Segundo grado </option>
@@ -98,7 +98,7 @@
           <option value='5'>Quinto grado </option>
           <option value='6'>Sexto grado </option>
     </select>
-    <select name="tipo_seccion" id="tipo_seccion" onkeyup="filtrar_table" >
+    <select name="tipo_seccion" id="tipo_seccion" onclick="filtrar_table()" >
            <option value='0'>Seleccione la sección..</option>
            <option value='a'>(a)</option>
            <option value='b'>(b)</option>
@@ -114,7 +114,7 @@
   </center>
   
   <div class="datagrid">
-    <table class="order-table table">
+    <table class="order-table table" id="tabla_1" >
       <thead>
         <tr class="titulo"> 
            <td>
@@ -195,7 +195,10 @@
 </html>
 
 <script type="text/javascript">
-    
+
+
+
+
 (function(document) {
   'use strict';
 
@@ -236,29 +239,41 @@
 
 })(document);
 
-  async function filtrar_table() {
-        var grad=$('#tipo_grado').serialize();
-        var secc=$('#tipo_seccion').serialize();
-        var datos=grad+secc;
-   
 
+
+
+  async function filtrar_table() {
+        
+   
+   var Parametros=$('#frmajax').serialize();
+   if($('#tipo_grado').val()=='0'|| $('#tipo_seccion').val()=='0')
+   {
+     $("#tabla_1").show();
+     $("#tabla_2").hide();
+   }
+   else
+   {
+   ocultar_table() ;
+   
     let response = await $.ajax({
             type:"GET",
               url:"filtrar_alumno.php",
-              data: datos,
+              data: Parametros ,
               success: await function(repuesta) 
               {
-               console.log(repuesta);
+                //console.log(repuesta);
+                $('#facturas').html(repuesta);
               }
           });
     return response;
-  }
+     }
+    }
 
+async function ocultar_table() 
+{
 
-
-
-
-
+$("#tabla_1").hide();
+}
 
 
 
@@ -274,7 +289,7 @@
 <style >
  
 table td {
-      padding: 0.5em 0.5em;
+      padding: 0.3em 0.3em;
       font-size: 12px;
    text-align: center;
     }

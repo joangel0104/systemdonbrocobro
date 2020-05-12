@@ -1,8 +1,8 @@
 <?php
   
 $conexion=mysqli_connect('localhost','root','','servidor.cobro');
-$v1=$GET['tipo_grado'];
-$v2=$_GET['tipo_seccion'];
+ $tipo_grado=($_GET['tipo_grado']);
+ $tipo_seccion=($_GET['tipo_seccion']);
 
 $sql="	SELECT alumnos.codigo AS codigo,
        alumnos.nombre AS nombre,
@@ -14,26 +14,25 @@ $sql="	SELECT alumnos.codigo AS codigo,
         alumnos.estatus AS estatus
         FROM `alumnos` 
         INNER JOIN becas ON alumnos.beca_id = becas.id
-        WHERE alumnos.grado='v1'AND alumnos.seccion='v2'   ";
+        WHERE alumnos.grado='$tipo_grado'AND alumnos.seccion='$tipo_seccion'   ";
 
 
 $result=mysqli_query($conexion,$sql);
-$row=mysqli_fetch_array($stmt1, MYSQLI_NUM);
+
+$resultados = [];
+$i = 1;
+while ($row=mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+	$resultados[] = $row;
+	$resultados[$i-1]['numero'] = $i;
+	$i++;
+}
+
+
+            
 
 
 
-             $aux0=$row['0'];
-             $aux1=$row['1'];
-             $aux2=$row['2'];
-             $aux3=$row['3']; 
-             $aux4=$row['4']; 
-             $aux5=$row['5']; 
-             $aux6=$row['6']; 
-             $aux7=$row['7']; 
-
-
-
-$tabla= "	<table id='tabla_factura'>
+$tabla= "	<table id='tabla_2'>
 				<thead>
 					<tr>
 						<th>Código</th>
@@ -48,21 +47,19 @@ $tabla= "	<table id='tabla_factura'>
 					</tr>
 				</thead>
 				<tbody id='content_table'>";
- {
+ foreach ($resultados as $key => $value) {
 	$fila = "<tr>";
-	$fila .= "<td>".$aux0."</td>";
-	$fila .= "<td>".$aux1."</td>";
-	$fila .= "<td>".$aux2."</td>";
-	$fila .= "<td>".$aux3."</td>";
-	$fila .= "<td>".$aux4."</td>";
-	$fila .= "<td>".$aux5."</td>";
-	$fila .= "<td>".$aux6."</td>";
-	$fila .= "<td>".$aux7."</td>";
-	
+	$fila .= "<td>".$value['codigo']."</td>";
+	$fila .= "<td>".$value['nombre']."</td>";
+	$fila .= "<td>".$value['observacion']."</td>";
+	$fila .= "<td>".$value['celular']."</td>";
+	$fila .= "<td>".$value['tipo_beca']."</td>";
+	$fila .= "<td>".$value['grado']."</td>";
+	$fila .= "<td>".$value['seccion']."</td>";
+	$fila .= "<td>".$value['estatus']."</td>";
 	$fila .= "</tr>";
 	$tabla.=$fila;
 }
-
 
 echo $tabla;
 
