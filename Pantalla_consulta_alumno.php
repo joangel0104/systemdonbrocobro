@@ -89,6 +89,25 @@
              data-table="order-table" 
              placeholder="Búsqueda ">
 
+     <select name="tipo_grado" id="tipo_grado">
+          <option value='0'>Seleccione el grado..</option>
+          <option value='1'>Primer grado</option>
+          <option value='2'>Segundo grado </option>
+          <option value='3'>Tercer grado </option>
+          <option value='4'>Cuarto grado </option>
+          <option value='5'>Quinto grado </option>
+          <option value='6'>Sexto grado </option>
+    </select>
+    <select name="tipo_seccion" id="tipo_seccion">
+           <option value='0'>Seleccione la sección..</option>
+           <option value='1'>(a)</option>
+           <option value='2'>(b)</option>
+           <option value='3'>(c)</option>
+           <option value='4'>(d)</option>
+           <option value='5'>(e)</option>
+           <option value='6'>(f )</option>
+    </select>
+
 
 
   </div>
@@ -256,18 +275,35 @@ table td {
   border-radius: 0px;
   padding: 10px;
   margin:10px; 
+  height: 70px;
 }
 input[type="search"]{
    
   width: 460px;
   height: 30px;
-  margin-left: 0px;
+ margin-left: -50%;
   margin-top: 10px;
   padding-left: 10px;
   outline: none;
-  font-size: 0.8em;
+  font-size: 14px;
   color: #2e3842;
+  background-color: #F3F5F9;
 }
+#tipo_grado
+{
+margin-left: 20%;
+  width: 260px;
+  margin-top: -3%;
 
-
+ font-size: 12px;
+ background-color: #F3F5F9;
+}
+#tipo_seccion
+{
+margin-top: -3%;
+margin-left: 72%;
+  width: 260px;
+  font-size: 12px;
+ background-color: #F3F5F9;
+}
 </style>   

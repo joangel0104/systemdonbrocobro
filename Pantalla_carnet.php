@@ -87,15 +87,15 @@ INNER JOIN becas b ON a.beca_id=b.id
                   <h4 style="text-align: center;">Datos Iniciales</h4>
                 
                 <center>
-                                     <div  onkeyup="saltar(event,'name')" class="derecha" id="buscar"><input  maxlength="20" type="search" class="light-table-filter" data-table="order-table" placeholder="Búsqueda "></div>
+                                     <div  onkeyup="saltar(event,'codig')" class="derecha" id="buscar"><input  maxlength="20" type="search" class="light-table-filter" data-table="order-table" placeholder="Búsqueda "></div>
                                 </center>
                                       <form method="post" action="Imprimir_Carnet.php">
                     <div class="row uniform">
 
                       <div class="8u 12u$(xsmall)">
                         <input type="text" 
-                               name="name" 
-                               id="name" 
+                               name="codig" 
+                               id="codig" 
                                value="" 
                                placeholder="Introduzca Código alumno"  
                                maxlength="3" pattern="([0-9]{3,3})" 
@@ -319,7 +319,7 @@ margin: auto;
 table td 
 {
     padding: 0.4em 0.5em;
-    font-size: 13px;
+    font-size: 12px;
     text-align: center;
     
 }
@@ -345,5 +345,16 @@ width: 50%;
 border-top: 100%;
 }
 
+#codig
+{
+  width: 60%;
+  
+  font-size: 13px;
+  
+  position: relative;
+  margin-left: 3.2%;
+  background-color: #F3F5F9;
+  margin-top: -12px;
+}
 
 </style>   

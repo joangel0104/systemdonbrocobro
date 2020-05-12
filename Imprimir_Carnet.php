@@ -8,7 +8,7 @@
  
      $conexion=mysqli_connect('localhost','root','','servidor.cobro');
      
-     $name=$_POST['name'];
+     $name=$_POST['codig'];
 
       
 
