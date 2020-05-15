@@ -70,7 +70,7 @@
       <div id="general_reporte">  
 
                 <br/>          
-                  <h4 id="text_6"><img height="20" src="images/reportar.png"> Reportes</h4>
+                  <h4 id="text_6"><img height="30" src="images/reportar.png"> Reportes</h4>
                   
                     <div class="8u 12u$(xsmall)">
                         <input  type="text" 

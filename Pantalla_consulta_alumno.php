@@ -82,7 +82,7 @@
          
   <div class="derecha" id="buscar">
     <br>
-<h4 id="text_6"><img height="20" src="images/busqueda.png">  Consultar Alumno</h4>
+<h4 id="text_6"><img height="30" src="images/busqueda.png">  Consultar Alumno</h4>
      <input  maxlength="100" 
              type="search" 
              class="light-table-filter" 
@@ -211,7 +211,7 @@
           <i class="fas fa-times"> <img height="20" src="images/cerrar.png">
           </i>
         </a>
-        <h3><img height="40" src="images/refrescar.png"> Actualizar Alumno</h3>
+        <h3><img height="60" src="images/refrescar.png"> Actualizar Alumno</h3>
       
         <form action="">
           <div class="contenedor-inputs">

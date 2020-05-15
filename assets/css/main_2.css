@@ -389,6 +389,7 @@ margin-left: 2%;
 		font-size: 100%;
 		font: inherit;
 		vertical-align: baseline;
+		    vertical-align: middle;
 
 
 	}
@@ -3737,6 +3738,7 @@ margin-left: 2%;
 						letter-spacing: 0.225em;
 						padding: 0 1.5em;
 						text-transform: uppercase;
+						text-decoration-line: none;
 					}
 
 						#header nav > ul > li > a.menuToggle {

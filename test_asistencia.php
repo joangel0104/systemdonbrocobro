@@ -14,7 +14,7 @@
 						<br>
 						 <div id="fondo_1">
 						 	<br>
-						<h4 style="text-align: left;"><img height="20" src="images/control.png"> Alumnos listados por grupos</h4>  
+						<h4 style="text-align: left;"><img height="30" src="images/control.png"> Alumnos listados por grupos</h4>  
 						</div>
 					</section>
 				</div>

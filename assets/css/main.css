@@ -616,6 +616,7 @@ width:260%;
 		font-size: 100%;
 		font: inherit;
 		vertical-align: baseline;
+		vertical-align: middle;
 
 
 	}
@@ -2055,6 +2056,8 @@ width:260%;
 		border-bottom: dotted 1px;
 		color: inherit;
 		text-decoration: none;
+		-webkit-appearance: media-volume-sliderthumb;
+		font-weight: bolder;
 	}
 
 		a:hover {

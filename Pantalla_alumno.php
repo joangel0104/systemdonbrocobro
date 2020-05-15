@@ -64,7 +64,7 @@
 									
                                    <div id="fondo_1">
                                    	<br/>
-									<h4  id="tex1" ><img height="20" src="images/agregar.png"> Agregar Alumno</h4>
+									<h4  id="tex1" ><img height="30" src="images/agregar.png"> Agregar Alumno</h4>
 									</div>
 									
 									<div id="fondo_2">

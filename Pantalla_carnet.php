@@ -86,7 +86,7 @@ INNER JOIN becas b ON a.beca_id=b.id
                   <div id="general_4"> 
                    <br/>
 
-                  <h4 id="text_7"><img height="20" src="images/proteccion.png"> Generar Carnet</h4>
+                  <h4 id="text_7"><img height="30" src="images/proteccion.png"> Generar Carnet</h4>
                    <div class="8u 12u$(xsmall)">
                    <input id="boton_8" 
                                 
