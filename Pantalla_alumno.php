@@ -49,7 +49,7 @@
 										</ul>
 										 
 										 <ul>
-											<li><a href=""><img height="20" src="images/reportar.png"> Reportes</a></li>
+											<li><a href="pantalla_reportes.php"><img height="20" src="images/reportar.png"> Reportes</a></li>
 										</ul>
 									</div>
 								</li>
@@ -61,8 +61,13 @@
 						<section class="wrapper style5">
 							<div class="inner">
 								<section>
-									<h4 style="text-align: center;">Datos Iniciales</h4>
-									<br/>
+									
+                                   <div id="fondo_1">
+                                   	<br/>
+									<h4  id="tex1" ><img height="20" src="images/agregar.png"> Agregar Alumno</h4>
+									</div>
+									
+									<div id="fondo_2">
                                         <div class="8u 12u$(xsmall)">
 											<input 	type="text" 
 													name="nombre" 
@@ -117,17 +122,26 @@
 													required 
 													oninput="validacion(this)" maxlength="1" />
 										</div>	
+
+									 <hr id="linea" color="blue" size=3>
 										
-										<br/>
 										<div class="2u$ 12u$(xsmall)">
 										<textarea 
 										            id="observacion" 
 										            name="observacion" 
 										            oninput="validacion(this)" maxlength="500"
-										            rows="3" cols="35">Escriba aquí sus observaciones..</textarea>
-												
-										<br/>			
-										</div>			
+										            rows="3" cols="35">Escriba aquí sus observaciones..
+										 </textarea>
+										</div>	
+										<br>
+
+											<br>
+												<br>
+													<br>
+													<br>
+													<br>
+													<br>
+
 										<ul class="actions" 
 											style="text-align: center" >
 											<li>
@@ -140,9 +154,12 @@
 													class="principal"
 													onclick="enviarDatos()" />
 											</li>
-										</ul>
+										</ul>	
+
+										
 									</form>
 								</section>
+							</div>
 							</div>
 						</section>
 						<div id="respuesta"></div>
@@ -155,7 +172,7 @@
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-			<script src="lib/js/invoice.js"></script>
+			
          </form> 
 	</body>
 </html>

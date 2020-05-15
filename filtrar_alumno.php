@@ -4,6 +4,7 @@ $conexion=mysqli_connect('localhost','root','','servidor.cobro');
  $tipo_grado=($_GET['tipo_grado']);
  $tipo_seccion=($_GET['tipo_seccion']);
 
+
 $sql="	SELECT alumnos.codigo AS codigo,
        alumnos.nombre AS nombre,
         alumnos.observacion AS observacion,
@@ -32,7 +33,7 @@ while ($row=mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 
 
 
-$tabla= "	<table id='tabla_2'>
+$tabla= "	<table class='order-table table' id='tabla_2'>
 				<thead>
 					<tr>
 						<th>Código</th>
@@ -43,6 +44,7 @@ $tabla= "	<table id='tabla_2'>
 						<th>Grado</th>
 						<th>Sección</th>
 						<th>Estatus</th>
+						<th>Actualizar</th>
 						
 					</tr>
 				</thead>
@@ -57,6 +59,8 @@ $tabla= "	<table id='tabla_2'>
 	$fila .= "<td>".$value['grado']."</td>";
 	$fila .= "<td>".$value['seccion']."</td>";
 	$fila .= "<td>".$value['estatus']."</td>";
+	$fila .= "<td>".'<a href="#" onclick="ver_id()">  
+      <img height="20" src="images/actualizado.png">Actualizar</a>'."</td>";
 	$fila .= "</tr>";
 	$tabla.=$fila;
 }
@@ -65,3 +69,6 @@ echo $tabla;
 
          
 ?>
+ 
+                                       
+                             

@@ -68,10 +68,13 @@
                           <form action="consulta_alumno.php" method="post" >
 							<div class="inner">
 								<section>
-								
-                <h4 style="text-align: center;">Datos Iniciales</h4>
+								  <div id="fondo_5">
+                     
+                      
+                  <br/>
+                      <h4 id="tex_5"><img height="20" src="images/refrescar.png"> Actualizar Alumno</h4>
 									
-									<br/>
+								
                                             
 											
 
@@ -81,7 +84,7 @@
                       name="numer" 
                       id="numer"  
                       value="" 
-                      placeholder="Introduzca N° Carnet " 
+                      placeholder="Introduzca Código alumno" 
                       required oninput="validacion(this)"   
                       maxlength="3" 
                       pattern="([0-9]{3,3})"
@@ -90,9 +93,19 @@
 											</div>
 										     
 										    <ul class="actions" style="text-align:center" >
-										    <li><input  id="buscar" style="text-align: center"  name="buscar" type="button" value="Buscar Alumno"  class="principal"/></li>
+										    <li>
+                          <input  id="buscar" 
+                                  style="text-align: center"  
+                                  name="buscar" type="button" 
+                                  value="Buscar Alumno"  
+                                  class="principal"/>
+                        </li>
 										  
+                      </div>
 											
+
+
+            <div id="fondo_6">
 											<div class="8u 12u$(xsmall)">
 												<input type="text" name="name" id="name" value=""  placeholder="Nombre y Apellido" maxlength="50"  pattern="([A -z]{3,50})" required oninput="validacion(this)" onkeypress="mayus1(this)"/>
 											</div>
@@ -129,9 +142,20 @@
 												<input type="text" name="precio" id="precio" value="" placeholder="Sección alumno "   pattern="([a-z])" required oninput="validacion(this)" maxlength="1" />
 											</div>
                       <br/>
+                       <hr id="lineas" color="blue" size=3>
                     <textarea  id="comentarios" name="comentarios" rows="3" cols="35">Escriba aquí sus observaciones..</textarea>
                         
-                    <br/>     
+                    <br/>  
+                     <br/> 
+                      <br/> 
+                       <br/> 
+                        <br/> 
+                          <br/> 
+                    
+                  
+                    
+
+
                       	
 
 										   
@@ -144,7 +168,7 @@
 											</ul>
 										
 										
-										
+										 
 									</form>
 								</section>
 								

@@ -66,22 +66,13 @@
 
                           
                 <section>
-                  <h4 style="text-align: center;">Datos Iniciales</h4>
-                  <br/>
+
+      <div id="general_reporte">  
+
+                <br/>          
+                  <h4 id="text_6"><img height="20" src="images/reportar.png"> Reportes</h4>
                   
-                                        <select  name="tipo_r" id="tipo_r" oninput="activa()">
-                                             <option value='0'>Seleccione un Reporte..</option>
-                                             <option value='1'>1) Cierre del día</option>
-                                             <option value='2'>2) Cierre semanal</option>
-                                             <option value='3'>3) Estado de alumno</option>
-                                             <option value='4'>4) Copia de ticket</option>
-                                             <option value='6'>5) Comidas por grupos</option>
-                                             <option value='5'>6) Lista de Adeudos </option>
-                                             
-                                               
-                                        </select>
-                                        <br/>
-                                        <div class="8u 12u$(xsmall)">
+                    <div class="8u 12u$(xsmall)">
                         <input  type="text" 
                             name="carnet" 
                             id="carnet" 
@@ -95,35 +86,107 @@
         </div>
              <br/>
                 <form action="" method="POST"> 
-                                    Desde:
+                                   
                                     <br>
                                     <input 
                                     type="date" 
                                     id="hasta" 
                                     name="hasta" 
-                                    step="1"
+                                   
                                     min="2019-01-01" >
                                     <br>
-                                    Hasta:
+                                  
                                     <br>
                                     <input
                                     type="date" 
                                     id="desde" 
                                     name="desde" 
-                                    step="1" 
+                                   
                                     min="2019-01-01" >
                                     <br/>
                                     <br/>
                     
-                      <ul class="actions" style="text-align: center" >
-                    <li><input id="boton_2" style="text-align: center"  name="guardar" type="button" value="Buscar Reporte  " class="principal"/></li>
-                      </ul>
+                     
+
+
+
+
                 </section>
+                <div class="datagrid">
+
+  </div>
+ <br/>
+    <table id="tabla_reporte" >
+      <thead>
+        <tr class="titulo"> 
+          <thead>
+           
+        </thead>
+        <tbody>
+            <tr>
+                <td><img height="20" src="images/uno.png"> </td>
+                <td>NUMERO DE COMIDAS POR GRUPOS</td>
+                <td> <a href="" ><img height="20" src="images/interfaz.png"> VER</a></td>
+                <td><a href=""><img height="20" src="images/imprimir.png"> IMPRIMIR </a></td>
+               
                 
+            </tr>
+            <tr>
+                <td><img height="20" src="images/dos.png"></td>
+                <td>CIERRE DE COBRO DIARIO </td>
+                <td><a href=""><img height="20" src="images/interfaz.png"> VER</a></td>
+                <td><a href=""><img height="20" src="images/imprimir.png"> IMPRIMIR </a></td>
+                
+               
+            </tr>
+            <tr>
+                <td><img height="20" src="images/tres.png"></td>
+                <td>CIERRE DE COBRO SEMANAL</td>
+                <td><a  href=""><img height="20" src="images/interfaz.png"> VER</a></td>
+                <td><a href=""><img height="20" src="images/imprimir.png"> IMPRIMIR </a></td>
+                
+               
+            </tr>
+            <tr>
+                <td><img height="20" src="images/cuatro.png"></td>
+                <td>ESTADO DE CUENTA ALUMNO </td>
+                <td><a href=""><img height="20" src="images/interfaz.png"> VER</a></td>
+                <td><a href=""><img height="20" src="images/imprimir.png"> IMPRIMIR </a></td>
+               
+                
+            </tr>
+             <tr>
+                <td><img height="20" src="images/cinco.png"></td>
+                <td>COPIA DE TICKET</td>
+                <td><a href=""><img height="20" src="images/interfaz.png"> VER</a></td>
+                <td><a href=""><img height="20" src="images/imprimir.png"> IMPRIMIR </a></td>
+               
+               
+            </tr>
+             <tr>
+                <td><img height="20" src="images/seis.png"></td>
+                <td>LISTADO DE ALUMNOS CON ADEUDO</td>
+                <td><a href=""><img height="20" src="images/interfaz.png"> VER</a></td>
+                <td><a href=""><img height="20" src="images/imprimir.png"> IMPRIMIR </a></td>
+               
+               
+            </tr>
+            <tr>
+        </tr>
+ 
+      </thead>
+      
+
+ </table>     
+ </div>
+
                 
               </div>
             
               <div id="respuesta"></div>
+
+
+
           </article>
 
           </div>
@@ -138,7 +201,7 @@
   <script src="assets/js/skel.min.js"></script>
   <script src="assets/js/util.js"></script>
   <script src="assets/js/main.js"></script>
-  <script src="lib/js/invoice.js"></script>
+ 
   </body>
 </html>
 
@@ -159,7 +222,7 @@ function validacion(elem) {
 
 
  
- document.getElementById("carnet").disabled =true;
+ 
 
  
 function activa()
@@ -406,10 +469,10 @@ else
 
 
 
-      }
+             }
 
 
-}
+          }
 
 
 
@@ -417,15 +480,91 @@ else
       });
 
 
+</script>
+
+<style >
+
+ div#general_reporte
+ {
+    margin: auto;
+    width: 1150px;
+    height: 140px;
+    background-color: #2e3842;
+     border-radius: 4px;
+}
 
 
+#hasta 
+{
+  -webkit-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    
+    border-radius: 3px;
+    border: none;
+    color: inherit;
+    display: block;
+    outline: 3;
+    height: 30px;
+    margin-left: 53%;
+    text-decoration: none;
+    text-align: center;
+    width:20%;
+   font-size: 16px;
+   background-color: #F3F5F9;
+   margin-top: -7.1%;
 
+   
+}
+#desde
+{
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    
+    border-radius: 3px;
+    border: none;
+    color: inherit;
+    display: block;
+    outline: 3;
+    height: 30px;
+    margin-left: 75%;
+    text-decoration: none;
+    text-align: center;
+     width:20%;
+    font-size: 16px;
+    background-color: #F3F5F9;
+    margin-top: -7.1%;
 
+   
+}
+#carnet
+{
+  margin-top: 2%;
+   width:70%;
+   margin-left:5%;
+   font-size: 12px;
+    background-color: #F3F5F9;
+     height: 30px;
+   
+}
+h4#text_6
+{
+  font-weight: 900;
+  margin-top: -0.5%;
+  color: #F3F5F9 ;
+  font-size: 0.8em;
+  margin-left: 3.3%;
+}
+#tabla_reporte
+{
+      
+    text-align: center;
+    font-size: 23px;
+    font-weight: 600;
+        padding: 0.8em 0.2em;
+   
 
+}
 
-
-
-
-
-
- </script>
+</style>

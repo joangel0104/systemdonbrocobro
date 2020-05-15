@@ -11,7 +11,11 @@
 			<section class="wrapper style5">
             	<div class="inner">
 					<section>
-						<h4 style="text-align: center;">Alumnos listados por grupos</h4>  
+						<br>
+						 <div id="fondo_1">
+						 	<br>
+						<h4 style="text-align: left;"><img height="20" src="images/control.png"> Alumnos listados por grupos</h4>  
+						</div>
 					</section>
 				</div>
 
@@ -90,3 +94,19 @@
 
 </body>
 </html>
+<style >
+  #fondo_1
+{
+ width: 96%;
+  font-size: 16px;
+  
+   background: #2e3842 ;
+  padding-left: 20px ;
+ margin-left: 2%;
+ 
+ 
+  height: 80px;
+  margin-top: -5%;
+ border-radius: 4px;
+}
+</style>   

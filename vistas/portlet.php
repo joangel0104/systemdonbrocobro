@@ -5,18 +5,7 @@
         <div class="caption font-green-haze">
             <span class="caption-subject bold uppercase">Alumnos disponibles</span>
         </div>
-        <div class="actions">
-            <!--
-            <a class="btn btn-circle btn-icon-only blue" href="javascript:;">
-                <i class="icon-cloud-upload"></i>
-            </a>
-            <a class="btn btn-circle btn-icon-only green" href="javascript:;">
-                <i class="icon-wrench"></i>
-            </a>
-            -->
-           
-            <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="javascript:;" data-original-title="" title=""> </a>
-        </div>
+        
     </div>
     <div class="portlet-body form" style="height: auto;">
         <form role="form" class="form-horizontal">

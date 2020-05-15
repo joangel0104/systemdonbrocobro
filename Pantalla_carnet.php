@@ -84,12 +84,32 @@ INNER JOIN becas b ON a.beca_id=b.id
                          <div class="inner">
                 <section>
                   <div id="general_4"> 
-                  <h4 style="text-align: center;">Datos Iniciales</h4>
-                
+                   <br/>
+
+                  <h4 id="text_7"><img height="20" src="images/proteccion.png"> Generar Carnet</h4>
+                   <div class="8u 12u$(xsmall)">
+                   <input id="boton_8" 
+                                
+                                 name="boton_8" 
+                                 type="button" 
+                                 value="Generar Carnet " 
+                                 class="principal" 
+                                >
+                    </div>
                 <center>
-                                     <div  onkeyup="saltar(event,'codig')" class="derecha" id="buscar"><input  maxlength="20" type="search" class="light-table-filter" data-table="order-table" placeholder="Búsqueda "></div>
+                                     <div  onkeyup="saltar(event,'codig')" class="derecha" id="buscars">
+                                      <input  maxlength="20" 
+                                              type="search" 
+                                              class="light-table-filter" 
+                                              data-table="order-table" 
+                                              placeholder=" Búsqueda ">
+                                    </div>
                                 </center>
                                       <form method="post" action="Imprimir_Carnet.php">
+
+                              
+                       
+                     
                     <div class="row uniform">
 
                       <div class="8u 12u$(xsmall)">
@@ -103,19 +123,8 @@ INNER JOIN becas b ON a.beca_id=b.id
                                onkeyup="saltar(event,'boton_8')"/>
                       </div>
                        </div>
-                       <br/>
-                     <div class="12u$">
-                              
-                        <ul class="actions" style="text-align: left" >
-                        <li><input id="boton_8" 
-                                 style="text-align:center" 
-                                 name="boton_8" 
-                                 type="button" 
-                                 value="Generar Carnet " 
-                                 class="principal" 
-                                ></li>
-                                                </ul>
-                    </div>
+                       
+                   
                      </div>
                     <br/>
 
@@ -297,30 +306,38 @@ INNER JOIN becas b ON a.beca_id=b.id
 </script>
 
 <style >
-#text_3
+#text_7
 {
-
+ 
   font-weight: 900;
  
-  margin-left: -80%;
-  color: white;
+  color: #fff;
+
   font-size: 0.8em;
+  margin-left: 3.5%;
+
 }
 
 #general_4
 {
 margin: auto;
   width: 1140px;
-  height: 220px;
+  height: 150px;
   background-color: #2e3842;
+   border-radius: 4px;
 
 }
  
 table td 
 {
-    padding: 0.4em 0.5em;
-    font-size: 12px;
-    text-align: center;
+   text-align: center;
+
+
+
+    font-size: 0.7em;
+    font-weight: 600;
+    padding: 0 0.75em 0.75em 0.75em;
+   
     
 }
 
@@ -328,8 +345,8 @@ table td
 
 input[type="search"]
 {
- margin-top: 55px; 
-  margin-left: 73.5%;
+ margin-top: -3.2%; 
+  margin-left: -45.5%;
 -webkit-appearance: none;
 -ms-appearance: none;
 appearance: none;
@@ -341,20 +358,30 @@ display: block;
 outline: 0;
 padding: 0.3em;
 text-decoration: none;
-width: 50%;
+width: 48%;
 border-top: 100%;
 }
 
 #codig
 {
-  width: 60%;
+  width: 33%;
   
   font-size: 13px;
   
   position: relative;
-  margin-left: 3.2%;
+  margin-left: 80%;
   background-color: #F3F5F9;
-  margin-top: -12px;
+  margin-top: -4.7%;
 }
-
+#boton_8
+{
+  margin-left: 114%;
+ height: 36px;
+margin-top: 0.9%;
+ background-color: #27c147;
+  width: 30%;
+  font-size: 11px;
+ font-weight: 700;
+  
+}
 </style>   

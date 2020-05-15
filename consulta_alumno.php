@@ -5,6 +5,8 @@
 
  $v1=$_POST['numer'];
 
+ var_dump($v1);
+
  $sql="SELECT codigo,nombre,observacion,celular,grado,seccion FROM alumnos WHERE codigo='$v1'";
  $stmt1 = mysqli_query($conexion, $sql);
  
