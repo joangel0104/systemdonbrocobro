@@ -526,37 +526,18 @@ color: #FEFE00;
 	font-size: 0.8em;
 }
 
-
-#efectivo
+.tipo_pago
 {
-
+ font-weight: 900;
  width:285%;
  font-size: 12px;
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ border-radius: 3px;
  background-color: #F3F5F9;
- font-weight: 900;
-}
-#deposito
-{
-font-weight: 900;
- width:285%;
- font-size: 12px;
- background-color: #F3F5F9;
-}
-#tarjeta
-{
-font-weight: 900;
-width:285%;
- font-size: 12px;
- background-color: #F3F5F9;
-}
-#tipo_vale
-{
-  
-
- font-weight: 900;
- width:94.5%;
- font-size: 12px;
- background-color: #F3F5F9;
+ backface-visibility: 1;
+ opacity: 1;
 }
 
 #nombres
