@@ -1,23 +1,9 @@
 <html>
-	<head>
-		 <link  rel="icon"   href="images/logo.png" type="image/png" />
-		<title>System Don BRO</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-        <script src="jquery-3.2.1.min.js"></script>
-        <meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600|Open+Sans" rel="stylesheet"> 
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
-	
-    </head>
-
+	<?php require_once './vistas/head2.php'; ?>
 <!DOCTYPE HTML>
 
 <html>
+
   <head>
      <link  rel="icon"   href="images/logo.png" type="image/png" />
     <title>System Don BRO</title>
@@ -75,13 +61,16 @@
             </nav>
           </header>
 <article id="main">
+
+      	<div id="page-wrapper">
+			<?php require_once './vistas/header.php' ?>
+				<article id="main">
+
 					<section class="wrapper style5">
                        <div class="inner">
 						 <section>
 							<form method="post" action="#">
 							   <div class="row uniform">
-								   
-
 								   <div id="general_1">	
 										 
 										 <h4 id="text_1" style="text-align: left;">Datos Iniciales</h4>
@@ -162,59 +151,15 @@
 														placeholder="$"
 														readonly />
 										    </div>
-								    </div>	
+										</div>	
 
 
                                  <div id="general_2"> 
                                  		<h4 id="text_2" style="text-align: left;">Formas de pago</h4>
-
-											<div class="4u$ 12u$(xsmall)">
-												<input 	type="text" 
-														name="efectivo" 
-														id="efectivo" 
-														value="" 
-														maxlength="3" 
-														placeholder="$ Pago en efectivo" 
-														required 
-														oninput="validacion(this)"
-														onkeyup="saltar(event,'btn-abrir-popup')" 
-														/>
-											</div>
-											<br>
-											<div class="4u$ 12u$(xsmall)">
-												<input 	type="text" 
-														name="deposito" 
-														id="deposito" 
-														value="" 
-														maxlength="3" 
-														placeholder="$ Pago en Deposito" 
-														required 
-														oninput="validacion(this)"
-														/>
-											</div>
-											<br>
-                                            <div class="4u$ 12u$(xsmall)">
-												<input 	type="text" 
-														name="tarjeta" 
-														id="tarjeta" 
-														value="" 
-														maxlength="3" 
-														placeholder="$ Pago con Tarjeta " 
-														required 
-														oninput="validacion(this)"
-														 />
-                                            </div>
-                                            <br> 
-                                                 <select name="tipo_vale" id="tipo_vale">
-                                                 <option value='0'>$ Pago con Vale ..</option>
-                                                 <option value='1'>$20</option>
-                                                 <option value='2'>$50</option>
-                                                 <option value='3'>$100</option>
-                                                 <option value='4'>$200</option>
-                                                 </select>
-										    <br>
-									
-										   <div class="12u$">
+                                 			<?php 
+                                 				require_once './componentes/tipos_pagos.php'
+                                 			?>
+										   	<div class="12u$">
 											  <ul class="actions"   style="text-align: center" >
 												<li>
 													<button 
@@ -286,7 +231,7 @@
   <script src="assets/js/skel.min.js"></script>
   <script src="assets/js/util.js"></script>
   <script src="assets/js/main.js"></script>
-  <script src="lib/js/invoice.js"></script>
+  
   </body>
 </html>
 
@@ -388,10 +333,7 @@ document.getElementById("monto").disabled =true;
 		validador=1;  
 		validador=validador*validacion(document.getElementById("codigo"));
 		validador=validador*validacion(document.getElementById("numero")); 
-		console.log(document.getElementById("tipo_Estatus").value);
-		if (document.getElementById("tipo_Estatus").value == 0) {
-			validador =0;
-		}
+		
 		if (validador==0) {
 			alert("Por favor, Verificar los datos");
 			return;
@@ -399,7 +341,7 @@ document.getElementById("monto").disabled =true;
 		let datos = {}
 		datos.codigo = $('#codigo').val();
 		datos.numero = $('#numero').val();
-		datos.tipo_pago = document.getElementById("tipo_Estatus").value;
+		
 		datos.monto = parseFloat($('#monto').val()).toFixed(2);
 		//validaciones extras
 		if(!relacion_credito.hasOwnProperty('precio_comida')){

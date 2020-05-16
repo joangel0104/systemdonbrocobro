@@ -5,7 +5,7 @@
  
     $codigo=$_POST['codigo'];
     $numero=$_POST['numero'];
-    $tipo_pago=$_POST['tipo_pago'];
+   
     $monto=$_POST['monto'];
     $fecha=date("Y-m-d");     
    
@@ -53,7 +53,7 @@
     $datos = [];
     $datos['alumno_id'] = $alumno['id'];
     $datos['precio_beca'] = $beca['precio_comida'];
-    $datos['tipo_pago_id'] = $tipo_pago;
+    
     $datos['monto'] = $monto;
     $datos['credito_generado'] = (int)$numero;
     $datos['credito_total'] = (int)$credito_comida;

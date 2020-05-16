@@ -450,15 +450,17 @@ margin-left: 59%;
 
 div#general_1{
     margin: auto;
-	width: 1180px;
-	height: 90px;
-	background-color: #2e3842;
-	 border-radius: 4px;
+    width: 1135px;
+    height: 90px;
+    background-color: #2e3842;
+    border-radius: 4px;
+    margin-top: -7%;
+    margin-left: 2.2%;
 }
 div#general_2{
     margin: auto;
     margin-top: -29.3%;
-	width: 480px;
+	width: 460px;
 	height: 340px;
 	background-color: #F97E04;
 	margin-left: 60.3%;
@@ -466,13 +468,14 @@ div#general_2{
 div#general_3
 {
     margin: auto;
-	width: 685px;
+	width: 660px;
 	height: 340px;
 	background-color: #04F90F;
-	
+	margin-left: 2.2%;
 	margin-top: 8px;
 	
 }
+
 #monto
 {
 	
@@ -513,6 +516,7 @@ color: #FEFE00;
 	margin-left: 0.3%;
 	font-size: 12px;
 	background-color: #F3F5F9;
+	    width: 100%;
 }
 
 #text_1
@@ -537,39 +541,23 @@ color: #FEFE00;
 	font-size: 0.8em;
 }
 
-
-#efectivo
+.tipo_pago
 {
-
+ font-weight: 900;
  width:285%;
  font-size: 12px;
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ border-radius: 3px;
  background-color: #F3F5F9;
- font-weight: 900;
+ backface-visibility: 1;
+ opacity: 1;
 }
-#deposito
+#nombre
 {
-font-weight: 900;
- width:285%;
- font-size: 12px;
- background-color: #F3F5F9;
+	width: 99%;
 }
-#tarjeta
-{
-font-weight: 900;
-width:285%;
- font-size: 12px;
- background-color: #F3F5F9;
-}
-#tipo_vale
-{
-  
-
- font-weight: 900;
- width:94.5%;
- font-size: 12px;
- background-color: #F3F5F9;
-}
-
 #nombres
 {
 width:120%;
@@ -594,8 +582,10 @@ width:260%;
 
 }
 
-
-
+#tabla_factura
+{
+	background-position: 100%;
+}
 
 @import url(font-awesome.min.css);
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,800,800italic");
@@ -3657,8 +3647,8 @@ text-align: left;
 			.wrapper.style5 input[type="email"],
 			.wrapper.style5 select,
 			.wrapper.style5 textarea {
-				/*background: rgba(0, 0, 0, 0.0375);*/
-				/*background: rgba(1, 1, 1, 0.0375);*/
+				    background: rgb(243, 245, 249);
+				        width: 143%;
 			}
 
 			.wrapper.style5 .select-wrapper:before {
@@ -3791,6 +3781,7 @@ text-align: left;
 		transition: opacity 0.5s ease;
 		opacity: 1;
 		padding-top: 3em;
+		background-color: #fff;
 	}
 
 		#page-wrapper:before {
