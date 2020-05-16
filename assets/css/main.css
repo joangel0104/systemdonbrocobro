@@ -154,7 +154,7 @@ body {
     opacity: 1;
     width: 80%;
     margin-top: 4%;
-    background:#2e3842f7;
+    background:#f7fbfff7;;
 
 
 
@@ -216,7 +216,7 @@ body {
   
   padding-left: 20px ;
  margin-left: 100%;
- border: 1px solid #9a9bb147 !important;
+ border: 1px solid #3a434c !important;
   padding: 10px;
   margin:10px; 
   height: 480px;
@@ -250,19 +250,22 @@ body {
 #comentarios
 {
 
-  margin-left: 68%;
-  width:32%;
- margin-top: -44.6%;
- height: 255px;
-	
+     margin-left: 68%;
+    width: 32%;
+    margin-top: -44.6%;
+    height: 390px;
 	
 }
 
 
 #boton_4
 {
-  margin-left: -65%;
- font-size: 10pt;
+    margin-left: -75%;
+    height: 45px;
+    width: 46%;
+    margin-top: -6.9%;
+    font-size: 10pt;
+    position: absolute;
 
 }
 
@@ -310,6 +313,13 @@ body {
 {
 
 	margin-top: 2%;
+	border: 0.5px solid #3a434c !important;
+}
+#linea2
+{
+
+	margin-top: 2%;
+	border: 0.1px solid #2e3842 !important;
 }
 #tex1
 {
@@ -320,19 +330,20 @@ body {
 
 #observacion
 {
-margin-left: 408%;
-  width:190%;
- margin-top: -222%;
- height: 190px;
+margin-left: 59%;
+    width: 28%;
+    margin-top: -37.5%;
+    height: 325px;
+    position: absolute;
 	
 }
 #guardaralumno
-{
-	 margin-left: -75%;
-	  height: 45px;
-     width: 264%;
-    margin-top: -50%;
+{    margin-left: -75%;
+    height: 45px;
+    width: 46%;
+    margin-top: -5%;
     font-size: 10pt;
+    position: absolute;
 	 
 }
 
@@ -384,7 +395,7 @@ margin-left: 408%;
 #tipo_Estatus
 {
 	    width:33%;
-	    background-color: #3a434c;
+	   background-color: #e4e8ec;
      
 
 }
@@ -392,7 +403,7 @@ margin-left: 408%;
 #tipo
 {
   width:33%;
-  background-color: #3a434c;
+  background-color: #e4e8ec;
      
 
 }
@@ -2078,7 +2089,7 @@ width:260%;
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-		color: #fff;
+		color: #3a434c;
 		font-weight: 800;
 		letter-spacing: 0.225em;
 		line-height: 1em;
@@ -2282,15 +2293,15 @@ width:260%;
 		-webkit-appearance: none;
 		-ms-appearance: none;
 		appearance: none;
-		background: rgba(144, 144, 144, 0.13);
-		border-radius: 3px;
-		border: none;
-		color: inherit;
-		display: block;
-		outline: 0;
-		padding: 0 1em;
-		text-decoration: none;
-		width: 100%;
+		background: rgba(0, 0, 0, 0.07);
+    border-radius: 3px;
+    border: none;
+    color: rgb(58, 67, 76);
+    display: block;
+    outline: 0;
+    padding: 0 1em;
+    text-decoration: none;
+    width: 100%;
 	}
 
 		input[type="text"]:invalid,
@@ -3926,6 +3937,7 @@ text-align: left;
 				display: block;
 				height: inherit;
 				line-height: inherit;
+				color: #fff;
 			}
 
 				@media screen and (max-width: 736px) {

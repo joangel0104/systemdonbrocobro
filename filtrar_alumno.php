@@ -39,7 +39,7 @@ $tabla= "	<table class='order-table table' id='tabla_2'>
 						<th>Código</th>
 				        <th>Nombre y Apellido</th>
 						<th>Observaciones</th>
-						<th>Teléfono Representante </th>
+						<th>Teléfono Contacto </th>
 						<th>Tipo Alumno</th>
 						<th>Grado</th>
 						<th>Sección</th>

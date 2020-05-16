@@ -41,9 +41,7 @@
 									    <ul>
 											<li><a href="Pantalla_alumno.php"><img height="20" src="images/agregar.png">   Agregar Alumno  </a></li>
 										</ul>
-										 <ul>
-											<li><a href="Pantalla_m_alumno.php"><img height="20" src="images/recargar.png"> Actualizar Alumno  </a></li>
-										</ul>
+										
 										 <ul>
 											<li><a href="Pantalla_consulta_alumno.php"><img height="20" src="images/lupa.png">  Consultar Alumno</a></li>
 										</ul>
@@ -123,25 +121,10 @@
 													oninput="validacion(this)" maxlength="1" />
 										</div>	
 
-									 <hr id="linea" color="blue" size=3>
+									
 										
-										<div class="2u$ 12u$(xsmall)">
-										<textarea 
-										            id="observacion" 
-										            name="observacion" 
-										            oninput="validacion(this)" maxlength="500"
-										            rows="3" cols="35">Escriba aquí sus observaciones..
-										 </textarea>
-										</div>	
-										<br>
-
-											<br>
-												<br>
-													<br>
-													<br>
-													<br>
-													<br>
-
+										
+                                        <hr id="linea2"  size=3>
 										<ul class="actions" 
 											style="text-align: center" >
 											<li>
@@ -155,7 +138,14 @@
 													onclick="enviarDatos()" />
 											</li>
 										</ul>	
-
+                                        <div class="2u$ 12u$(xsmall)">
+										<textarea 
+										            id="observacion" 
+										            name="observacion" 
+										            oninput="validacion(this)" maxlength="500"
+										            rows="3" cols="35">Escriba aquí sus observaciones..
+										 </textarea>
+										</div>	
 										
 									</form>
 								</section>

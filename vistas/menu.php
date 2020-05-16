@@ -28,13 +28,6 @@
 			</a>
 		</li>
 	</ul>
-	<ul>
-		<li>
-			<a href="Pantalla_m_alumno.php">
-				<img height="20" src="images/recargar.png"> Actualizar Alumno
-			</a>
-		</li>
-	</ul>
 	 <ul>
 		<li>
 			<a href="Pantalla_consulta_alumno.php">
