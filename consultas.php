@@ -1,24 +1,21 @@
 <?php 
+ require 'conexion.php';
+ $fecha = date('Y-m-d');
 
-	require 'conexion.php';
-
-	$fecha = date('Y-m-d');
-
-	$sql = "SELECT 	COUNT(`asistencias`.`id`) as comidas, 
+	$sql = "SELECT COUNT(`asistencias`.`id`) as comidas, 
 					`alumnos`.`grado` as grado, 
 					`alumnos`.`seccion` as seccion
 			FROM `alumnos` 
 			INNER JOIN `asistencias` ON `asistencias`.`alumno_id` = `alumnos`.`id`
 			WHERE `asistencias`.`fecha` ='".$fecha."' 
 			GROUP BY `alumnos`.`grado`, `alumnos`.`seccion`";
+            
+            var_dump($sql);
 
-	var_dump($sql);
-
-	$resultado = mysqli_query($conexion, $sql);
-
-	$resultados = [];
-	while ($fila=mysqli_fetch_array($resultado, MYSQLI_ASSOC)) {
-		$resultados[] = $fila;
+	        $resultado = mysqli_query($conexion, $sql);
+            $resultados = [];
+	        while ($fila=mysqli_fetch_array($resultado, MYSQLI_ASSOC)) {
+		    $resultados[] = $fila;
 	}
-
-	var_dump($resultados);
+    var_dump($resultados);
+?>

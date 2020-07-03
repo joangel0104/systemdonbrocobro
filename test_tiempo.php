@@ -7,3 +7,4 @@ $cadena =strftime("Hoy es %A, %d de %B de %Y",  $tiempo);
 $varieble = date('d/m/Y',$tiempo);
 var_dump($varieble);
 var_dump($cadena);
+?>

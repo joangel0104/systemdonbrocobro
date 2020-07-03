@@ -32,7 +32,7 @@
 										<ul>
 											<li><a href="Pantalla_carnet.php"><img height="20" src="images/carnet.png"> Generar Carnet</a></li>
 										</ul>
-                    <ul>
+                                         <ul>
 											<li><a href="Pantalla_cobro.php"><img height="20" src="images/pago.png"> Control de Pago</a></li>
 										</ul>
 										

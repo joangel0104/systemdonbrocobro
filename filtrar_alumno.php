@@ -29,10 +29,6 @@ while ($row=mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 }
 
 
-            
-
-
-
 $tabla= "	<table class='order-table table' id='tabla_2'>
 				<thead>
 					<tr>

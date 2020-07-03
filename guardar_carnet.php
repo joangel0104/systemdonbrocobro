@@ -1,8 +1,6 @@
 
 <?php
-	
-
- $conexion=mysqli_connect('localhost','root','','servidor.cobro');
+	$conexion=mysqli_connect('localhost','root','','servidor.cobro');
  require 'phpqrcode/qrlib.php'; 
  require_once('fpdf/fpdf.php');
 
@@ -44,10 +42,6 @@
                 $frameSize = 1;
                 
                 
-    
-        
-	 
-
             while ( $row=mysqli_fetch_array($stmt, MYSQLI_NUM)) 
             {         
                 $v1=$row['0'];
