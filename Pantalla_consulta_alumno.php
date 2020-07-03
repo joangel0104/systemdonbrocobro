@@ -1,15 +1,3 @@
-<?php
-
-  //$conexion=mysqli_connect('localhost','root','','servidor.cobro');
-
-  require 'conexion.php';
-
-  $sql="SELECT a.codigo,a.nombre,a.observacion,a.celular,b.nombre,a.grado,a.seccion,a.estatus
-        FROM alumnos a
-        INNER JOIN becas b ON a.beca_id=b.id
-        ORDER BY grado ASC ,seccion ASC"; 
-        $stmt1 = mysqli_query($conexion, $sql);
-?>
 
 
 <!DOCTYPE HTML>
@@ -24,7 +12,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
         <script src="jquery-3.2.1.min.js"></script>
     </head>
-
+<body onload="(filtrar_table());">
 	<form id="frmajax" method="post" >
         <div id="page-wrapper">
             <header id="header">
@@ -33,29 +21,52 @@
                 <nav id="nav">
                     <ul>
                     <li class="special">
-                        <a href="#menu" class="menuToggle"><span>Menu</span></a>
+                        <a href="#menu" class="menuToggle"><span><?php $diassemana = array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sábado");
+                      $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+                      date_default_timezone_set("America/Mexico_City");
+                      $mysql_tiempo=date('Y/m/d');
+                      $tiempo=strtotime($mysql_tiempo);
+                      $variable=date('d/m/Y',$tiempo);
+                      echo  $fecha_escrita=$diassemana[date('w',$tiempo)]." ".date('d',$tiempo)." de ".$meses[date('n',$tiempo)-1]. " del ".date('Y',$tiempo) ;?></span></a>
                         <div id="menu">
-                            <ul>
-                              <li><a href="Pantalla_carnet.php"><img height="20" src="images/carnet.png"> Generar Carnet</a></li>
-                            </ul>
-                            <ul>
-                              <li><a href="Pantalla_cobro.php"><img height="20" src="images/pago.png"> Control de Pago</a></li>
-                            </ul>
-                            
-                              <ul>
-                              <li><a href="test_asistencia.php"><img height="20" src="images/control.png"> Control Asistencia  </a></li>
-                            </ul>
-                              <ul>
-                              <li><a href="Pantalla_alumno.php"><img height="20" src="images/agregar.png">   Agregar Alumno  </a></li>
-                            </ul>
-                             
-                             <ul>
-                              <li><a href="Pantalla_consulta_alumno.php"><img height="20" src="images/lupa.png">  Consultar Alumno</a></li>
-                            </ul>
-                            <ul>
-                                <li><a href="pantalla_reportes.php"><img height="20" src="images/reportar.png"> Reportes</a></li>
-                            </ul>
-                        </div>
+                    
+                      <div id="menus"><img id="imagen" height="160" src="images/user01.png"> </div>
+
+                    <br/>
+                                        
+                     <ul>
+                      <li><a href="Pantalla_alumno.php"><img height="35" src="images/agregar-usuario.png">   Agregar Alumno  </a></li>
+                    </ul>
+                    <hr id="linea_menu_2"  size=3>
+
+                    <ul>
+
+                      <li><a href="Pantalla_carnet.php"><img height="30" src="images/carnet-de-identidad.png"> Generar Carnet</a></li>
+                    </ul>
+                                           <hr id="linea_menu_2"  size=3>
+                                           <ul>
+                      <li><a href="Pantalla_consulta_alumno.php"><img height="30" src="images/informacion.png">  Consultar Alumno</a></li>
+                    </ul>
+                     <hr id="linea_menu_2"  size=3>
+                                          <ul>
+                      <li><a href="Pantalla_cobro.php"><img height="30" src="images/banca-en-linea.png"> Control de Pago</a></li>
+                    </ul>
+                    <hr id="linea_menu_2"  size=3>
+                      <ul>
+                      <li><a href="test_asistencia.php"><img height="30" src="images/informacion-personal.png"> Control Asistencia  </a></li>
+                    </ul>
+                    <hr id="linea_menu_2"  size=3>
+                     
+                    
+                     <ul>
+                      <li><a href="pantalla_reportes.php"><img height="30" src="images/datos.png"> Reportes</a></li>
+                    </ul>
+                    <hr id="linea_menu_2"  size=3>
+                     <ul>
+                      <li><a href="sesion.php"><img height="30" src="images/apagar.png"> Cerrar sección </a></li>
+                    </ul>
+                    
+                  </div>
                     </li>
                     </ul>
 
@@ -86,7 +97,7 @@
              placeholder="Búsqueda ">
 
      <select name="tipo_grado" id="tipo_grado" onclick="filtrar_table()">
-          <option value='0'>Seleccione el grado..</option>
+         
           <option value='1'>Primer grado</option>
           <option value='2'>Segundo grado </option>
           <option value='3'>Tercer grado </option>
@@ -95,7 +106,7 @@
           <option value='6'>Sexto grado </option>
     </select>
     <select name="tipo_seccion" id="tipo_seccion" onclick="filtrar_table()" >
-           <option value='0'>Seleccione la sección..</option>
+           
            <option value='a'>(a)</option>
            <option value='b'>(b)</option>
            <option value='c'>(c)</option>
@@ -109,83 +120,9 @@
   </div>
 
   </center>
-
+<div id="fondo_tabla_general">
       <div class="table-wrapper" id="facturas"></div>   
-         <div class="datagrid">
-              <table class="order-table table" id="tabla_1" >
-              <thead>
-               <tr class="titulo"> 
-                   
-                       <td>
-                           Código
-                       </td>
-                       <td>
-                           Nombres y Apellidos
-                      </td>
-                       <td>
-                           Observaciones 
-                       </td>
-                        <td >
-                            Teléfono Contacto  
-                        </td>
-                        <td>
-                            Tipo Alumno
-                        </td>
-                        <td>
-                            Grado 
-                        </td>
-                        <td>
-                            Sección 
-                        </td>
-                        <td>
-                            Estatus  
-                        </td>
-                        <td>
-                            Actualizar 
-                        </td>
-                </tr>
-               </thead>
-      
-                        <?PHP while( $row=mysqli_fetch_array($stmt1, MYSQLI_NUM)) {?>
-                        <tr>
-  
-    
-                               <td><?php echo $row['0']; ?></td>
-                               <td><?php echo $row['1']; ?></td>
-                               <td><?php echo $row['2']; ?></td>
-                               <td><?php echo $row['3']; ?></td>
-                               <td><?php echo $row['4']; ?></td>
-                               <td><?php echo $row['5']; ?></td>
-                               <td><?php echo $row['6']; ?></td>
-                               <td><?php echo $row['7']; ?></td>
-                               <td>
-                                       <a 
-                                          href="#" 
-                                          id="abrir_popup"
-                                         
-                                          onclick="ver_id()" 
-                                           >  
-                                         
-
-
-                                       <img height="20" src="images/actualizado.png"> 
-                                       Actualizar 
-                                     </a>
-                               </td>
-                           </tr>
-                        <?PHP }?> 
-              </table>			
-					</article>
-       </div>
-
-		
-			
-
-      </thead>  
-      
-   		  
-    </article>
-	</div>
+ </div>         
 
 
 
@@ -224,8 +161,8 @@
                                     maxlength="50"  
                                     pattern="([A -z]{3,50})" 
                                     required 
-                                    oninput="validacion(this)" 
-                                    onkeypress="mayus(this)"/>
+                                    onkeypress="return solo_letra(event)"
+                                    oninput="mayus(this)"/>
                             </div>
                             <br/>  
                             <div class="4u$ 12u$(xsmall)">
@@ -233,10 +170,10 @@
                                     name="telefono" 
                                     id="telefono" 
                                     value=""  
-                                    placeholder="N° Celular Reprecentante " 
+                                    placeholder="Teléfono Contacto " 
                                     pattern="([1-9][0-9]{9,9})" 
                                     required 
-                                    oninput="validacion(this)" 
+                                    onkeypress="return solo_numero(event)"
                                     maxlength="10" />
                             </div>
                             <br/>
@@ -261,7 +198,7 @@
                                     placeholder="°Grado alumno "  
                                     pattern="([1-9])" 
                                     required 
-                                    oninput="validacion(this)" 
+                                    onkeypress="return solo_numero(event)"
                                     maxlength="1" />
                             </div>
                             <br/>
@@ -273,7 +210,7 @@
                                     placeholder="Sección alumno "   
                                     pattern="([a-z])" 
                                     required 
-                                    oninput="validacion(this)" 
+                                    onkeypress="return solo_letra(event)" 
                                     maxlength="1" />
                             </div>
                             <br/>
@@ -363,11 +300,8 @@
 async function filtrar_table() {
     var Parametros=$('#frmajax').serialize();
    
-    if($('#tipo_grado').val()=='0'|| $('#tipo_seccion').val()=='0'){
-        $("#tabla_1").show();
-        $("#tabla_2").hide();
-    }else{
-        ocultar_table();
+   
+    
         let response = await $.ajax({
             type:"GET",
             url:"filtrar_alumno.php",
@@ -377,20 +311,12 @@ async function filtrar_table() {
             }
         });
         return response;
-    }
+    
 }
 
 
 function ver_id() {
-    if (!document.getElementsByTagName || !document.createTextNode) return;
-    var rows = document.getElementById('tabla_1').getElementsByTagName('tr');
-    for (i = 0; i < rows.length; i++) {
-        rows[i].onclick = function() {
-            var result = this.getElementsByTagName('td')[0].innerHTML;
-            $('#numer').val(result);
-            ver_popup();      
-        }
-    }
+  
     var rows = document.getElementById('tabla_2').getElementsByTagName('tr');
     for (i = 0; i < rows.length; i++) {
         rows[i].onclick = function() {
@@ -435,9 +361,7 @@ function ver_popup() {
 }
 
 
-async function ocultar_table() {
-    $("#tabla_1").hide();
-}
+
 
 $(document).ready(function(){
     $('#boton_4').click(function(){
@@ -477,41 +401,44 @@ $(document).ready(function(){
     });
 }); 
 
-var btnAbrirPopup = document.getElementById('abrir_popup'),
-overlay = document.getElementById('overlay'),
-popup = document.getElementById('popup'),
-btnCerrarPopup = document.getElementById('btn-cerrar-popup');
-
-btnAbrirPopup.addEventListener('click', function(){
-  
-});
-
-btnCerrarPopup.addEventListener('click', function(e){
-  e.preventDefault();
-  overlay.classList.remove('active');
-  popup.classList.remove('active');
-});
-
 function mayus(e) 
 {
   var tecla=e.value;
   var tecla2=tecla.toUpperCase();
   $('#name').val(tecla2);   
-}  
+} 
+//validar solo letra
+function solo_letra(e){
+    tecla = (document.all) ? e.keyCode : e.which;
+    if (tecla == 8){
+        return true;
+    }
+    patron = /[ A-Za-z]/;
+    tecla_final = String.fromCharCode(tecla);
+    return patron.test(tecla_final);
+}
+//validar solo numero
+function solo_numero(e){
+    tecla = (document.all) ? e.keyCode : e.which;
+    if (tecla == 8){
+        return true;
+    }
+    patron = /[0-9]/;
+    tecla_final = String.fromCharCode(tecla);
+    return patron.test(tecla_final);
+}
 
-     
-
-
-
-
-
-
-
-
-</script>  
-
-
+var btnAbrirPopup = document.getElementById('btn-abrir-popup'),
+  overlay = document.getElementById('overlay'),
+  popup = document.getElementById('popup'),
+  btnCerrarPopup = document.getElementById('btn-cerrar-popup');
+  btnCerrarPopup.addEventListener('click', function(e){
+  e.preventDefault();
+  overlay.classList.remove('active');
+  popup.classList.remove('active');
+});
 </script>   
+
 <style >
  
 table td { 
@@ -519,62 +446,95 @@ table td {
     font-size: 0.7em;
     font-weight: 600;
     padding: 0 0.75em 0.75em 0.75em;
+    white-space: nowrap;
 }
     
 #buscar{
-    width: 100%;
+   width: 100%;
     font-size: 20px;
-    background: #2e3842 ;
-    padding-left: 20px ;
-    margin-left: -1%;
+    background: #1e6a78;
+    
+    margin-left: 0%;
     height: 140px;
     border-radius: 4px;
+    margin-top: -2%;
+    position: relative;
+    border: double;
 }
 
 input[type="search"]{
-   
-    width: 490px;
-    height: 30px;
-    margin-left: -50%;
-    padding-left: 10px;
+    width: 40%;
+    margin-left: -46%;
     font-size: 15px;
-    color: #2e3842;
     background-color: #F3F5F9;
-    -webkit-appearance: none;
-    -ms-appearance: none;
-    appearance: none;
     border-radius: 3px;
     border: none;
-    color: inherit;
-    display: block;
-    outline: 0;
     padding: 0.8em;
-    text-decoration: none;
     height: 33px;
-    border-top: 100%;
+    color: black;
+    position: absolute;
+    margin-top: 48px;
+   
 }
 
 #tipo_grado{
-    margin-left: 20%;
-    width: 260px;
-    margin-top: -3%;
+    margin-left: 45%;
+    width: 25%;
+    margin-top: 48px;
     font-size: 12px;
     background-color: #F3F5F9;
+    position: absolute;
 }
 
 #tipo_seccion{
-    margin-top: -2.9%;
-    margin-left: 69.5%;
-    width: 260px;
+    margin-top: 48px;
+    margin-left: 67.5%;
+    width: 25%;
     font-size: 12px;
     background-color: #F3F5F9;
 }
 
 h4#text_6{
-  font-weight: 900;
-  margin-top: 1%;
-  color: #F3F5F9 ;
-  font-size: 0.7em;
-  margin-left: -71.5%;
+    font-weight: 900;
+    margin-top: 1%;
+    color: #F3F5F9;
+    font-size: 0.7em;
+    margin-left: 3.5%;
+    position: absolute;
 }
+#name
+{
+    width: 99%;
+    background-color: #e4e8ec;
+
+}
+#telefono
+{
+width: 143%;
+    background-color: #e4e8ec;
+}
+#cantidad
+{
+width: 143%;
+    background-color: #e4e8ec;
+}
+#precio
+{
+width: 143%;
+    background-color: #e4e8ec;
+}
+#comentarios
+{
+    margin-left: 62%;
+    width: 30%;
+    margin-top: -421px;
+    height: 390px;
+    background-color: #e4e8ec;
+    position: absolute;
+}
+
+
+
+
+
 </style>   

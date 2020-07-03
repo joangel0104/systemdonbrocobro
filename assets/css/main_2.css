@@ -230,6 +230,50 @@ body {
     padding-top: 1.2%;
    
 }
+
+#linea_menu_1
+{
+
+margin-top: -10%;
+
+}
+#linea_menu_2
+{
+margin-top: -10%;
+	
+}
+
+div#menus{
+      margin: auto;
+    width: 263px;
+    height: 220px;
+    background-color: #1e6a78;;
+    margin-left: -2px;
+   
+}
+
+#imagen
+{
+    margin-left: 49px;
+    margin-top: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #boton_buscar
 {
   margin-left: -80%;
@@ -1920,7 +1964,7 @@ margin-left: 2%;
 	hr {
 		border: 0;
 		border-bottom: solid 2px #fff;
-		margin: 3em 0;
+		margin: 1em 0;
 	}
 
 		hr.major {
@@ -3583,7 +3627,7 @@ margin-left: 2%;
 		color: #ffffff;
 		height: 100%;
 		max-width: 80%;
-		overflow-y: auto;
+		
 		padding: 3em 2em;
 		position: fixed;
 		right: 0;

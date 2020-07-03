@@ -17,8 +17,10 @@
 						maxlength="3" 
 						placeholder="$ Pago '.$resultados[$i-1]['nombre'].'" 
 						required 
-						oninput="validacion(this)"
+						
 						onkeyup="saltar(event,\'btn-abrir-popup\')" 
+					    onkeypress="return validar_numero(event)"
+
 				/>
 			</div>
 			<br>';

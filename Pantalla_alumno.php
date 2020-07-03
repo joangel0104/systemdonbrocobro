@@ -11,44 +11,57 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
   		 
     </head>
-
-
-	<body>
+    <body>
 	<form id="frmajax" method="post" >
 	    <div id="page-wrapper">
 			<header id="header">
 						<img name="imagen" src="images/logo.png" >
 
-						<h1><a>System Don BRO</a></h1>
+						<h1><a>           System Don BRO</a></h1>
 						
 						<nav id="nav">
 
 							<ul>
 								<li class="special">
-									<a href="#menu" class="menuToggle"><span>Menu</span></a>
+									<a href="#menu" class="menuToggle"><span><?php $diassemana = array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sábado");
+                                             $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+                                             date_default_timezone_set("America/Mexico_City");
+                                             $mysql_tiempo=date('Y/m/d');
+                                             $tiempo=strtotime($mysql_tiempo);
+                                             $variable=date('d/m/Y',$tiempo);
+                                             echo  $fecha_escrita=$diassemana[date('w',$tiempo)]." ".date('d',$tiempo)." de ".$meses[date('n',$tiempo)-1]. " del ".date('Y',$tiempo) ;?></span></a>
 									<div id="menu">
-										
+										<div id="menus"><img id="imagen" height="160" src="images/user01.png"> </div>
+										<br/>
+																				
 										<ul>
-											<li><a href="Pantalla_carnet.php"><img height="20" src="images/carnet.png"> Generar Carnet</a></li>
+											<li><a href="Pantalla_alumno.php"><img height="35" src="images/agregar-usuario.png">   Agregar Alumno  </a></li>
 										</ul>
-                                          <ul>
-											<li><a href="Pantalla_cobro.php"><img height="20" src="images/pago.png"> Control de Pago</a></li>
+										<hr id="linea_menu_2"  size=3>
+										<ul>
+											<li><a href="Pantalla_carnet.php"><img height="30" src="images/carnet-de-identidad.png"> Generar Carnet</a></li>
 										</ul>
-										
-										  <ul>
-											<li><a href="test_asistencia.php"><img height="20" src="images/control.png"> Control Asistencia  </a></li>
+                                        <hr id="linea_menu_2"  size=3>
+                                        <ul>
+											<li><a href="Pantalla_consulta_alumno.php"><img height="30" src="images/informacion.png">  Consultar Alumno</a></li>
 										</ul>
+										<hr id="linea_menu_2"  size=3>
+                                        <ul>
+											<li><a href="Pantalla_cobro.php"><img height="30" src="images/banca-en-linea.png"> Control de Pago</a></li>
+										</ul>
+										<hr id="linea_menu_2"  size=3>
+										<ul>
+											<li><a href="test_asistencia.php"><img height="30" src="images/informacion-personal.png"> Control Asistencia  </a></li>
+										</ul>
+										<hr id="linea_menu_2"  size=3>
 									    <ul>
-											<li><a href="Pantalla_alumno.php"><img height="20" src="images/agregar.png">   Agregar Alumno  </a></li>
+											<li><a href="pantalla_reportes.php"><img height="30" src="images/datos.png"> Reportes</a></li>
+										</ul>
+										<hr id="linea_menu_2"  size=3>
+										<ul>
+											<li><a href="sesion.php"><img height="30" src="images/apagar.png"> Cerrar sección </a></li>
 										</ul>
 										
-										 <ul>
-											<li><a href="Pantalla_consulta_alumno.php"><img height="20" src="images/lupa.png">  Consultar Alumno</a></li>
-										</ul>
-										 
-										 <ul>
-											<li><a href="pantalla_reportes.php"><img height="20" src="images/reportar.png"> Reportes</a></li>
-										</ul>
 									</div>
 								</li>
 							</ul>
@@ -74,8 +87,8 @@
 													placeholder="Nombre y Apellido" 
 													maxlength="50"  
 													pattern="([A -z]{3,50})" 
-													required oninput="validacion(this)" 
-													onkeyup="mayus(this)"/>
+													onkeypress="return solo_letra(event)"
+													oninput="mayus(this)"/>
 										</div>
 										<br/>
 										
@@ -84,10 +97,10 @@
 													name="celular" 
 													id="celular" 
 													value=""  
-													placeholder="N° Celular Reprecentante "
+													placeholder="Teléfono Contacto "
 													pattern="([1-9][0-9]{9,9})" 
 													required 
-													oninput="validacion(this)" 
+													onkeypress="return solo_numero(event)"
 													maxlength="10" />
 										</div>
 										<br/>
@@ -106,7 +119,7 @@
 													placeholder="°Grado alumno "  
 													pattern="([1-9])" 
 													required 
-													oninput="validacion(this)" 
+													onkeypress="return solo_numero(event)"
 													maxlength="1" />
 										</div>
 										<br/>
@@ -118,7 +131,8 @@
 													placeholder="Sección alumno "   
 													pattern="([a-z])" 
 													required 
-													oninput="validacion(this)" maxlength="1" />
+													onkeypress="return solo_letra(event)" 
+													maxlength="1" />
 										</div>	
 
 									
@@ -179,34 +193,13 @@ function mayus(e)
 	$('#nombre').val(tecla2);   
 }  
 
-function validacion(elem)
-{
-	if (elem.checkValidity()) 
-	{   
-		elem.style.color="black";	  
-		return band;
-	}
-	else
-	{
-		elem.style.color="red";
-		band=0; 
-		return band;
-	}
- }
+
 
 $(document).ready();
 
 function enviarDatos(){
 	console.log('llamos');
- 	pol=1;  
-
-    pol=pol*validacion(document.getElementById("nombre"));
-    pol=pol*validacion(document.getElementById("beca_id"));
-    pol=pol*validacion(document.getElementById("celular"));
-    pol=pol*validacion(document.getElementById("grado"));
-    pol=pol*validacion(document.getElementById("seccion"));  
-    pol=pol*validacion(document.getElementById("observacion")); 
-    pol=1; 
+ 	
 
 
 	var nombre=$('#nombre').val();
@@ -253,6 +246,25 @@ function enviarDatos(){
 	   	}
  	});
  }
-    
+ //validar solo letra
+function solo_letra(e){
+    tecla = (document.all) ? e.keyCode : e.which;
+    if (tecla == 8){
+        return true;
+    }
+    patron = /[ A-Za-z]/;
+    tecla_final = String.fromCharCode(tecla);
+    return patron.test(tecla_final);
+}
+//validar solo numero
+function solo_numero(e){
+    tecla = (document.all) ? e.keyCode : e.which;
+    if (tecla == 8){
+        return true;
+    }
+    patron = /[0-9]/;
+    tecla_final = String.fromCharCode(tecla);
+    return patron.test(tecla_final);
+}
   
  </script>

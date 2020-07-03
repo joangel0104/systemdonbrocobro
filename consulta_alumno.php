@@ -13,7 +13,8 @@
     $aux1=$row['1'];
     $aux2=$row['2'];
     $aux3=$row['3']; 
-    $aux4=$row['4']; $aux5=$row['5']; 
+    $aux4=$row['4']; 
+    $aux5=$row['5']; 
 
     if ($aux0) {
         $res='1&'.$aux1.'&'.$aux2.'&'.$aux3.'&'.$aux4.'&'.$aux5.'&';

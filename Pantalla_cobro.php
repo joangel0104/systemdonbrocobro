@@ -11,58 +11,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="assets/css/main.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-        <script src="jquery-3.2.1.min.js"></script>
-
-      </head>
+    <script src="jquery-3.2.1.min.js"></script>
+  </head>
 
 
   <form id="frmajax" method="post" >
-      <div id="page-wrapper">
-
-      <header id="header">
+     <div id="page-wrapper">
+        <header id="header">
             <img name="imagen" src="images/logo.png" >
-
             <h1><a>System Don BRO</a></h1>
-            
             <nav id="nav">
-
-              <ul>
+            <ul>
                 <li class="special">
-                  <a href="#menu" class="menuToggle"><span>Menu</span></a>
+                  <a href="#menu" class="menuToggle"><span><?php $diassemana = array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sábado");
+                      $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+                      date_default_timezone_set("America/Mexico_City");
+                      $mysql_tiempo=date('Y/m/d');
+                      $tiempo=strtotime($mysql_tiempo);
+                      $variable=date('d/m/Y',$tiempo);
+                      echo  $fecha_escrita=$diassemana[date('w',$tiempo)]." ".date('d',$tiempo)." de ".$meses[date('n',$tiempo)-1]. " del ".date('Y',$tiempo) ;?></span></a>
                   <div id="menu">
-                    
-                    <ul>
-                      <li><a href="Pantalla_carnet.php"><img height="20" src="images/carnet.png"> Generar Carnet</a></li>
-                    </ul>
-                    <ul>
-                      <li><a href="Pantalla_cobro.php"><img height="20" src="images/pago.png"> Control de Pago</a></li>
-                    </ul>
-                    
-                      <ul>
-                      <li><a href="test_asistencia.php"><img height="20" src="images/control.png"> Control Asistencia  </a></li>
-                    </ul>
-                      <ul>
-                      <li><a href="Pantalla_alumno.php"><img height="20" src="images/agregar.png">   Agregar Alumno  </a></li>
-                    </ul>
-                    
-                     <ul>
-                      <li><a href="Pantalla_consulta_alumno.php"><img height="20" src="images/lupa.png">  Consultar Alumno</a></li>
-                    </ul>
-                     
-
-
-
-                     <ul>
-                      <li><a href="pantalla_reportes.php"><img height="20" src="images/reportar.png"> Reportes</a></li>
-                    </ul>
-                  </div>
-                </li>
-              </ul>
-            </nav>
+					  <div id="menus"><img id="imagen" height="160" src="images/user01.png"> </div>
+					     <br/>
+						   <ul>
+							  <li><a href="Pantalla_alumno.php">
+							  	      <img height="35" src="images/agregar-usuario.png">   Agregar Alumno  
+							  	  </a>
+							  </li>
+						   </ul>
+						  <hr id="linea_menu_2"  size=3>
+						   <ul>
+                              <li><a href="Pantalla_carnet.php">
+                              	    <img height="30" src="images/carnet-de-identidad.png"> Generar Carnet
+                              	  </a>
+                              </li>
+						   </ul>
+                          <hr id="linea_menu_2"  size=3>
+                            <ul>
+							  <li><a href="Pantalla_consulta_alumno.php">
+							  	     <img height="30" src="images/informacion.png">  Consultar Alumno
+							  	 </a>
+							  </li>
+							</ul>
+						  <hr id="linea_menu_2"  size=3>
+                             <ul>
+							   <li><a href="Pantalla_cobro.php">
+							   	      <img height="30" src="images/banca-en-linea.png"> Control de Pago
+							   	   </a>
+							   </li>
+							 </ul>
+						  <hr id="linea_menu_2"  size=3>
+							 <ul>
+							   <li><a href="test_asistencia.php">
+							   	      <img height="30" src="images/informacion-personal.png"> Control Asistencia  </a></li>
+							 </ul>
+						  <hr id="linea_menu_2"  size=3>
+							 <ul>
+								<li><a href="pantalla_reportes.php">
+									  <img height="30" src="images/datos.png"> Reportes
+									</a>
+								</li>
+							 </ul>
+						  <hr id="linea_menu_2"  size=3>
+							 <ul>
+								<li><a href="sesion.php">
+									  <img height="30" src="images/apagar.png"> Cerrar sección 
+							        </a>
+							    </li>
+							 </ul>
+					 </div>
+                    </li>
+                  </ul>
+               </nav>
           </header>
 <article id="main">
-
-      	<div id="page-wrapper">
+   <div id="page-wrapper">
 			<?php require_once './vistas/header.php' ?>
 				<article id="main">
 
@@ -81,11 +104,13 @@
 														id="codigo" 
 														value="" 
 														maxlength="3" 
-														placeholder="Introduzca codigo alumno " 
+														placeholder="Introduzca código alumno " 
 														required 
 														onblur="relacion_credito = get_relacion_creditos()" 
-														oninput="validacion(this)" 
-											            onkeyup="saltar(event,'numero');datos()" />
+														
+											            onkeyup="saltar(event,'numero');datos()" 
+											             onkeypress="return validar_numero(event)"/>
+
 											  </div>
 											  <div class="4u$ 12u$(xsmall)">
 												<input 	type="text" 
@@ -95,13 +120,21 @@
 														maxlength="3" 
 														placeholder="N° Dias a Pagar" 
 														required 
-														oninput="validacion(this)"
-														onkeypress="javascript:return isNumberKey(event)" 
+														
+														onkeypress="javascript:return isNumberKey(event);return validar_numero(event)" 
 														onkeyup="calculo_a_pagar();saltar(event,'efectivo');saltar(event,'recibe')" />
                                                 </div>
-											</div>
 
-                                    <div id="general_3"> 
+                                                <h4 id="text_2" style="text-align: left;">Formas de pago</h4>
+                                 			<?php 
+                                 				require_once './componentes/tipos_pagos.php'
+                                 			?>
+									 </div>
+                                     <div id="fondo_tabla_pago">
+									    <br><div class="table-wrapper" id="facturas"></div>
+									  </div>
+
+                                   <div id="general_3"> 
 
 									   <h4 id="text_1" style="text-align: left;">Datos Alumno</h4>
                                            <div class="8u 12u$(xsmall)">
@@ -139,7 +172,7 @@
 													oninput="validacion(this)" maxlength="1" />
 										    </div>	
 											<br>
-                                             <h4 id="text_1" style="text-align: left;">Total a pagar</h4>
+                                             <h4 id="text_3" style="text-align: left;">Total a pagar</h4>
 										
 										    <div>
 												<input  style="text-align:left;
@@ -151,14 +184,8 @@
 														placeholder="$"
 														readonly />
 										    </div>
-										</div>	
-
-
-                                 <div id="general_2"> 
-                                 		<h4 id="text_2" style="text-align: left;">Formas de pago</h4>
-                                 			<?php 
-                                 				require_once './componentes/tipos_pagos.php'
-                                 			?>
+										
+                                 		
 										   	<div class="12u$">
 											  <ul class="actions"   style="text-align: center" >
 												<li>
@@ -177,9 +204,7 @@
 										</div>
 								    </div>
 							 </div>
-                                          <br>		
-
-										  <div class="table-wrapper" id="facturas"></div>
+                                         
 							</form>
 						</section>
 					</section>
@@ -388,7 +413,7 @@ document.getElementById("monto").disabled =true;
 			$('#monto').val('');	
 		} else {
 			let precio = (parseInt(numero))*parseFloat(relacion_credito.precio_comida)
-			$('#monto').val(parseFloat(precio).toFixed(2));
+			$('#monto').val("$"+parseFloat(precio).toFixed(2));
 			
 		}
 	}
@@ -408,7 +433,7 @@ document.getElementById("monto").disabled =true;
 				document.getElementById(id).focus();
 			}
 		}
-		/* aqui preuba*/
+		/* aqui prueba*/
 	}
 
 	async function vueltas() 
@@ -431,22 +456,6 @@ document.getElementById("monto").disabled =true;
 	}
 
 
-
-var btnAbrirPopup = document.getElementById('btn-abrir-popup'),
-	overlay = document.getElementById('overlay'),
-	popup = document.getElementById('popup'),
-	btnCerrarPopup = document.getElementById('btn-cerrar-popup');
-
-btnAbrirPopup.addEventListener('click', function(){
-	
-});
-
-btnCerrarPopup.addEventListener('click', function(e)
-{
-	e.preventDefault();
-	overlay.classList.remove('active');
-	popup.classList.remove('active');
-});
 	
 $(document).ready(function(){
         $('#impre').click(function(){
@@ -466,73 +475,66 @@ $(document).ready(function(){
         });
     });
 
-
-
-
-function saltarr(e,id)
-{
-  // Obtenemos la tecla pulsada
-  (e.keyCode)?k=e.keyCode:k=e.which;
- 
-  // Si la tecla pulsada es enter (codigo ascii 13)
-  if(k==13)
-  {
-    // Si la variable id contiene "submit" enviamos el formulario
-    if(id=="submit")
-    {
-      document.forms[0].submit();
+function saltarr(e,id){
+ (e.keyCode)?k=e.keyCode:k=e.which;
+    if(k==13){
+       if(id=="submit"){
+          document.forms[0].submit();
     }else{
-      // nos posicionamos en el siguiente input
       document.getElementById(id).focus();
     }
   }
-
-  
 }
 
-async function datos() 
-{
-$('#nombres').val('');
-$('#grados').val('');
-$('#secc').val('');
-
-		   
-		   var Parametros="&codigo="+$('#codigo').val();
-
-               $.ajax(
-                       {
-                          url: "consul_datos.php",
-                          data: Parametros,
-                          type: 'POST',
-                          beforeSend: function() 
-                          {     
-                              //$("#Loading").css("display","");
-                          },
-                          success: function(Resultado)
-                          {
-
-                            var valor = Resultado.split('&');
-                            
-                            if(valor[0]==1)
-                            {
-                               $('#nombres').val(valor[1]);
-                               $('#grados').val(valor[2]);
-                               $('#secc').val(valor[3]);
-                             
-
-                             
-                               
-                               
-                              
-
-                            }
+async function datos(){
+   $('#nombres').val('');
+   $('#grados').val('');
+   $('#secc').val('');
+   var Parametros="&codigo="+$('#codigo').val();
+       $.ajax({
+         url: "consul_datos.php",
+         data: Parametros,
+         type: 'POST',
+         beforeSend: function(){     
+             //$("#Loading").css("display","");
+         },
+            success: function(Resultado){
+                  var valor = Resultado.split('&');
+                  if(valor[0]==1){
+                      $('#nombres').val(valor[1]);
+                      $('#grados').val('°Grado: '+valor[2]);
+                      $('#secc').val('Sección: '+valor[3]);
+                  }
                            
-                          }
-                        });
+            }
+        });
+}
+ function validar_numero(e){
+    tecla = (document.all) ? e.keyCode : e.which;
+    if (tecla == 8){
+        return true;
+    }
+    patron = /[0-9]/;
+    tecla_final = String.fromCharCode(tecla);
+    return patron.test(tecla_final);
+}
 
-        
- 
-            
-     
- }
+
+
+
+var btnAbrirPopup = document.getElementById('btn-abrir-popup'),
+	overlay = document.getElementById('overlay'),
+	popup = document.getElementById('popup'),
+	btnCerrarPopup = document.getElementById('btn-cerrar-popup');
+
+btnAbrirPopup.addEventListener('click', function(){
+	
+});
+
+btnCerrarPopup.addEventListener('click', function(e)
+{
+	e.preventDefault();
+	overlay.classList.remove('active');
+	popup.classList.remove('active');
+});
 </script>

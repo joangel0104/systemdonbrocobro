@@ -95,18 +95,15 @@
 </body>
 </html>
 <style >
-  #fondo_1
-{
- width: 96%;
-  font-size: 16px;
-  
-   background: #2e3842 ;
-  padding-left: 20px ;
- margin-left: 2%;
- 
- 
-  height: 80px;
-  margin-top: -5%;
- border-radius: 4px;
+  #fondo_1{
+    width: 86%;
+    font-size: 16px;
+    background: #1e6a78;
+    padding-left: 20px;
+    margin-left: 2%;
+    height: 80px;
+    margin-top: -5.6%;
+    border: double;
+    position: absolute;
 }
 </style>   
